@@ -1,0 +1,5 @@
+<?php
+
+function vanilla_preprocess_page( &$variables ) {
+  $variables['path'] = '/' . drupal_get_path('theme','vanilla');
+}
