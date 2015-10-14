@@ -9,12 +9,11 @@ description: 'a vanilla theme add pistachio'
 # "false" will  use core template, that can and will change so use it with caution
 base theme: stable
 core: 8.x
-screenshot: dance.gif # yes animated gifs!
+screenshot: dance.gif # yes animated gifs for the preview page (admin/appearance)
 
 # -- Libraries -----------------------------------------------------------------
-# https://www.drupal.org/node/2497313
 libraries:
-  # -name/nameoflibrary
+  # -themename/nameoflibrary
   - vanilla/global #define global library in vanilla.libraries.yml
 
 libraries-override:
@@ -36,23 +35,24 @@ libraries-override:
   # Remove an entire library.
   # core/modernizr: false
 
+# doc: https://www.drupal.org/node/2497313
+
 # -- CSS Remove ----------------------------------------------------------------
+# Drupal still provide some css files, that you might not need, here you can remove em
 stylesheets-remove:
   - @classy/css/layout.css
   - @classy/css/components/node.css
-  - core/modules/system/css/system.theme.css
   - core/assets/vendor/normalize-css/normalize.css
   - core/modules/views/css/views.module.css
 
 # -- Regions -------------------------------------------------------------------
-# regions gets added to templates/page.html.twig
-# {{ page.[regionname] }}
+# regions gets added to templates/page.html.twig -> {{ page.[regionname] }}
 regions:
-  # machine bane: readable name
+  # machinenname: Eeadable name
   header: Header
   breadcrumb: Breadcrumb
   message: Message
-  content: Content #yes you want this one its required
+  content: Content #yes you want this one  - its required!
   sidebar_first: Sidebar First
   sidebar_second: Sidebar Second
   footer: Footer

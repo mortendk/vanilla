@@ -14,6 +14,12 @@ the name vanilla is chosen as the theme isn’t about being pretty, but to provi
 ### css 
 Im personally a fan of Vanilla CSS, but no worries grunt-gulp-sass-libsass-postcss-ruby-whatever  will document an easy way to add in you pre/post process css love.
 
+### standard theme files:
+* logo.svg default logo file added in with the branding block.
+* vanilla.info.yml
+* vanilla.theme
+* vanilla.breakpoints.yml
+
 ### Folder structure
 https://www.drupal.org/node/2349803
 
