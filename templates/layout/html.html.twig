@@ -69,6 +69,7 @@
     {# For non-Retina iPhone, iPod Touch, and Android 2.1+ devices  #}
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png"> {# 57x57 #}
 
+    {# @todo play with the title so its not this safe join bs #}
     <title>{{ head_title|safe_join(' | ') }}</title>
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">

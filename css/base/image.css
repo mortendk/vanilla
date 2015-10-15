@@ -1,0 +1,66 @@
+/*
+Form
+
+Forms
+
+:hover   - Highlights when hovering.
+.shiny   - Do not press this big, shiny, red button.
+
+Markup: ../_html/form.html
+
+Style 2.0
+*/
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+  -ms-interpolation-mode: bicubic;
+}
+
+/* ie8 hack */
+@media \0screen {
+  img {
+    width: auto;
+  }
+}
+
+/* Correct overflow not hidden in IE 9/10/11.*/
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  width: 100%;
+  /*FF3 img needs a 100% if parent is set in %  #facepalm */
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+figcaption {
+  text-align: left;
+  display: inline-block;
+  word-wrap: break-word;
+}
+
+
+.content img {
+  float: left;
+  padding: 0 1rem 1rem 0;
+}
+
+.content figure {
+  padding: 0 1rem 1rem 0;
+  float: left;
+}
+
+.content figure img {
+  float: none;
+}
+
+.content img.right,
+.content .right img {
+  float: right;
+  padding: 0 1rem 1rem 0;
+}
