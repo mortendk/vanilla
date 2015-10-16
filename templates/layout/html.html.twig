@@ -7,6 +7,10 @@ avalible Variables:
 {{ head_title.name }}
 {{ head_title.slogan }}
 {{ db_offline}}
+
+paths:
+{{ root_path }} # first parth of the path : ex node, user
+{{ active_theme_path() }} # ex: /theme/vanilla
 #}
 {#
   set var = [
@@ -15,6 +19,8 @@ avalible Variables:
     logged_in ? 'user-logged-in',
     node_type ? 'content-type-' ~ node_type|clean_class,
   ]
+ to keep it as clean as possible for default, but still with a bit of sanity
+ we keep the path indicator
 #}
 {%
   set body_classes = [
@@ -27,7 +33,8 @@ avalible Variables:
   <head>
     <head-placeholder token="{{ placeholder_token|raw }}">
     {#
-      favicons hell
+      favicons  fun
+      --------------------------------------------------------------------------
       to give you a bit of context:
       * https://mathiasbynens.be/notes/touch-icons
       * https://css-tricks.com/favicon-quiz/
@@ -64,7 +71,8 @@ avalible Variables:
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
   <body{{ attributes.addClass(body_classes) }}>
-    <a href="#main-content" class="visually-hidden focusable skip-link">
+  {# @todo why do we have focusable skip-link here ?  #}
+    <a href="#main-content" class="visually-hidden focusable skip-link"> {# link to main-content is in page.html.twig #}
       {{ 'Skip to main content'|t }}
     </a>
     {{ page_top }}

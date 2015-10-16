@@ -12,3 +12,15 @@ function vanilla_page_attachments_alter(array &$page) {
   $page['#attached']['html_head'][] = [$viewport, 'viewport'];
 }
 */
+
+
+/**
+ * hook_theme_suggestions_HOOK_alter()
+ *
+ * provide a container__[name] template suggestion for containers
+*/
+function vanilla_theme_suggestions_container_alter(array &$suggestions, array $variables) {
+  if (isset($variables['element']['#name'])){
+    $suggestions[] = 'container__' . $variables['element']['#name'];
+  }
+}

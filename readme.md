@@ -25,6 +25,7 @@ https://www.drupal.org/node/2349803
 
 
 ## Template folder structure
+templates can be where ever you want em
 
 
 ## basetheme:
