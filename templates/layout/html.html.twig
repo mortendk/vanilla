@@ -6,7 +6,7 @@ avalible Variables:
 {{ head_title.title }}
 {{ head_title.name }}
 {{ head_title.slogan }}
-{{ db_offline}}
+{{ db_offline }}
 
 paths:
 {{ root_path }} # first parth of the path : ex node, user
@@ -22,10 +22,20 @@ paths:
  to keep it as clean as possible for default, but still with a bit of sanity
  we keep the path indicator
 #}
+
+{# heres an example of testing the content type and then add a class for that #}
+{% if node_type =="article" %}
+  {% set content_type_class = "article" %}
+{% else %}
+  {% set content_type_class = "other-than-article" %}
+{% endif %}
+
+{# sets the body_classes that gets added to the body tag #}
 {%
   set body_classes = [
     not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
     db_offline ? 'db-offline',
+    content_type_class,
   ]
 %}
 <!DOCTYPE html>
@@ -71,14 +81,15 @@ paths:
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
   <body{{ attributes.addClass(body_classes) }}>
-  {# @todo why do we have focusable skip-link here ?  #}
+    {# @todo why do we have classed: .focusable .skip-link here ?  #}
     <a href="#main-content" class="visually-hidden focusable skip-link"> {# link to main-content is in page.html.twig #}
       {{ 'Skip to main content'|t }}
     </a>
+    {{ content_type }}
+    {{ node_type }}
     {{ page_top }}
     {{ page }}
     {{ page_bottom }}
     <js-bottom-placeholder token="{{ placeholder_token|raw }}">
   </body>
 </html>
-{{ dump( content ) }}
