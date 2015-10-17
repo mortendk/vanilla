@@ -24,3 +24,15 @@ function vanilla_theme_suggestions_container_alter(array &$suggestions, array $v
     $suggestions[] = 'container__' . $variables['element']['#name'];
   }
 }
+/**
+ * https://api.drupal.org/api/drupal/core%21modules%21comment%21comment.module/function/template_preprocess_comment/8
+ */
+function vanilla_preprocess_comment(&$variables) {
+
+  $comment = $variables['elements']['#comment'];
+  // we want the date unformatted so twig can format it
+  $variables['created_date'] = $comment->getCreatedTime();
+  $variables['changed_date'] =  $comment->getChangedTime();
+  $variables['label'] =  $comment->getSubject();
+
+}

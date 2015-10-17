@@ -20,7 +20,7 @@ libraries:
   - vanilla/global # thj library in vanilla.libraries.yml
 
 libraries-override:
-  # @todo: grap a list all active libraries
+  # @TODO: how do i find a list all active libraries
   # -------------------------------
   # Replace an entire library.
   #core/drupal.collapse: mytheme/collapse

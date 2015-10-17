@@ -25,16 +25,15 @@
 {{ is_admin }}: Flag for admin user status.
 #}
 
-{# heres an example of testing the content type and then add a class for that #}
-{% if node.bundle =="article" %}
-  {% set content_type_class = "article" %}
-{% else %}
-  {% set content_type_class = "other-than-article" %}
-{% endif %}
-
+{# heres an example of testing the content type and then add a class for that
+  {% if node.bundle =="article" %}
+    {% set content_type_class = "article" %}
+  {% else %}
+    {% set content_type_class = "other-than-article" %}
+  {% endif %}
+#}
 {%
   set classes = [
-    content_type_class,
     'content-type-' ~ node.bundle|clean_class,
     node.isPromoted() ? 'node--promoted',
     node.isSticky() ? 'node--sticky',
@@ -44,19 +43,21 @@
 %}
 
 <article{{ attributes.addClass(classes) }}>
-
+  {# node title - if you print it here, remember to remove the title from  blocks #}
   {{ title_prefix }}
-  {# this is confusing lets have on for teasers instead
-    so if title prefix isnt used unless its a teaser it should be removed
-    tfrom here
-  #}
+    <h1{{ title_attributes }}>{{ label }}</h1>
   {{ title_suffix }}
 
   <footer class="node__meta">
-    {# how do we inject a class to the image ex <img class="round" #}
-    {{ author_picture }} {# "compact" view mode - change in admin/config/people/accounts #}
+    {# @TODO inject a class to the image ex <img class="round" #}
+    {# author_picture "compact" view mode - change in admin/config/people/accounts #}
     {# so it would be cool if we  could grap the picture in any version we want #}
+    {{ author_picture }}
+
     <div{{ author_attributes.addClass('node__submitted') }}>
+      {{ metadata }} {# pretty boring  metadata ;) #}
+      {# you cant pibe variables inside of trans ex {{ node.createdtime|date("d.m.Y H:m") }} #}
+      {# @TODO: just get the user name with nothing else #}
       {% trans %}
         {{ author_name }} on {{ date }}
       {% endtrans %}
@@ -65,15 +66,13 @@
         this prints the date based on whatever the config is set to
         change it in :
         admin/config/regional/date-time
-        @todo: where is it we set the formatting for a content type, or is it always
+        here is formatted with might filters
+        http://twig.sensiolabs.org/doc/filters/date.html
+        @TODO: where is it we set the formatting for a content type, or is it always
         a specific settings ... oooh the brain dont remembers
         {{ node.createdtime|date("d.m.Y H:m") }}
         {{ node.changedtime|date("d.m.Y") }}
-        here is formatted with might filters
-        http://twig.sensiolabs.org/doc/filters/date.html
       #}
-
-      {{ metadata }} {# pretty boring secret metadata ;) #}
 
       {{ content.field_tags }}
   </footer>
@@ -81,9 +80,9 @@
     {{ content.field_image }}
 
   <div{{ content_attributes.addClass('node__content') }}>
-    {# print out content without fields that were printing out other places #}
-    {{ content|without('field_tags', 'field_image') }}
+    {# print out content without the fields thats printed other places #}
+    {{ content|without('field_tags', 'field_image','comment') }}
   </div>
 
-
+  {{ content.comment}}
 </article>

@@ -1,0 +1,125 @@
+{#
+{{ author }}: Comment author. Can be a link or plain text.
+{{ content }} to print them all, or print a subset such as
+{{ content.field_example }}. Use the following code to temporarily suppress
+{{ content|without('field_example') }}
+
+{{ created }}: Formatted date and time for when the comment was created.
+{{changed}}: Formatted date and time for when the comment was last changed.
+{{permalink}}: Comment permalink.
+
+{{submitted}}: from author and created during template_preprocess_comment().
+{{user_picture}}: The comment author's profile picture.
+{{status}}: Comment status. values  unpublished, published, or preview.
+{{title}}: Comment title, linked to the comment.
+
+
+ The following applies only to viewers who are registered users:
+ - unpublished: An unpublished comment visible only to administrators.
+ * - title_prefix: Additional output populated by modules, intended to be
+ displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ displayed after the main title tag that appears in the template.
+ * - content_attributes: List of classes for the styling of the comment content.
+ * - title_attributes: Same as attributes, except applied to the main title
+ tag that appears in the template.
+ * - {{threaded}}: A flag indicating whether the comments are threaded or not.
+  * These variables are provided to give context about the parent comment (if
+ * any):
+ * - {{comment_parent}}: Full parent comment entity (if any).
+ * - {{parent_author}}: Equivalent to author for the parent comment.
+ * - {{parent_created}}: Equivalent to created for the parent comment.
+ * - {{parent_changed}}: Equivalent to changed for the parent comment.
+ * - {{parent_title}}: Equivalent to title for the parent comment.
+ * - {{parent_permalink}}: Equivalent to permalink for the parent comment.
+ * - {{parent}}: A text string of parent comment submission information created from
+ 'parent_author' and 'parent_created' during template_preprocess_comment().
+ This information is presented to help screen readers follow lengthy
+ discussion threads. You can hide this from sighted users using the class
+ visually-hidden.
+ *
+ * These two variables are provided for context:
+ * - comment: Full comment object.
+ * - entity: Entity the comments are attached to.
+ *
+ * @see template_preprocess_comment()
+ */
+#}
+{% if threaded %}
+  {{ attach_library('classy/indented') }}
+{% endif %}
+
+
+{%
+  set classes = [
+    'js-comment',
+    status != 'published' ? status,
+    comment.owner.anonymous ? 'by-anonymous',
+    author_id and author_id == commented_entity.getOwnerId() ? 'by-' ~ commented_entity.getEntityTypeId() ~ '-author',
+  ]
+%}
+<article{{ attributes.addClass(classes) }}>
+  <h3>{{ label }}</h3>{# title with link label without link #}
+  {{ title }} {# link with title #}
+
+  {#
+    Hide the "new" indicator by default, let a piece of JavaScript ask the
+    server which comments are new for the user. Rendering the final "new"
+    indicator here would break the render cache.
+  #}
+  <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
+
+  <footer class="comment__meta">
+      {# @TODO i want to control the size of the image #}
+      {{ user_picture }} <br>
+      name + link: {{ author }} {# name + link to user #}<br>
+      uid: {{ author_id }} {# name + uid #} <br>
+      username:  {{ user.getUsername() }}  <br>
+      {# @TODO how do i create my own link to the user on name & id #}
+      last acces: {{ user.getLastAccessedTime()|date('d.m Y H.m.s') }} <br>
+      email : {{ user.getEmail() }} <br>
+      {# @TODO get roles out for a user. usecase I want to know the roles for to create a class for that #}
+      roles: {{ user.getRoles() }} {# getRoles dont give us anything #}<br>
+
+    <hr>
+    {# formated dates  ------------------------------ #}
+    created {{created }} {# preformated created date #}<br>
+    changed: {{ changed }} {# changed formatted date #} <br>
+    {# added a created_date in the preprocess, so we can format the date #}
+    created: {{created_date|date('d.m Y H:m')}} <br>
+    changed: {{ new_indicator_timestamp|date('d.m Y H:m') }} <br>
+
+    <hr>
+    {# permalink text string with url in  #}
+    url: {{permalink}} <br>
+    status {{status}} <br>
+    {# @TODO create a new link with whatever text i want in it  or icon whatevr
+      <a href="{{ url }}">link to this comment </a>
+    #}
+
+    {#
+      Indicate the semantic relationship between parent and child comments for
+      accessibility. The list is difficult to navigate in a screen reader
+      without this information.
+    #}
+    {% if parent %}
+      <p class="parent visually-hidden">{{ parent }}</p>
+    {% endif %}
+
+    {{ permalink }}
+  </footer>
+
+  <div{{ content_attributes.addClass('content') }}>
+
+    {% if title %}
+      {{ title_prefix }}
+      <h3{{ title_attributes }}>{{ title }}</h3>
+      {{ title_suffix }}
+    {% endif %}
+    {# split up comments from links #}
+    {{ content|without('links') }}
+
+    {{ content.links}}
+
+  </div>
+</article>

@@ -57,3 +57,22 @@ https://www.lullabot.com/articles/a-tale-of-two-base-themes-in-drupal-8-core
   5. standard elements, header, menu, login forms
   5. forum
   6. book
+
+## Debugging templates n stuff
+
+get all the data out by keys change the loop index to see whats there:
+```
+<hr>
+<ol>
+{% for key, value in _context  %}
+<li>{{ key }} </li>
+ {% if loop.index == 11 %}}
+    <pre>{{ dump( value ) }}</pre>
+{% endif %}
+{% endfor %}
+</ol>
+```
+{{ kint( foo )}}
+look at the available methods
+
+{{ foo.something() }} will return some love
