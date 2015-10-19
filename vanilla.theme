@@ -29,10 +29,4 @@ function vanilla_theme_suggestions_container_alter(array &$suggestions, array $v
  */
 function vanilla_preprocess_comment(&$variables) {
 
-  $comment = $variables['elements']['#comment'];
-  // we want the date unformatted so twig can format it
-  $variables['created_date'] = $comment->getCreatedTime();
-  $variables['changed_date'] =  $comment->getChangedTime();
-  $variables['label'] =  $comment->getSubject();
-
 }
