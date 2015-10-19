@@ -18,6 +18,7 @@ function vanilla_page_attachments_alter(array &$page) {
  * hook_theme_suggestions_HOOK_alter()
  *
  * provide a container__[name] template suggestion for containers
+ * we use this to remove the front container ex (look in /templates/_cleanup)
 */
 function vanilla_theme_suggestions_container_alter(array &$suggestions, array $variables) {
   if (isset($variables['element']['#name'])){
