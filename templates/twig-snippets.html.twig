@@ -52,21 +52,20 @@ general twig documentation: http://twig.sensiolabs.org/doc/templates.html
 
 
 {# for loop #}
+{{ items|length }} items.
 {% for item in items %}
-  theres {{ items.length }} items.
-  {% if loop.first %}
-    {# first loop #}
+ {% if loop.first %}
+ {# first loop #}
   {% elseif loop.last %}
-    {# last loop #}
-  {% elseif loop.index == "2" %}
-    {# 2nd loop #}
-  {% elseif loop.revindex == "2" %}
-    {# 2nd last reverse counted #}
-  {% else %}
-    {# default #}
-  {% endif %}
-
-{% endfor %}
+  {# last loop #}
+ {% elseif loop.index == "2" %}
+ {# 2nd loop #}
+ {% elseif loop.revindex == "2" %}
+  {# 2nd last reverse counted #}
+   {% else %}
+ {# default #}
+ {% endif %}
+ {% endfor %}
 
 {# -----attributes & class magic --------------------------------------------- #}
 {#
@@ -100,6 +99,9 @@ detect on first loop and if a class is in attributes
 
 {# you can also use attribtes|without(class) & {{ attribtes.class }}  #}
 <div class=”my-class {{ attributes.class }}”{{attributes|without(‘class’) }}></div>
+
+{# add a class to a link #}
+{{ link(item.title, item.url, { 'class':['foo', 'bar', 'baz']} ) }}
 
 {# ----- set / remove attributes  -------------------------------------------- #}
 {{ attributes.setAttribute('id', 'my-id') }}>

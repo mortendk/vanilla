@@ -1,21 +1,4 @@
 {#
-------------------------------------
-Template for field type:
-
----------------------------------
-
-Field template sugestions pattern:
-
-field--[content-type(node/comment/block) ]---field-[field-name]--[name-of-content-type].html.twig
-field--[content-type(node/comment/block) ]---field-[field-name].html.twig
-field--[content-type(node/comment/block) ]--[name-of-content-type].html.twig
-field--field-[field-name].html.twig
-field--[type].html.twig
-field.html.twig
-
-#}
-
-{#
 Available variables:
 {{attributes}}: HTML attributes for the containing element.
 {{label_hidden}}: Whether to show the field label or not.
@@ -32,7 +15,7 @@ items: List of all the field items. Each item contains:
 orignal
 {%
  set classes = [
-   'field',
+   'tags',
    'field--name-' ~ field_name|clean_class,
    'field--type-' ~ field_type|clean_class,
    'field--label-' ~ label_display,
@@ -40,8 +23,10 @@ orignal
 %}
 #}
 
+{# css classes #}
 {%
   set classes = [
+    'tags',
     'field-type-' ~ field_type|clean_class,
   ]
 %}
@@ -62,18 +47,22 @@ orignal
 {% if label_hidden %}
   {# --Multiple & no label  ------------------------------------------------- #}
   {% if multiple %}
-    <ul{{ attributes.addClass(classes, 'field__items') }}>
-      {% for item in items %}
-        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
-      {% endfor %}
-    </ul>
+    <section{{ attributes.addClass(classes) }}>
+    {% for item in items %}
+      {% if loop.last %}
+        {{ item.content }}.
+      {% else %}
+        {{ item.content }},
+      {% endif %}
+    {% endfor %}
+    </section>
   {# /--Multiple & no label  ------------------------------------------------ #}
 
   {% else %}
 
   {# --single & no label  --------------------------------------------------- #}
   {% for item in items %}
-    <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+      <div{{ attributes.addClass(classes) }}>{{ item.content }}.</div>
   {% endfor %}
   {# / --single & no label  ------------------------------------------------- #}
 
@@ -84,21 +73,24 @@ orignal
   {% if multiple %}
   {#  multiple with label ----------------------------------------------------#}
     <section{{ attributes.addClass(classes) }}>
-      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
-      <ul class='field__items'>
-      {% for item in items %}
-        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
-      {% endfor %}
-      </ul>
-    </section>
+      <strong{{ title_attributes.addClass(title_classes) }}>{{ label }}:</strong>
 
+      {% for item in items %}
+        {% if loop.last %}
+          {{ item.content }}.
+        {% else %}
+          {{ item.content }},
+        {% endif %}
+      {% endfor %}
+
+    </section>
   {% else %}
 
   {# single with label ------------------------------------------------------ #}
     <section{{ attributes.addClass(classes) }}>
-      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      <strong{{ title_attributes.addClass(title_classes) }}>{{ label }}:</strong>
       {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        {{ item.content }}.
       {% endfor %}
     </section>
   {% endif %}

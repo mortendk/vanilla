@@ -19,15 +19,32 @@ function vanilla_page_attachments_alter(array &$page) {
  *
  * provide a container__[name] template suggestion for containers
  * we use this to remove the front container ex (look in /templates/_cleanup)
+ * as well as wrappers on thegoddamn forms
 */
 function vanilla_theme_suggestions_container_alter(array &$suggestions, array $variables) {
+  // kint($variables['element']);
+
+  // kint( $variables['element']['widget']['#theme'] );
+
+  // this is for form wrappers
+  if (isset($variables['element']['#id'])){
+    $suggestions[] = 'container__' . $variables['element']['#id'];
+  }
+
+  //test if this fucker is always used on forms
+  if (isset($variables['element']['widget']['#theme'])){
+    $suggestions[] = 'form_container';
+  }
+
+  // ex container or actions on forms
+  if (isset($variables['element']['#type'])){
+    $suggestions[] = 'container__' . $variables['element']['#type'];
+  }
+
+  // frontpage content wrapper & others - we used this to remove that wrapper on
+  //frontpage and overwrites with /_cleanup/container/frontpage.html.twig
   if (isset($variables['element']['#name'])){
     $suggestions[] = 'container__' . $variables['element']['#name'];
   }
-}
-/**
- * https://api.drupal.org/api/drupal/core%21modules%21comment%21comment.module/function/template_preprocess_comment/8
- */
-function vanilla_preprocess_comment(&$variables) {
 
 }
