@@ -37,10 +37,7 @@
 
 
 {% if links -%}
-
-  {{ kint(links) }}
-
-
+  
   {%- if heading -%}
     {%- if heading.level -%}
       <{{ heading.level }}{{ heading.attributes }}>{{ heading.text }}</{{ heading.level }}>
@@ -55,6 +52,7 @@
       <li{{ item.attributes.addClass(key|clean_class) }}>
 
         {%- if item.link -%}
+
           {{ item.link }}
 
         {%- elseif item.text_attributes -%}

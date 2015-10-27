@@ -76,13 +76,47 @@
       {# look at the field--field-tags.html.twig #}
       {{ content.field_tags }}
   </footer>
-    {#  image #}
-    {{ content.field_image }}
+
+  {#  image #}
+  {{ content.field_image }}
 
   <div{{ content_attributes.addClass('node__content') }}>
     {# print out content without the fields thats printed other places #}
-    {{ content|without('field_tags', 'field_image','comment') }}
-  </div>
+    {{ content|without('field_tags', 'field_image','comment','links') }}
 
+  {# @TODO
+  this {{ link( label, url) }}
+  gives me this *sigh*
+  InvalidArgumentException: The URI '/node/1' is invalid. You must use a valid URI scheme. in Drupal\Core\Url::fromUri() (line 301 of core/lib/Drupal/Core/Url.php).
+  #}
+
+
+  <a href="{{ url }}" title="{{ node.label }}" hreflang="{{ node.language.id}}">
+    {{ 'Go!'|t }}
+    <span class="visually-hidden">{{ node.label }}</span>
+  </a> |
+
+  {# do a test if you can add comments
+    the anchor can be adjust at
+  #}
+  {# number of comments
+    @TODO we dont have content.comments on teasers that sucks - there shold be a count somewhere
+  #}
+  <a href="{{ url }}#comments" title="{{'Jump to the first comment'|t}}" hreflang="{{ node.language.id}}">
+    {{content.comment['#items'].comment_count}}
+    {{'comments'|t}}
+  </a> |
+
+  {# add new comment #}
+  <a href="{{ url }}#comments"
+    title="{{'comments on this'|t}}" hreflang="{{ node.language.id}}">
+    {{ 'Add new comment'|t }}
+  </a>
+
+
+
+
+
+  {{ content.links}}
   {{ content.comment}}
 </article>

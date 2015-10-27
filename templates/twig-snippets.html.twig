@@ -7,7 +7,7 @@ general twig documentation: http://twig.sensiolabs.org/doc/templates.html
 {# variabels   #}
 {{ variable }}
 {{ variable.drill.into.it }}
-{{ variable.drill.into['#hashalsousedascomment'] }}
+{{ variable.drill.into['#somethingsomething'] }}
 
 {# Filters #}
 {{ variable|filter }}
@@ -88,11 +88,14 @@ detect on first loop and if a class is in attributes
     item.attribute.hasClass('is-this-class-here') ? 'ok-use-this':'not-there-use-this',
   ]
 %}
+{# @TODO can hasClass  be used for ex: hasAttribute ? #}
+
 {# add the class, and another my-class #}
 <div {{  attributes.addClass('my-class', class) }}
 
 {# addClass #}
 <div {{  attributes.removeClass('nickelback') }}
+<div {{  attributes.removeClass('nickelback').addClass('rush') }}
 
 {# and they can all be combined #}
 <div {{  attributes.addClass('my-class-here', class).removeClass('nope-not-you') }}

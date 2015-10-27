@@ -25,13 +25,15 @@
 {{ is_admin }}: Flag for admin user status.
 #}
 
-{# heres an example of testing the content type and then add a class for that
+{#
+heres an example of testing the content type and then add a class for that
 {% if node.bundle =="article" %}
   {% set content_type_class = "article" %}
 {% else %}
   {% set content_type_class = "other-than-article" %}
 {% endif %}
 #}
+
 {%
   set classes = [
     'content-type-' ~ node.bundle|clean_class,
@@ -88,5 +90,5 @@
     {{ content|without('field_tags', 'field_image', 'links') }}
   </div>
 
-  teaser : {{ content.links }}
+  links? {{ content.links }}
 </article>

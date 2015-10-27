@@ -75,7 +75,7 @@ The following applies only to viewers who are registered users:
   ]
 %}
 
-<article{{ attributes.addClass(classes) }}>
+<article{{ attributes.addClass(classes) }} id="comments">
 
   <h3>{{ comment.getSubject() }}</h3>{#  label without link  get an epic error if we do comment.subject #}
 
@@ -98,7 +98,7 @@ The following applies only to viewers who are registered users:
     regiser $twig->addExtension(new Twig_Extensions_Extension_Date());
     {{ comment.createdtime|time_diff }}
     #}
-    
+
     {{ comment.changedtime|date('d.m Y H.m.s') }}
 
     {# @TODO i want to control the size of the image #}
@@ -122,6 +122,6 @@ The following applies only to viewers who are registered users:
     {{ content|without('links') }}
 
     {{ content.links}}
-
+    {# @TODO: ok wheres the comment form added ?  #}
   </div>
 </article>
