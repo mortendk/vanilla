@@ -10,6 +10,16 @@
  */
 @TODO : lets make something fun n awesome here with a text etc that is translateable
 with "out for coffe" etc sign
+
+variables from theme.inc
+$variables['logo'] = theme_get_setting('logo.url');
+$variables['site_name'] = $site_config->get('name');
+$variables['site_slogan'] = $site_config->get('slogan');
+
+// Maintenance page and install page need page title in variable because there
+// are no blocks.
+$variables['title'] = $variables['page']['#title'];
+
 #}
 
   <header role="banner">

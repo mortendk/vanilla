@@ -1,18 +1,24 @@
 {#
-/**
- * @file
- * Theme override of an image.
- *
- * Available variables:
- * - attributes: HTML attributes for the img tag.
- * - style_name: (optional) The name of the image style applied.
- *
- * @see template_preprocess_image()
- */
+variables:
+{{ width }}
+height
+alt
+title
+
+
 #}
 {%
 set classes = [
   style_name ? 'image-style-' ~ style_name|clean_class,
 ]
 %}
+
+
+
+{#  <figure> tag is set in field--image #}
 <img{{ attributes.addClass(classes) }} />
+{# lets get a caption on this badboy if user have added a title #}
+{% if title %}
+  <figcaption>{{ title }}</figcaption>
+{% endif %}
+<h2>  {{ alt }}</h2>

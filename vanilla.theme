@@ -13,6 +13,43 @@ function vanilla_page_attachments_alter(array &$page) {
 }
 */
 
+/**
+ * hook_theme_suggestions_HOOK_alter()
+*/
+function vanilla_theme_suggestions_image_alter(array &$suggestions, array $variables) {
+  // kint($variables);
+  // @TODO: we need to figure out who calls the image for different template suggestions
+  $suggestions[] = 'image__' . $variables['element']['#bundle'];
+}
+
+function vanilla_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  // kint($variables['element']['#bundle']);
+
+  // User bundle
+  if( $variables['element']['#bundle'] == 'user' ){
+    // kint($variables);
+    // creates template suggestions
+    // field--[bundle]--field--[type]--[viemode]
+    // examples:
+    // field--user--field--image--compact.html.twig
+    // field--user--field--image.html.twig
+    $suggestions[] = 'field__' . $variables['element']['#bundle'] .'__field__' . $variables['element']['#field_type'] ;
+    $suggestions[] = 'field__' . $variables['element']['#bundle'] .'__field__' . $variables['element']['#field_type'] . '__' . $variables['element']['#view_mode'];
+  }
+
+}
+
+
+function vanilla_theme_suggestions_user_alter(array &$suggestions, array $variables) {
+
+  // @TODO: add a suggestion based on where this user is printed
+  // its it a node - is it a comment or the user page
+
+  // add the view mode as a template suggestion
+  if( isset($variables['elements']['#view_mode']) ) {
+    $suggestions[] = 'user__' . $variables['elements']['#view_mode'];
+  }
+}
 
 /**
  * hook_theme_suggestions_HOOK_alter()
@@ -21,11 +58,10 @@ function vanilla_page_attachments_alter(array &$page) {
  * we use this to remove the front container ex (look in /templates/_cleanup)
  * as well as wrappers on thegoddamn forms
 */
+
 function vanilla_theme_suggestions_container_alter(array &$suggestions, array $variables) {
   // kint($variables['element']);
-
   // kint( $variables['element']['widget']['#theme'] );
-
   // this is for form wrappers
   if (isset($variables['element']['#id'])){
     $suggestions[] = 'container__' . $variables['element']['#id'];

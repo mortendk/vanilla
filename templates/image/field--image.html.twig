@@ -53,7 +53,7 @@ orignal
   {% if multiple %}
     <ul{{ attributes.addClass(classes, 'field__items') }}>
       {% for item in items %}
-        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
+        <li{{ item.attributes }}><figure>{{ item.content }}</figure></li>
       {% endfor %}
     </ul>
   {# /--Multiple & no label  ------------------------------------------------ #}
@@ -62,7 +62,7 @@ orignal
 
   {# --single & no label  --------------------------------------------------- #}
   {% for item in items %}
-    <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+    <figure{{ attributes.addClass(classes) }}>{{ item.content }}</figure>
   {% endfor %}
   {# / --single & no label  ------------------------------------------------- #}
 
@@ -76,7 +76,7 @@ orignal
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
       <ul class='field__items'>
       {% for item in items %}
-        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
+        <li{{ item.attributes }}><figure>{{ item.content }}</figure></li>
       {% endfor %}
       </ul>
     </section>
@@ -87,7 +87,7 @@ orignal
     <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
       {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        <figure{{ item.attributes }}>{{ item.content }}</figure>
       {% endfor %}
     </section>
   {% endif %}

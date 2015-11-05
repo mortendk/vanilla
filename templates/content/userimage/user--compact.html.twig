@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+{#
+@TODO we should add in a seperate template for this when we print the
+user image on a node, else its gonna be a pita to control.
+so we can control what comes out.
+in vanilla we have added a theme suggestion for the view modes
+
+the userfield can be changed at:
+/admin/config/people/accounts/display
+{{ attributes }}
+#}
+
+{{ content.user_picture }}
+{{ content|without('user_picture') }}

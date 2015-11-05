@@ -39,7 +39,7 @@ libraries-override:
 
   # Remove an entire library.
   # core/modernizr: false
-
+  # system/maintenance: false
 # doc: https://www.drupal.org/node/2497313
 
 # -- CSS Remove ----------------------------------------------------------------

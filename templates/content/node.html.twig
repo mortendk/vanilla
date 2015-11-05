@@ -44,6 +44,7 @@
 
 <article{{ attributes.addClass(classes) }}>
   {# node title - if you print it here, remember to remove the title from  blocks #}
+
   {{ title_prefix }}
     <h1{{ title_attributes }}>{{ label }}</h1>
   {{ title_suffix }}
@@ -101,6 +102,7 @@
   #}
   {# number of comments
     @TODO we dont have content.comments on teasers that sucks - there shold be a count somewhere
+
   #}
   <a href="{{ url }}#comments" title="{{'Jump to the first comment'|t}}" hreflang="{{ node.language.id}}">
     {{content.comment['#items'].comment_count}}

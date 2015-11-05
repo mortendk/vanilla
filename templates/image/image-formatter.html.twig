@@ -1,4 +1,6 @@
 {#
+this template only wraps an image inside a link
+
 /**
  * @file
  * Theme override to display a formatted image field.
@@ -12,6 +14,7 @@
  * @see template_preprocess_image_formatter()
  */
 #}
+
 {% if url %}
   <a href="{{ url }}">{{ image }}</a>
 {% else %}
