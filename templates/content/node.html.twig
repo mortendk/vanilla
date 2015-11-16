@@ -49,6 +49,8 @@
     <h1{{ title_attributes }}>{{ label }}</h1>
   {{ title_suffix }}
 
+
+
   <footer class="node__meta">
     {# @TODO inject a class to the image ex <img class="round" #}
     {# author_picture "compact" view mode - change in admin/config/people/accounts #}
@@ -83,6 +85,7 @@
 
   <div{{ content_attributes.addClass('node__content') }}>
     {# print out content without the fields thats printed other places #}
+    {# @TODO why do we still have 'links' ? #}
     {{ content|without('field_tags', 'field_image','comment','links') }}
 
   {# @TODO
@@ -90,7 +93,6 @@
   gives me this *sigh*
   InvalidArgumentException: The URI '/node/1' is invalid. You must use a valid URI scheme. in Drupal\Core\Url::fromUri() (line 301 of core/lib/Drupal/Core/Url.php).
   #}
-
 
   <a href="{{ url }}" title="{{ node.label }}" hreflang="{{ node.language.id}}">
     {{ 'Go!'|t }}
@@ -115,10 +117,5 @@
     {{ 'Add new comment'|t }}
   </a>
 
-
-
-
-
-  {{ content.links}}
   {{ content.comment}}
 </article>

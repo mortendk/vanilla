@@ -5,6 +5,7 @@ height
 alt
 title
 
+{{ attributes.src }} 
 
 #}
 {%
@@ -13,12 +14,10 @@ set classes = [
 ]
 %}
 
+{#  <figure> tag is set in field--image ... not optimal  #}
 
-
-{#  <figure> tag is set in field--image #}
 <img{{ attributes.addClass(classes) }} />
 {# lets get a caption on this badboy if user have added a title #}
 {% if title %}
   <figcaption>{{ title }}</figcaption>
 {% endif %}
-<h2>  {{ alt }}</h2>
