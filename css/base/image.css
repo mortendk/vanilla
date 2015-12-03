@@ -1,28 +1,22 @@
 /*
-Form
+#Images
 
-Forms
+Images
 
-:hover   - Highlights when hovering.
-.shiny   - Do not press this big, shiny, red button.
+.foo - fsdf
 
-Markup: ../_html/form.html
+Markup:
+<img class="screenshot  $modifierClass" src="http://drupalthemes.dev/themes/vanilla/screenshot.png" alt="Screenshot" title="Vanilla theme">
 
-Style 2.0
+Styleguide 4.0
 */
+
 img {
   max-width: 100%;
   height: auto;
+  -ms-interpolation-mode: bicubic;
   border: 0;
   vertical-align: middle;
-  -ms-interpolation-mode: bicubic;
-}
-
-/* ie8 hack */
-@media \0screen {
-  img {
-    width: auto;
-  }
 }
 
 /* Correct overflow not hidden in IE 9/10/11.*/
@@ -31,18 +25,32 @@ svg:not(:root) {
 }
 
 figure {
-  width: 100%;
-  /*FF3 img needs a 100% if parent is set in %  #facepalm */
+  display: inline-block;
+  width: 100%;   /*FF3 img needs a 100% if parent is set in %  #facepalm */
   margin: 0;
   padding: 0;
-  display: inline-block;
 }
 
 figcaption {
-  text-align: left;
   display: inline-block;
+  text-align: left;
   word-wrap: break-word;
 }
+/*
+#Figure
+
+Figure wrapper with figcaption
+
+.foo - fsdf
+
+Markup:
+<figure class=""$modifierClass">
+<img src="http://drupalthemes.dev/themes/vanilla/screenshot.png" alt="Screenshot" title="Vanilla theme">
+<figcaption>whatever</a>
+<figure>
+
+Styleguide 4.1
+*/
 
 
 .content img {
@@ -51,8 +59,8 @@ figcaption {
 }
 
 .content figure {
-  padding: 0 1rem 1rem 0;
   float: left;
+  padding: 0 1rem 1rem 0;
 }
 
 .content figure img {

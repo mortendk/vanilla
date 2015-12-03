@@ -65,7 +65,8 @@ The following applies only to viewers who are registered users:
 {% if threaded %}
   {{ attach_library('classy/indented') }}
 {% endif %}
-{# creats the classes #}
+
+{# creates the classes #}
 {%
   set classes = [
     'js-comment',
@@ -115,7 +116,9 @@ The following applies only to viewers who are registered users:
       <p class="parent visually-hidden">{{ parent }}</p>
     {% endif %}
 
-    <a href="{{ comment.permalink() }}" rel="bookmark">perma</a>
+    {# @TODO create an permalink here  #}
+    {# <a href="#" rel="bookmark">perma</a>  #}
+
   </footer>
 
   <div{{ content_attributes.addClass('content') }}>

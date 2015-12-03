@@ -10,6 +10,9 @@ global:
   css:
     base:
       css/base/base.css: { weight: -21}
+      css/base/form.css: { }
+      css/base/image.css: { }
+      
     layout:
       css/layout/layout.css: {}
     component:

@@ -94,11 +94,13 @@
   InvalidArgumentException: The URI '/node/1' is invalid. You must use a valid URI scheme. in Drupal\Core\Url::fromUri() (line 301 of core/lib/Drupal/Core/Url.php).
   #}
 
+{#
+somehow fucking devel fucks this over as a permalink ? WTF drupal
   <a href="{{ url }}" title="{{ node.label }}">
     {{ 'Go!'|t }}
     <span class="visually-hidden">{{ node.label }}</span>
   </a> |
-
+ #}
   {# do a test if you can add comments
     the anchor can be adjust at
   #}
@@ -106,16 +108,18 @@
     @TODO we dont have content.comments on teasers that sucks - there shold be a count somewhere
 
   #}
-  <a href="{{ url }}#comments" title="{{'Jump to the first comment'|t}}">
+
+  {# <a href="{{ url }}#comments" title="{{'Jump to the first comment'|t}}">
     {{content.comment['#items'].comment_count}}
     {{'comments'|t}}
   </a> |
 
-  {# add new comment  hreflang="{{ node.language.id}}" #}
+  {# add new comment  hreflang="{{ node.language.id }}" #}
   <a href="{{ url }}#comments"
     title="{{'comments on this'|t}}">
     {{ 'Add new comment'|t }}
   </a>
 
-  {{ content.comment}}
+  
+  {{ content.comment }}
 </article>

@@ -16,8 +16,7 @@ screenshot: screenshot.png # yes animated gifs for the preview page (admin/appea
 
 # -- Libraries -----------------------------------------------------------------
 libraries:
-  # -themename/nameoflibrary
-  - vanilla/global # thj library in vanilla.libraries.yml
+  - vanilla/global # the library is defined in vanilla.libraries.yml
 
 libraries-override:
   # @TODO: how do i find a list all active libraries

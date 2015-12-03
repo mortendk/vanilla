@@ -18,7 +18,7 @@ Tiles
   min-height: 50px;
 }
 
-/* the tile is the central building block */
+/* .tile is the central building block */
 .tile {
   margin: 0 7px 14px 7px;
   vertical-align: top;
@@ -168,7 +168,7 @@ small screen 1 out of 12 wide
 */
 
 /*
-Flex utility for quickhacks.
+Flex utility for dirty hacks or ex a ui that adds the classes in
 */
 
 /* flex wrap*/
