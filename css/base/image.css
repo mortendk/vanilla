@@ -3,10 +3,8 @@
 
 Images
 
-.foo - fsdf
-
 Markup:
-<img class="screenshot  $modifierClass" src="http://drupalthemes.dev/themes/vanilla/screenshot.png" alt="Screenshot" title="Vanilla theme">
+<img class="$modifierClass" src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
 
 Styleguide 4.0
 */
@@ -24,49 +22,57 @@ svg:not(:root) {
   overflow: hidden;
 }
 
+/*
+#Figure
+
+Figure wrapper with figcaption
+
+Markup:
+<figure class="$modifierClass">
+<img src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
+<figcaption>whatever</a>
+<figure>
+
+Styleguide 4.1
+*/
 figure {
   display: inline-block;
   width: 100%;   /*FF3 img needs a 100% if parent is set in %  #facepalm */
   margin: 0;
   padding: 0;
 }
-
 figcaption {
   display: inline-block;
   text-align: left;
   word-wrap: break-word;
 }
+
 /*
-#Figure
+#Figure in content
 
-Figure wrapper with figcaption
+Figure wrapper with figcaption inside of content
 
-.foo - fsdf
+.right - Right aligned
 
 Markup:
-<figure class=""$modifierClass">
-<img src="http://drupalthemes.dev/themes/vanilla/screenshot.png" alt="Screenshot" title="Vanilla theme">
-<figcaption>whatever</a>
-<figure>
+<div class="content">
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi consequatur ut laboriosam, odio rerum sint rem tenetur veritatis facere. Obcaecati facilis debitis libero inventore! Cupiditate consequuntur dolorum minima odio aperiam?
+<img class="$modifierClass" src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
+<div>
 
-Styleguide 4.1
+Styleguide 4.2
 */
-
-
 .content img {
   float: left;
   padding: 0 1rem 1rem 0;
 }
-
 .content figure {
   float: left;
   padding: 0 1rem 1rem 0;
 }
-
 .content figure img {
   float: none;
 }
-
 .content img.right,
 .content .right img {
   float: right;

@@ -121,6 +121,7 @@ detect on first loop and if a class is in attributes
 {# you can also use attribtes|without(class) & {{ attribtes.class }}  #}
 <div class=”my-class {{ attributes.class }}”{{attributes|without(‘class’) }}></div>
 
+{# ----- Link  -------------------------------------------- #}
 {# add a class to a link #}
 {{ link(item.title, item.url, { 'class':['foo', 'bar', 'baz']} ) }}
 
