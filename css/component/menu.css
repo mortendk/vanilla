@@ -1,0 +1,148 @@
+/*
+Menu
+
+All the navigation
+
+:hover    - Highlights when hovering.
+.navstyle-100h - Follows the size of the parent element
+.navstyle-bottom-center - aligns to the bottom
+
+Markup:
+<nav class="menu">
+<ul>
+<li><a href="#">foo</></li>
+</ul>
+</nav>
+
+Styleguide 7.0
+*/
+/*
+.menu ul,
+.menu ol {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu li {
+  width: 100%;
+  display: flex;
+}
+.menu a {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+.menu a:hover {
+  text-decoration: none;
+}
+*/
+/*
+  menu navigation
+  Navigation follows the height of the parent element
+  each link is centered.
+  alignment is set on the link with justify-content
+  see menu-h--center, menu-h-bottom, menu-h-
+*/
+.menu-h {
+  display: flex;
+}
+.menu-h ul,
+.menu-h ol, {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+}
+.menu-h li {
+  display: flex;
+  align-items: stretch;
+}
+.menu-h a {
+  display: flex;
+  align-items: center;
+}
+
+/* menu horizontal variations */
+.menu-h--center a {
+  justify-content: center;
+}
+.menu-h--center a.icon {
+  background-position: 50% 50%;
+}
+.menu-h--bottom a {
+  align-items: flex-end;
+}
+.menu-h--bottom a.icon {
+  background-position: 50% 90%;
+}
+.menu-h--top a {
+  align-items: flex-start;
+}
+.menu-h--top a.icon {
+  background-position: 50% 0%;
+}
+
+/*
+Navigation fixed Layout
+*/
+.menu-fixed {
+  position: relative;
+  height: 50px;
+}
+  .menu-fixed--locked {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+.menu-fixed--locked + * {
+  margin-top: 50px; /* .menu-fixed height */
+}
+/* menu-fixed design */
+.menu-fixed {
+  background: rgba(207, 216, 220, 0.9);
+}
+.menu-fixed--locked {
+  border-bottom: 1px solid #efefef;
+}
+
+/*
+Navigation
+
+Main menu
+
+:hover    - Highlights when hovering.
+.main-menu - Follows the size of the parent element
+
+Markup: ../_html/navigation/nav.html
+
+Styleguide 7.1
+*/
+
+/*
+  menu-main design
+*/
+.menu-main ul {
+  /*background: lightgray;*/
+}
+.menu-main li {
+  border-left: 1px solid lightgray;
+}
+.menu-main li:last-child{
+  border-right: 1px solid lightgray;
+}
+.menu-main a {
+  font-family: 'titillium', sans-serif;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  color: black;
+  /*background: white;*/
+  transition: .5s;
+}
+.menu-main a:hover {
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: -0.5rem; /*moves down */
+}

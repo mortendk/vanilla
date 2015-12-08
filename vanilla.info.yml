@@ -79,7 +79,6 @@ stylesheets-remove:
 regions:
   # machinename: Readable name
   header: Header
-  menu: menu
   message: Message
   content: Content #yes you want this one  - its required :)
   sidebar_first: Sidebar First

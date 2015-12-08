@@ -16,9 +16,11 @@ global:
       # css/layout/layout.css: {}
     component:
       # css/component/header.css: {}
+      css/component/menu.css: {}      
     state:
       # css/state/header.css: {}
     theme:
+      css/hero.css: {}
       # css/theme/color.css: {}
       # external css files { type: external }
       # http://fonts.googleapis.com/css?family=Roboto:300,400,500,700: { type: external }
