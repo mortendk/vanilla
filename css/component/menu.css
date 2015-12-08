@@ -1,7 +1,7 @@
 /*
 Menu
 
-All the navigation
+Flexbox all the menu's
 
 :hover    - Highlights when hovering.
 .navstyle-100h - Follows the size of the parent element
@@ -14,10 +14,11 @@ Markup:
 </ul>
 </nav>
 
-Styleguide 7.0
+Styleguide 10.0.0
 */
-/*
-.menu ul,
+
+/* :not isnt supported by ie or ios*/
+.menu ul:not(.contextual-links),
 .menu ol {
   display: flex;
   flex-wrap: nowrap;
@@ -38,7 +39,7 @@ Styleguide 7.0
 .menu a:hover {
   text-decoration: none;
 }
-*/
+
 /*
   menu navigation
   Navigation follows the height of the parent element
@@ -59,10 +60,14 @@ Styleguide 7.0
 .menu-h li {
   display: flex;
   align-items: stretch;
+  width: 100%;
 }
 .menu-h a {
   display: flex;
   align-items: center;
+  display: block;
+  text-decoration: none;
+  width: 100%;
 }
 
 /* menu horizontal variations */
@@ -85,28 +90,6 @@ Styleguide 7.0
   background-position: 50% 0%;
 }
 
-/*
-Navigation fixed Layout
-*/
-.menu-fixed {
-  position: relative;
-  height: 50px;
-}
-  .menu-fixed--locked {
-    position: fixed;
-    top: 0;
-    z-index: 100;
-  }
-.menu-fixed--locked + * {
-  margin-top: 50px; /* .menu-fixed height */
-}
-/* menu-fixed design */
-.menu-fixed {
-  background: rgba(207, 216, 220, 0.9);
-}
-.menu-fixed--locked {
-  border-bottom: 1px solid #efefef;
-}
 
 /*
 Navigation

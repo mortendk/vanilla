@@ -21,3 +21,39 @@
 .hero{
   background:red;
 }
+
+/*
+Navigation fixed Layout
+*/
+.hero-nav {
+  position: relative;
+  height: 50px;
+  width: 100%;
+}
+  .hero-nav--locked {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+  }
+  /* if the toolbar is active*/
+  .toolbar-horizontal .hero-nav--locked {
+    top:40px;
+  }
+  .toolbar-horizontal.toolbar-tray-open .hero-nav--locked {
+    top: 80px;
+  }
+
+  .toolbar-vertical.toolbar-tray-open .hero-nav--locked {
+    top: 40px;
+  }
+.hero-nav--locked + * {
+  margin-top: 50px; /* .hero-nav height */
+}
+/* hero-nav design */
+.hero-nav {
+  background: green;
+}
+.hero-nav--locked {
+  border-bottom: 1px solid #efefef;
+  background: yellow;
+}
