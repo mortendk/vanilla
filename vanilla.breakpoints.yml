@@ -1,25 +1,25 @@
 # doc: https://www.drupal.org/documentation/modules/breakpoint
-vanilla.small:
-  label: small #displayed name in the ui
-  mediaQuery: 'all (max-width: 560px)'
-  weight: 0
-  multipliers:
-    - 1x
-vanilla.medium:
-  label: medium
-  mediaQuery: 'all and (min-width: 560px) and (max-width: 850px)'
-  weight: 1
-  multipliers:
-    - 1x
-vanilla.large:
-  label: large
-  mediaQuery: 'all and (min-width: 851px)'
-  weight: 2
-  multipliers:
-    - 1x
-vanilla.xl:
-  label: xlarge
-  mediaQuery: 'all and (min-width: 1024px)'
-  weight: 3
-  multipliers:
-    - 1x
+# vanilla.small:
+#   label: small #displayed name in the ui
+#   mediaQuery: 'all (max-width: 560px)'
+#   weight: 0
+#   multipliers:
+#     - 1x
+# vanilla.medium:
+#   label: medium
+#   mediaQuery: 'all and (min-width: 560px) and (max-width: 850px)'
+#   weight: 1
+#   multipliers:
+#     - 1x
+# vanilla.large:
+#   label: large
+#   mediaQuery: 'all and (min-width: 851px)'
+#   weight: 2
+#   multipliers:
+#     - 1x
+# vanilla.xl:
+#   label: xlarge
+#   mediaQuery: 'all and (min-width: 1024px)'
+#   weight: 3
+#   multipliers:
+#     - 1x
