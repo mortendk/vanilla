@@ -30,9 +30,15 @@ orignal
 %}
 #}
 
+{% if field_name == "field_teaser" %}
+  {% set withclass %}
+    l-pagewidth teaser
+  {% endset %}
+{% endif %}
 {%
   set classes = [
     'field-type-' ~ field_type|clean_class,
+    withclass,
   ]
 %}
 {%
@@ -85,12 +91,12 @@ orignal
   {% else %}
 
   {# single with label ------------------------------------------------------ #}
-    <section{{ attributes.addClass(classes) }}>
+    <div{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
       {% for item in items %}
         <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
       {% endfor %}
-    </section>
+    </div>
   {% endif %}
 
 {% endif %}

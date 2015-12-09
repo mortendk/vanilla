@@ -1,10 +1,9 @@
 {#
 ------------------------------------
 Template for field type:
-entitiy references
+Image
 ---------------------------------
 #}
-
 {#
 Available variables:
 {{attributes}}: HTML attributes for the containing element.
@@ -32,7 +31,7 @@ orignal
 
 {%
   set classes = [
-    'field-type-' ~ field_type|clean_class,
+    'hero-article'
   ]
 %}
 {%
@@ -54,7 +53,7 @@ orignal
   {% if multiple %}
     <ul{{ attributes.addClass(classes, 'field__items') }}>
       {% for item in items %}
-        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
+        <li{{ item.attributes }}><figure>{{ item.content }}</figure></li>
       {% endfor %}
     </ul>
   {# /--Multiple & no label  ------------------------------------------------ #}
@@ -63,7 +62,7 @@ orignal
 
   {# --single & no label  --------------------------------------------------- #}
   {% for item in items %}
-    <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+    <figure{{ attributes.addClass(classes) }}>{{ item.content }}</figure>
   {% endfor %}
   {# / --single & no label  ------------------------------------------------- #}
 
@@ -75,9 +74,9 @@ orignal
   {#  multiple with label ----------------------------------------------------#}
     <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
-      <ul class='field__items yo-for-fuck-sake-theres-only-one'>
+      <ul class='field__items'>
       {% for item in items %}
-        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
+        <li{{ item.attributes }}><figure>{{ item.content }}</figure></li>
       {% endfor %}
       </ul>
     </section>
@@ -88,7 +87,7 @@ orignal
     <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
       {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        <figure{{ item.attributes }}>{{ item.content }}</figure>
       {% endfor %}
     </section>
   {% endif %}

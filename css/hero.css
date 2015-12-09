@@ -21,7 +21,7 @@
 
 .hero {
   background: black url(../images/hero-sunset.jpg) no-repeat;
-  background-size: cover
+  background-size: cover;
 }
 
 /*
@@ -69,10 +69,11 @@ body.toolbar-vertical.toolbar-tray-open.admin-hide .hero-nav--locked {
 
 /* hero-nav design
 look in menu.css for the settings styles
+@TODO: do we want this in conponent/menu
 */
 .hero-nav {
-  background: rgba(255, 255, 255, 0.8);
   height: 50px;
+  background: rgba(255, 255, 255, 0.8);
 }
 .hero-nav--locked {
   border-bottom: 1px solid #efefef;
@@ -98,4 +99,48 @@ look in menu.css for the settings styles
 .hero-nav a:hover {
   margin-bottom: -0.5rem; /*moves down */
   background: rgba(255, 255, 255, 0.9);
+}
+
+
+/*
+#Hero for articles
+
+this should be moved out of page or arbited out to be reused
+
+#.foo - descrip
+
+#markup:
+
+Styleguide page
+*/
+
+.hero-article {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 50vh;
+  margin-bottom: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-article img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: auto;
+}
+.hero-article figcaption {
+  z-index: 10;
+  width: 100%;
+  margin-left: 70%;
+  padding-right: 10%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-weight: bold;
+  text-align: right;
+
+  align-self: flex-end;
 }

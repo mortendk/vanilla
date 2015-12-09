@@ -36,13 +36,13 @@ Markup:
 Styleguide 4.1
 */
 figure {
-  display: inline-block;
+  display: block;
   width: 100%;   /*FF3 img needs a 100% if parent is set in %  #facepalm */
   margin: 0;
   padding: 0;
 }
 figcaption {
-  display: inline-block;
+  display: block;
   text-align: left;
   word-wrap: break-word;
 }
@@ -77,4 +77,9 @@ Styleguide 4.2
 .content .right img {
   float: right;
   padding: 0 1rem 1rem 0;
+}
+
+
+.circle img{
+    border-radius: 50%;
 }

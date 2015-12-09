@@ -1,10 +1,147 @@
-/* */
-/*@TODO : layout ?*/
+/*
+#Page
+
+page layout overwrites thats specifc for the page.html.twig
+
+#.foo - descrip
+
+#markup:
+
+Styleguide page
+*/
+
+/* @TODO : this is some sloppy ass css morten... */
 .header-first{
   width: 10%;
   float:left;
 }
 .header-last{
-  width: 60%;
+  width: 90%;
   float:left;
+}
+
+
+/*
+#pagewidths
+
+figure out what kind of prefix you wanna use
+
+#.foo - descrip
+
+#markup:
+
+Styleguide page
+*/
+.l-fullwidth {
+  width: 100%;
+}
+
+.l-pagewidth {
+  margin:0 auto;
+  width: 100%;
+}
+@media screen and (max-width: 600px); {
+  .l-pagewidth{
+    max-width: 600px
+  }
+}
+@media screen (min-width: 601px) and (max-width: 768px);{
+  .l-pagewidth{
+    max-width: 768px;;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1400px); {
+  .l-pagewidth{
+    max-width: 1400px
+  }
+}
+@media screen and (min-width: 1401px) {
+  .l-pagewidth{
+    max-width: 1400px;
+  }
+}
+
+
+/* tiles */
+.l-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+/* l-context-size*/
+.l-12-1{
+  flex: 0 1 calc(8.33% - 10px);
+  padding: 0 10px;
+}
+.l-12-2{
+  flex: 0 1 calc(16.66% - 10px);
+  padding: 0 10px;
+}
+.l-12-3{
+  flex: 0 1 calc(25% - 10px);
+  padding: 0 10px;
+}
+.l-12-4{
+  flex: 0 1 calc(33.32% - 10px);
+  padding: 0 10px;
+}
+.l-12-5{
+  flex: 0 1 calc(41.65% - 10px);
+  padding: 0 10px;
+}
+.l-12-6{
+  flex: 0 1 calc(50% - 10px);
+  padding: 0 10px;
+}
+.l-12-7{
+  flex: 0 1 calc(58.31% - 10px);
+  padding: 0 10px;
+}
+.l-12-8{
+  flex: 0 1 calc(66.66% - 10px);
+  padding: 0 10px;
+}
+.l-12-9{
+  flex: 0 1 calc(74.97% - 10px);
+  padding: 0 10px;
+}
+.l-12-10{
+  flex: 0 1 calc(83.3% - 10px);
+  padding: 0 10px;
+}
+.l-12-11{
+  flex: 0 1 calc(91.63% - 10px);
+  padding: 0 10px;
+}
+.l-12-12{
+  flex: 0 1 calc(100% - 10px);
+  padding: 0 10px;
+}
+
+/*
+.l-1-3{
+  flex: 0 1 calc(33.33% - 10px);
+  padding: 0 10px;
+}
+.l-2-3{
+  flex: 0 1 calc(66.66% - 10px);
+  padding: 0 10px;
+}
+
+.l-1-4{
+  flex: 0 1 calc(25% - 10px);
+  padding: 0 10px;
+}
+.l-2-4{
+  flex: 0 1 calc(50% - 10px);
+  padding: 0 10px;
+}
+.l-3-4{
+  flex: 0 1 calc(75% - 10px);
+  padding: 0 10px;
+}
+*/
+
+.u-inline{
+  display: inline;
 }

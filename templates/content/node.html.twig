@@ -42,28 +42,44 @@
   ]
 %}
 
-<article{{ attributes.addClass(classes) }}>
-  {# node title - if you print it here, remember to remove the title from  blocks #}
+<article{{ attributes.addClass('l-fullwidth') }}>
+  {#
+  node title - if its printed here, remove the title from  blocks
+  admin/structure/block/manage/vanilla_page_title
+  #}
+
+  {# field--node--field-image.html.twig  #}
+  {{ content.field_image }}
 
   {{ title_prefix }}
-    <h1{{ title_attributes }}>{{ label }}</h1>
+    <h1{{ title_attributes.addClass('shady') }}>{{ label }}</h1>
   {{ title_suffix }}
 
 
-
-  <footer class="node__meta">
+  <footer class="l-pagewidth l-row">
     {# @TODO inject a class to the image ex <img class="round" #}
     {# author_picture "compact" view mode - change in admin/config/people/accounts #}
     {# so it would be cool if we  could grap the picture in any version we want #}
     {{ author_picture }}
 
-    <div{{ author_attributes.addClass('node__submitted') }}>
+    <div{{ author_attributes.addClass('l-12-11') }}>
+
       {{ metadata }} {# pretty boring  metadata ;) #}
+
       {# you cant pibe variables inside of trans ex {{ node.createdtime|date("d.m.Y H:m") }} #}
       {# @TODO: just get the user name with nothing else #}
-      {% trans %}
-        {{ author_name }} on {{ date }}
-      {% endtrans %}
+
+      {{ author_name }}
+      |
+      @todo: dateicon:
+      {{ node.createdtime|date("d.m.Y H:m") }}
+      {{ node.changedtime|date("d.m.Y") }}
+      -
+      @todo tags icon:
+      {{ content.field_tags }}
+      {{ content.field_section }}
+    </div>
+
       {# date notes
         {{ date }}
         this prints the date based on whatever the config is set to
@@ -77,16 +93,20 @@
         {{ node.changedtime|date("d.m.Y") }}
       #}
       {# look at the field--field-tags.html.twig #}
-      {{ content.field_tags }}
+
+
   </footer>
 
-  {#  image #}
-  {{ content.field_image }}
+  {{ content.field_teaser }}
 
   <div{{ content_attributes.addClass('node__content') }}>
     {# print out content without the fields thats printed other places #}
-    {# @TODO why do we still have 'links' ? #}
-    {{ content|without('field_tags', 'field_image','comment','links') }}
+    {#
+    @TODO why do we still have 'links' ?
+    links can also be removed from the display in
+    /admin/structure/types/manage/article/display
+    #}
+    {{ content|without('field_tags', 'field_image', 'field_section','field_teaser','comment','links') }}
 
   {# @TODO
   this {{ link( label, url) }}
@@ -120,6 +140,6 @@ somehow fucking devel fucks this over as a permalink ? WTF drupal
     {{ 'Add new comment'|t }}
   </a>
 
-  
+
   {{ content.comment }}
 </article>
