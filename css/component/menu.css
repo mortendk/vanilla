@@ -3,10 +3,6 @@ Menu
 
 Flexbox all the menu's
 
-:hover    - Highlights when hovering.
-.navstyle-100h - Follows the size of the parent element
-.navstyle-bottom-center - aligns to the bottom
-
 Markup:
 <nav class="menu">
 <ul>
@@ -30,6 +26,8 @@ Styleguide 10.0.0
 .menu li {
   width: 100%;
   display: flex;
+  padding: 0;
+  margin: 0;
 }
 .menu a {
   display: block;
@@ -50,12 +48,14 @@ Styleguide 10.0.0
 .menu-h {
   display: flex;
 }
-.menu-h ul,
-.menu-h ol, {
+.menu-h ul:not(.contextual-links),
+.menu-h ol {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
   width: 100%;
+  padding: 0;
+  margin: 0;
 }
 .menu-h li {
   display: flex;
@@ -65,7 +65,6 @@ Styleguide 10.0.0
 .menu-h a {
   display: flex;
   align-items: center;
-  display: block;
   text-decoration: none;
   width: 100%;
 }

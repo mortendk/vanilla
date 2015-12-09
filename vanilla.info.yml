@@ -78,6 +78,7 @@ stylesheets-remove:
 # regions gets added to templates/page.html.twig -> {{ page.[regionname] }}
 regions:
   # machinename: Readable name
+  logo: logo
   header: Header
   message: Message
   content: Content #yes you want this one  - its required :)

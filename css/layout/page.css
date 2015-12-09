@@ -1,1 +1,10 @@
 /* */
+/*@TODO : layout ?*/
+.header-first{
+  width: 10%;
+  float:left;
+}
+.header-last{
+  width: 60%;
+  float:left;
+}

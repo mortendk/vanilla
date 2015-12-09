@@ -2,24 +2,26 @@
 #Hero
 
 */
-.hero{
-  height: 100vh;
-  width: 100%;
+.hero {
   display: flex;
+  width: 100%;
+  height: 100vh;
+
   align-items: center;
   justify-content: center;
 }
 
-.hero img{
+.hero img {
   position: absolute;
-  top:0;
-  left:0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
 }
 
-.hero{
-  background:red;
+.hero {
+  background: black url(../images/hero-sunset.jpg) no-repeat;
+  background-size: cover
 }
 
 /*
@@ -27,33 +29,73 @@ Navigation fixed Layout
 */
 .hero-nav {
   position: relative;
-  height: 50px;
   width: 100%;
 }
-  .hero-nav--locked {
-    position: fixed;
-    top: 0;
-    z-index: 100;
-  }
-  /* if the toolbar is active*/
-  .toolbar-horizontal .hero-nav--locked {
-    top:40px;
-  }
-  .toolbar-horizontal.toolbar-tray-open .hero-nav--locked {
-    top: 80px;
-  }
-
-  .toolbar-vertical.toolbar-tray-open .hero-nav--locked {
-    top: 40px;
-  }
+.hero-nav--locked {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+}
+/* if the toolbar is active*/
+body.toolbar-horizontal .hero-nav--locked {
+  top: 40px;
+}
+body.toolbar-horizontal.admin-hide .hero-nav--locked {
+  top: 0;
+}
+body.toolbar-horizontal.toolbar-tray-open .hero-nav--locked {
+  top: 80px;
+}
+/* Is admin hide added*/
+body.toolbar-horizontal.toolbar-tray-open.admin-hide .hero-nav--locked {
+  top: 0;
+}
+body.toolbar-vertical .hero-nav--locked {
+  top: 40px;
+}
+body.toolbar-vertical.admin-hide .hero-nav--locked {
+  top: 0;
+}
+body.toolbar-vertical.toolbar-tray-open .hero-nav--locked {
+  top: 40px;
+}
+body.toolbar-vertical.toolbar-tray-open.admin-hide .hero-nav--locked {
+  top: 0;
+}
 .hero-nav--locked + * {
   margin-top: 50px; /* .hero-nav height */
 }
-/* hero-nav design */
+
+
+/* hero-nav design
+look in menu.css for the settings styles
+*/
 .hero-nav {
-  background: green;
+  background: rgba(255, 255, 255, 0.8);
+  height: 50px;
 }
 .hero-nav--locked {
   border-bottom: 1px solid #efefef;
-  background: yellow;
+}
+.hero-nav .menu-h {
+  height: 50px;
+}
+.hero-nav li {
+  border-left: 1px solid lightgray;
+}
+.hero-nav li:last-child {
+  border-right: 1px solid lightgray;
+}
+.hero-nav a {
+  color: black;
+  font-family: "titillium", sans-serif;
+  font-size: 1.1em;
+  font-weight: 600;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+.hero-nav a:hover {
+  margin-bottom: -0.5rem; /*moves down */
+  background: rgba(255, 255, 255, 0.9);
 }

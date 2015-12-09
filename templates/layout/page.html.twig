@@ -8,24 +8,36 @@
   <img src="{{ active_theme_path() }}/images/d8.png">
 #}
 
-<header role="banner">
+{# Hero and navigation #}
+<div class="hero red" id="top">
+   <a href="#mainmenu">Go!</a>
+</div>
+<header role="banner" class="hero-nav " id="mainmenu">
+
+  <div class="header-first">
+    {{ page.logo }}
+  </div>
+  <div class="header-last">
   {{ page.header }}
+  </div>
+
 </header>
 
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
   {{ page.message }}
 
   {{ page.content }}
 
   {% if page.sidebar_first %}
-    <aside class="layout-sidebar-first" role="complementary">
+    <aside class="" role="complementary">
       {{ page.sidebar_first }}
     </aside>
   {% endif %}
 
   {% if page.sidebar_second %}
-    <aside class="layout-sidebar-second" role="complementary">
+    <aside class="" role="complementary">
       {{ page.sidebar_second }}
     </aside>
   {% endif %}

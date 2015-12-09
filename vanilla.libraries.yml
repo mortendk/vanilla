@@ -13,14 +13,16 @@ global:
       # css/base/form.css: { }
       # css/base/image.css: { }
     layout:
-      # css/layout/layout.css: {}
+      css/layout/grid.css: {}
+      css/layout/page.css: {}
     component:
       # css/component/header.css: {}
-      css/component/menu.css: {}      
+      css/component/menu.css: {}
+      css/hero.css: {}
     state:
       # css/state/header.css: {}
     theme:
-      css/hero.css: {}
+      fonts/titillium.css: {}
       # css/theme/color.css: {}
       # external css files { type: external }
       # http://fonts.googleapis.com/css?family=Roboto:300,400,500,700: { type: external }

@@ -17,7 +17,9 @@ html {
   -webkit-tap-highlight-color: #f3f5f6;
   text-size-adjust: 100%; /*ios only*/
 }
-
+body{
+  margin: 0;
+}
 iframe {
   max-width: 100%;
   border: 0;
