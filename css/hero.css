@@ -1,8 +1,22 @@
 /*
 #Hero
 
+frontpage @todo should be renamed to hero-front or something
+
+markup:
+<div class="hero">
+  <h1 class="hero__title"> title</h1>
+  <figure class="hero__image">
+  <img>
+  <figcaption>figcap</figcaption>
+  </figure>
+  <div class="hero__content">bla bla bla </div>
+<div>
+
+styleguide: hero's
 */
-.hero {
+
+.hero-front {
   display: flex;
   width: 100%;
   height: 100vh;
@@ -11,7 +25,7 @@
   justify-content: center;
 }
 
-.hero img {
+.hero-front img {
   position: absolute;
   top: 0;
   left: 0;
@@ -19,7 +33,7 @@
   height: 100vh;
 }
 
-.hero {
+.hero-front {
   background: black url(../images/hero-sunset.jpg) no-repeat;
   background-size: cover;
 }
@@ -114,7 +128,26 @@ this should be moved out of page or arbited out to be reused
 Styleguide page
 */
 
-.hero-article {
+/*
+#Hero
+
+frontpage @todo should be renamed to hero-front or something
+
+markup:
+<div class="hero">
+  <h1 class="hero__title"> title</h1>
+  <figure class="hero__image">
+  <img>
+  <figcaption>figcap</figcaption>
+  </figure>
+  <div class="hero__content">bla bla bla </div>
+<div>
+
+styleguide: hero's
+*/
+
+
+.hero {
   position: relative;
   display: flex;
   overflow: hidden;
@@ -124,23 +157,31 @@ Styleguide page
   align-items: center;
   justify-content: center;
 }
-
-.hero-article img {
+.hero__title{
+  position: absolute;
+  left: 0%;
+  z-index: 20
+}
+.hero__image {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: auto;
 }
-.hero-article figcaption {
-  z-index: 10;
-  width: 100%;
-  margin-left: 70%;
-  padding-right: 10%;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-weight: bold;
-  text-align: right;
+  .hero__image img {
+    width: 100%;
+    height: auto;
+  }
+  .hero__image figcaption {
+    z-index: 10;
+    width: 100%;
+    margin-left: 70%;
+    padding-right: 10%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    text-align: right;
 
-  align-self: flex-end;
-}
+    align-self: flex-end;
+  }

@@ -16,7 +16,8 @@
  */
 #}
 {% if title %}
-  <h3>{{ title }}</h3>
+  {# why is this not a H2 #}
+  <h2>{{ title }}</h2>
 {% endif %}
 {% for row in rows %}
   {%
@@ -24,7 +25,17 @@
       default_row_class ? 'views-row',
     ]
   %}
-  <div{{ row.attributes.addClass(row_classes) }}>
-    {{ row.content }}
-  </div>
+  {# NO We dont wanna print anything if theres no classe set in the UI
+     Which is bad practice anyways & makes shit complicated
+     css selector configs do NOT belong in a UI unless you name is drupal7
+  #}
+  {% if default_row_class %}
+    <div{{ row.attributes.addClass(row_classes) }}>
+  {% endif %}
+
+  {{ row.content }}
+
+  {% if default_row_class %}
+    </div>
+  {% endif %}
 {% endfor %}

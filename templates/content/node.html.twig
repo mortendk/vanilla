@@ -1,37 +1,4 @@
-{#
-{{ node.id }} The node ID.
-{{ node.bundle }} The type of the node, for example, "page" or "article".
-{{ view_mode }}: View mode; for example, "teaser" or "full".
-{{ url }}: Direct URL of the current node.
 
-{{ date }}: Themed creation date field.
-{{ node.createdtime }}: Time the node was published formatted in Unix timestamp.
-{{ node.changedtime }} Time the node was changed formatted in Unix timestamp.
-{{ node.label }}: The title of the node.
-
-{{ metadata }}: Metadata for this node.
-
-{{ author_name }}: Themed author name field.
-{{ node.authorid}} The user ID of the node author.
-
-{{ content }}
-{{ content.field_example }}
-{{ content|without('field_example') }}
-
-{{ teaser }}: Flag for the teaser state. Will be true if view_mode is 'teaser'.
-{{ page }}: Flag for the full page state. Will be true if view_mode is 'full'.
-{{ readmore }}: Flag for more state - only for teaser
-{{ logged_in }}: Flag for authenticated user status.
-{{ is_admin }}: Flag for admin user status.
-#}
-
-{# heres an example of testing the content type and then add a class for that
-  {% if node.bundle =="article" %}
-    {% set content_type_class = "article" %}
-  {% else %}
-    {% set content_type_class = "other-than-article" %}
-  {% endif %}
-#}
 {%
   set classes = [
     'content-type-' ~ node.bundle|clean_class,
@@ -49,57 +16,66 @@
   #}
 
   {# field--node--field-image.html.twig  #}
-  {{ content.field_image }}
+  <div class="hero">
 
-  {{ title_prefix }}
-    <h1{{ title_attributes.addClass('shady') }}>{{ label }}</h1>
-  {{ title_suffix }}
+    {{ title_prefix }}
+      <h1{{ title_attributes.addClass('shady','hero__title') }}>{{ label }}</h1>
+    {{ title_suffix }}
+
+    {{ content.field_image }}
+
+  </div>
 
 
-  <footer class="l-pagewidth l-row">
-    {# @TODO inject a class to the image ex <img class="round" #}
-    {# author_picture "compact" view mode - change in admin/config/people/accounts #}
-    {# so it would be cool if we  could grap the picture in any version we want #}
-    {{ author_picture }}
+  <div class="l-pagewidth l-row">
+    <div class="l-12-1">
+      {{ author_picture }}
 
-    <div{{ author_attributes.addClass('l-12-11') }}>
+      {# sociail stuff
+        @TODO: can we drop in a block here ?
+        twitter button
+        https://about.twitter.com/resources/buttons#tweet
 
-      {{ metadata }} {# pretty boring  metadata ;) #}
-
-      {# you cant pibe variables inside of trans ex {{ node.createdtime|date("d.m.Y H:m") }} #}
-      {# @TODO: just get the user name with nothing else #}
-
-      {{ author_name }}
-      |
-      @todo: dateicon:
-      {{ node.createdtime|date("d.m.Y H:m") }}
-      {{ node.changedtime|date("d.m.Y") }}
-      -
-      @todo tags icon:
-      {{ content.field_tags }}
-      {{ content.field_section }}
-    </div>
-
-      {# date notes
-        {{ date }}
-        this prints the date based on whatever the config is set to
-        change it in :
-        admin/config/regional/date-time
-        here is formatted with might filters
-        http://twig.sensiolabs.org/doc/filters/date.html
-        @TODO: where is it we set the formatting for a content type, or is it always
-        a specific settings ... oooh the brain dont remembers
-        {{ node.createdtime|date("d.m.Y H:m") }}
-        {{ node.changedtime|date("d.m.Y") }}
+        @TODO: remove this from the hardcoded part
+        here we grap the user name fro the user and prints this stuff out on the dfollow button.
+        pretty sure we can make this happen with the field type
       #}
-      {# look at the field--field-tags.html.twig #}
+
+      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="mortendk">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+      {# follow #}
+      <a href="https://twitter.com/mortendk" class="twitter-follow-button" data-show-count="false">Follow @mortendk</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+    </div>
+    <div class="l-12-10">
+
+      <footer>
+        <div{{ author_attributes.addClass('l-12-10') }}>
+          by: {{ author_name }}
+          date: {{ node.createdtime|date("d.m.Y H:m") }} - {{ node.changedtime|date("d.m.Y") }}
+          | tags:
+          {{ content.field_tags }}
+          {{ metadata }}
+        </div>
+      </footer>
+
+      {{ content.field_teaser }}
+
+    </div>
+    <div class="hack-drupal-you-beeing-a-pain-in-the-ass l-12-1">
+      {{ content.field_section }}
+
+    </div>
+  </div>
 
 
-  </footer>
 
-  {{ content.field_teaser }}
 
-  <div{{ content_attributes.addClass('node__content') }}>
+
+
+
+  <div{{ content_attributes.addClass('l-pagewidth') }}>
     {# print out content without the fields thats printed other places #}
     {#
     @TODO why do we still have 'links' ?

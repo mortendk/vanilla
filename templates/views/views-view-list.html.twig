@@ -16,21 +16,43 @@
  * @see template_preprocess_views_view_list()
  */
 #}
-{% if attributes -%}
+
+{# we dont really need this but for funzies lets keep it #}
+{% if attributes !="" -%}
   <div{{ attributes }}>
 {% endif %}
+
   {% if title %}
     <h3>{{ title }}</h3>
   {% endif %}
 
-  <{{ list.type }}{{ list.attributes }}>
+  {#
+    oki then why a user wants to change this is - this is theming
+    not a config thing
+    @TODO:  list.attributes.addClass('tiles') dont seems
+  #}
+  <{{ list.type }}{{ list.attributes.addClass('tiles') }} class="tiles">
 
+    {# for loop #}
     {% for row in rows %}
-      <li{{ row.attributes }}>{{ row.content }}</li>
+      {% if loop.first %}
+        <li{{ row.attributes.addClass('tile','tile--2') }}>{{ row.content }}</li>
+      {% elseif loop.index <= "3" %}
+        <li{{ row.attributes.addClass('tile','tile--4') }}>{{ row.content }}</li>
+      {% elseif (loop.index >= "4") and (loop.index <= "5") %}
+        <li{{ row.attributes.addClass('tile','tile--4') }}>{{ row.content }}</li>
+      {% elseif loop.index == "6" %}
+        <li{{ row.attributes.addClass('tile','tile--2') }}>{{ row.content }}</li>
+      {% else %}
+        {# default #}
+        <li{{ row.attributes.addClass('tile','tile--3') }}>{{ row.content }}</li>
+      {% endif %}
     {% endfor %}
+
 
   </{{ list.type }}>
 
-{% if attributes -%}
+{# we dont really need this but for funzies lets keep it #}
+{% if attributes !="" -%}
   </div>
 {% endif %}

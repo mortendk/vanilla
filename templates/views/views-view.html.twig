@@ -29,67 +29,68 @@
  *
  * @see template_preprocess_views_view()
  */
+@TODO: some template suggestions here would be nice
 #}
 {%
   set classes = [
-    'view',
-    'view-' ~ id|clean_class,
-    'view-id-' ~ id,
-    'view-display-id-' ~ display_id,
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
+<section{{ attributes.addClass(classes) }}>
+  {# title - do we ever use this? #}
   {{ title_prefix }}
   {% if title %}
     {{ title }}
   {% endif %}
   {{ title_suffix }}
+
+  {# header ok so what goes here #}
   {% if header %}
-    <div class="view-header">
-      {{ header }}
-    </div>
+    {{ header }}
   {% endif %}
+
+  {# Exposed filters #}
   {% if exposed %}
-    <div class="view-filters">
-      {{ exposed }}
-    </div>
+    {{ exposed }}
   {% endif %}
+
   {% if attachment_before %}
-    <div class="attachment attachment-before">
-      {{ attachment_before }}
-    </div>
+    {{ attachment_before }}
   {% endif %}
 
+  {# views content is rows ;) #}
   {% if rows %}
-    <div class="view-content">
-      {{ rows }}
-    </div>
+    {# probably calls views-view-: unformatted, tabel,  #}
+    {{ rows }}
+
   {% elseif empty %}
-    <div class="view-empty">
-      {{ empty }}
-    </div>
+  {# empty #}
+    {{ empty }}
+  </div>
   {% endif %}
 
+  {# pager #}
   {% if pager %}
     {{ pager }}
   {% endif %}
+
+  {# attacment post #}
   {% if attachment_after %}
-    <div class="attachment attachment-after">
-      {{ attachment_after }}
-    </div>
+    {{ attachment_after }}
   {% endif %}
+
+  {#  more #}
   {% if more %}
     {{ more }}
   {% endif %}
+
+  {# footer #}
   {% if footer %}
-    <div class="view-footer">
-      {{ footer }}
-    </div>
+    {{ footer }}
   {% endif %}
+
+  {# RSS FTW! #}
   {% if feed_icons %}
-    <div class="feed-icons">
-      {{ feed_icons }}
-    </div>
+    {{ feed_icons }}
   {% endif %}
-</div>
+</section>

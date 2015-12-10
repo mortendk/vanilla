@@ -1,22 +1,43 @@
+body{
+  font-family: opensans, sans-serif;;
+  font-weight: 500;
+}
+
+
+h1,h2,h3,h4 {
+  font-family: "titillium", sans-serif;
+  font-weight: 700;
+  color: #666;
+  margin: 0;
+  padding: 0;
+  line-height:1;
+}
+h1 { font-size: 5rem; }
+h2 { font-size: 3rem; }
+h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
 
 article h1 {
   position: absolute;
   top: 25vh;
   width: 100%;
-  font-family: "titillium", sans-serif;
-  font-size: 5rem;
-  font-weight: 700;
+
   text-align: center;
   background: rgba(0,0,0,0.2);
 }
-
-
-.teaser {
-  font-family: opensans, sans-serif;;
-  font-weight: 300;
-  font-size: 1rem;
+/* this is not good as we also have this in teasers of the story*/
+.f-bold {
+  font-weight: 700;
+  font-size: 1.5rem;
   list-style: 2rem;
+  color: black;
 }
+
+.u-small {
+  font-size: 0.7rem;
+}
+
+
 
 /* style variations*/
 .shady {

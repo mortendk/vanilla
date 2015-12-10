@@ -42,7 +42,9 @@
       <h2{{ heading.attributes }}>{{ heading.text }}</h2>
     {%- endif -%}
   {%- endif -%}
-  <ul{{ attributes }}>
+  {# wtf drupal why you bring me classes i dont want ? #}
+  <nav class="menu-h">
+  <ul{{ attributes.removeClass('links','inline')}}>
     {%- for key, item in links -%}
       <li{{ item.attributes.addClass(key|clean_class) }}>
         {%- if item.link -%}
@@ -55,4 +57,5 @@
       </li>
     {%- endfor -%}
   </ul>
+  </nav>
 {%- endif %}

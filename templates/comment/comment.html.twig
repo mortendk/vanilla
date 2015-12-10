@@ -62,11 +62,13 @@ The following applies only to viewers who are registered users:
 #}
 
 {# add classy indented is its threaded ... we should change that  #}
+
 {% if threaded %}
   {{ attach_library('classy/indented') }}
 {% endif %}
 
 {# creates the classes #}
+{#
 {%
   set classes = [
     'js-comment',
@@ -75,56 +77,70 @@ The following applies only to viewers who are registered users:
     author_id and author_id == commented_entity.getOwnerId() ? 'by-' ~ commented_entity.getEntityTypeId() ~ '-author',
   ]
 %}
+ #}
+
+
+{%
+ set classes = [
+  'l-row',
+  'comment',
+  'js-comment',
+  status != 'published' ? status,
+  comment.owner.anonymous ? 'by-anonymous',
+ ]
+%}
 
 <article{{ attributes.addClass(classes) }} id="comments">
 
-  <h3>{{ comment.getSubject() }}</h3>{#  label without link  get an epic error if we do comment.subject #}
+  <footer class="l-12-2">
+    <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
-  {#  Hide the "new" indicator by default, let a piece of JavaScript ask the server which comments are new for the user.  #}
-  <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
+    <div class="comment__user">
+      {{ user_picture }}
+      <a href="/user/{{ author_id }}">{{ user.username }}</a>
+    </div>
 
-  <footer class="comment__meta">
-    status: {{ status }}
 
     <div class="cal">
-      <div class="cal__day">{{ comment.createdtime|date('l')|lower }}</div>
       <div class="cal__date">{{ comment.createdtime|date('d')|lower }}</div>
+      <div class="cal__day">{{ comment.createdtime|date('l')|lower }}</div>
       <div class="cal__month">{{ comment.createdtime|date('F')|lower }}</div>
       <div class="cal__year">{{ comment.createdtime|date('Y')|lower }}</div>
     </div>
-    time : {{ comment.createdtime|date('H:m:s') }}
-    <hr>
-    {# @TODO: make a time ago calculation in twig
-    http://twig.sensiolabs.org/doc/extensions/date.html
-    regiser $twig->addExtension(new Twig_Extensions_Extension_Date());
-    {{ comment.createdtime|time_diff }}
-    #}
+    <div class="u-small">
+      {{ comment.changedtime|date('d.m Y H.m.s') }}
+    </div>
 
-    {{ comment.changedtime|date('d.m Y H.m.s') }}
+    {{ status }}
+        {# @TODO: make a time ago calculation in twig
+        http://twig.sensiolabs.org/doc/extensions/date.html
+        regiser $twig->addExtension(new Twig_Extensions_Extension_Date());
+        {{ comment.createdtime|time_diff }}
+        #}
 
-    {# @TODO i want to control the size of the image #}
-    {# @TODO i want the picture witout a link #}
-    {{ user_picture }}
+  </footer>
 
-    <a href="/user/{{ author_id }}">{{ user.username }}</a>
+  <div class="l-12-10">
+    <h3>{{ comment.getSubject() }}</h3>
+    {{ content|without('links') }}
+    {{ content.links}}
+    {# @TODO: ok wheres the comment form added ?  #}
 
-  {# @TODO get roles out for a user. usecase I want to know the roles for to create a class for that #}
-  {# roles: {{ user.getRoles() }}  getRoles dont give us anything #}
 
-    {# Indicate the semantic relationship between parent and child comments for accessibility. The list is difficult to navigate in a screen reader   without this information.    #}
     {% if parent %}
       <p class="parent visually-hidden">{{ parent }}</p>
     {% endif %}
 
-    {# @TODO create an permalink here  #}
-    {# <a href="#" rel="bookmark">perma</a>  #}
 
-  </footer>
+      {# @TODO get roles out for a user. usecase I want to know the roles for to create a class for that #}
+      {# roles: {{ user.getRoles() }}  getRoles dont give us anything #}
 
-  <div{{ content_attributes.addClass('content') }}>
-    {{ content|without('links') }}
+        {# Indicate the semantic relationship between parent and child comments for accessibility. The list is difficult to navigate in a screen reader   without this information.    #}
 
-    {{ content.links}}
-    {# @TODO: ok wheres the comment form added ?  #}
+        {# @TODO create an permalink here  #}
+        {# <a href="#" rel="bookmark">perma</a>  #}
+
+
   </div>
+
 </article>

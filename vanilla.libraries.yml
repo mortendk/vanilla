@@ -11,6 +11,7 @@ global:
     base:
       css/base/base.css: { weight: -21}
       css/base/image.css: {}
+      css/base/list.css: { }
       # css/base/form.css: { }
       # css/base/image.css: { }
     layout:
@@ -19,7 +20,9 @@ global:
     component:
       # css/component/header.css: {}
       css/component/menu.css: {}
+      css/component/comment.css: {}
       css/hero.css: {}
+
     state:
       # css/state/header.css: {}
     theme:
@@ -30,6 +33,7 @@ global:
       # external css files { type: external }
       # http://fonts.googleapis.com/css?family=Roboto:300,400,500,700: { type: external }
       # print
+      css/temp.css: {}
       css/print.css: { media: print }
   js:
     js/script.js: {}

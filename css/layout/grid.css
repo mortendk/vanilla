@@ -13,15 +13,19 @@ Tiles
   min-height: 50px;
 }
 
+/* Correctes the tiles if they are wrapped inside of a pagewidth*/
+.l-pagewidth .tiles{
+  margin: 0 -7px;
+}
+
 /* .tile is the central building block */
 .tile {
   margin: 0 7px 14px 7px;
   vertical-align: top;
   flex: 0 1 calc(33.33% - 14px); /* Sets default width of a tile */
   min-height: 200px;
-  background: lightgray;
   overflow:hidden;
-
+  border:1px solid lightgray;
 }
 
 /*Tiles nested */

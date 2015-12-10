@@ -18,20 +18,14 @@ items: List of all the field items. Each item contains:
 {{field_name}}: The name of the field.
 {{field_type}}: The type of the field.
 {{label_display}}: The display settings for the label.
-orignal
-{%
- set classes = [
-   'field',
-   'field--name-' ~ field_name|clean_class,
-   'field--type-' ~ field_type|clean_class,
-   'field--label-' ~ label_display,
- ]
-%}
+
+{{ view_mode }} : viewmode
+{{ bundle }} : content type
 #}
 
 {%
   set classes = [
-    'field-type-' ~ field_type|clean_class,
+    (bundle =='article') and (view_mode=="full") and (field_name=="field_image") ? 'hero__image' : '',
   ]
 %}
 {%
@@ -39,14 +33,6 @@ orignal
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
 %}
-
-{#
-  Renders a field in 4 different versions:
-  multiple - lable hidden
-  single - lable hidden
-  multple label shown
-  single label shown
-#}
 
 {% if label_hidden %}
   {# --Multiple & no label  ------------------------------------------------- #}
@@ -74,12 +60,28 @@ orignal
   {#  multiple with label ----------------------------------------------------#}
     <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
-      <ul class='field__items'>
+      <ul class='tiles'>
+      {# for loop #}
+
       {% for item in items %}
-        <li{{ item.attributes }}><figure>{{ item.content }}</figure></li>
+        {% if items|length =="2" %}
+          <li{{ item.attributes.addClass('tile','tile--2') }}><figure>{{ item.content }}</figure></li>
+        {% elseif loop.index == "3" %}
+          <li{{ item.attributes.addClass('tile','tile--2') }}><figure>{{ item.content }}</figure></li>
+          {% elseif loop.index == "8" %}
+            <li{{ item.attributes.addClass('tile','tile--2') }}><figure>{{ item.content }}</figure></li>
+        {% else %}
+        {# default #}
+          <li{{ item.attributes.addClass('tile','tile--4') }}><figure>{{ item.content }}</figure></li>
+        {% endif %}
       {% endfor %}
+
+
       </ul>
     </section>
+
+
+
 
   {% else %}
 

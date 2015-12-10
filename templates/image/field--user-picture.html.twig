@@ -18,6 +18,9 @@ items: List of all the field items. Each item contains:
 {{field_name}}: The name of the field.
 {{field_type}}: The type of the field.
 {{label_display}}: The display settings for the label.
+{{ view_mode }} : viewmode
+{{ bundle }} : content type
+
 orignal
 {%
  set classes = [
@@ -32,9 +35,11 @@ orignal
 {%
   set classes = [
     'circle',
-    'l-12-1'
+    (bundle =='user') and (view_mode=="compact") ? 'u-hide-figcaption',
   ]
 %}
+
+
 {%
   set title_classes = [
     label_display == 'visually_hidden' ? 'visually-hidden',
