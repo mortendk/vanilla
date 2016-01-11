@@ -2,7 +2,6 @@
 aria-labelledby="{{ attributes.id ~ '-menu'|clean_id }}"
 {{ attributes.addClass('menu-h', 'menu-h--center')|without('role', 'aria-labelledby','id') }}
 >
-
   {# Label. If not displayed, we still provide it for screen readers. #}
   {% if not configuration.label_display %}
     {% set title_attributes = title_attributes.addClass('visually-hidden') %}

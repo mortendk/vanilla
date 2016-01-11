@@ -6,11 +6,13 @@ Flexbox all the menu's
 Markup:
 <nav class="menu">
 <ul>
-<li><a href="#">foo</></li>
+<li><a href="#">home</a></li>
+<li><a href="#">News</a></li>
+<li><a href="#">contact</a></li>
 </ul>
 </nav>
 
-Styleguide 10.0.0
+Styleguide menu
 */
 
 /* :not isnt supported by ie or ios*/
@@ -100,7 +102,7 @@ Main menu
 
 Markup: ../_html/navigation/nav.html
 
-Styleguide 7.1
+Styleguide menu
 */
 
 /*

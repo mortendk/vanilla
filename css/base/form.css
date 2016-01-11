@@ -1,9 +1,20 @@
 /*
 #Form
 
-Drupals form for fun n profit
+Input forms
 
-Styleguide 2.0
+.form-required -
+
+Markup:
+<div class="form-item form-type-textfield form-item-name">
+  <label for="edit-name" class="$modifierClass">Label Name</label>
+  <input type="text" size="30" maxlength="128" class="form-text required machine-name-source" required="required" aria-required="true">
+  <div id="edit-name--description" class="description">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque voluptas veritatis rerum voluptates quam aut molestiae optio, praesentium nam qui voluptate corporis tempora assumenda natus, ab ad ratione saepe, neque.
+  </div>
+</div>
+
+Styleguide 2.0.0 Form
 */
 
 form {
@@ -11,24 +22,6 @@ form {
   padding: 0;
 }
 
-/*
-#Form: input
-
-Drupals Default form input.
-
-.form-required -
-
-Markup:
-<div class="form-item form-type-textfield form-item-name js-form-item js-form-type-textfield js-form-item-name ">
-  <label for="edit-name" class="js-form-required $modifierClass">Name</label>
-  <input data-drupal-selector="edit-name" aria-describedby="edit-name--description" type="text" id="edit-name" name="name" value="" size="30" maxlength="128" class="form-text required machine-name-source" required="required" aria-required="true">
-  <div id="edit-name--description" class="description">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque voluptas veritatis rerum voluptates quam aut molestiae optio, praesentium nam qui voluptate corporis tempora assumenda natus, ab ad ratione saepe, neque.
-  </div>
-</div>
-
-Styleguide 2.1.1
-*/
 
 /* Label
 ----------------------*/
@@ -114,17 +107,6 @@ input[type=url], .form-url,
 
 /* Input:search;
 ----------------------------*/
-input[type="checkbox"],
-input[type="radio"] {
-  box-sizing: border-box;
-  padding: 0;
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  height: auto;
-}
-
 input[type="search"] {
   -webkit-appearance: textfield;
   box-sizing: content-box;
@@ -133,8 +115,6 @@ input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-
-
 
 /* checkbox
 ----------------------------------*/
@@ -173,6 +153,9 @@ optgroup {
 
 /* button
 ------------------------------*/
+button {
+
+}
 
 
 /* disabled
@@ -217,3 +200,13 @@ form .error:focus {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 0 8px 1px #e62600;
   background-color: #fcf4f2;
 }
+
+
+/*
+Form widgets
+*/
+
+
+/* login */
+
+/* search */

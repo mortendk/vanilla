@@ -1,7 +1,9 @@
 /*
-o-object{ }
-c-component{ }
+o-object{
+}
 
+c-component{
+}
 
 .u-utilty {
 
@@ -12,6 +14,9 @@ c-component{ }
 }
 
 .fix-shit_that_needs_to_be_fixed {
+
+}
+_theisiahack{
 
 }
 */
@@ -32,11 +37,12 @@ c-component{ }
 .u-hide-figcaption figcaption {
   display: none;
 }
+
 /**
  * Outline all Hack classes.
  */
 [class^="_"] {
-  outline: 5px solid red;
+  /*outline: 1px solid red;*/
 }
 
 _fix{

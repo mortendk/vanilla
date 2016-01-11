@@ -1,10 +1,50 @@
 /*
-grid system.
-Flexbased and all awesome.
+#Tiles
+
+each "grid" is written  l-[context]-size
+
+.tile--full - a full width file
+.tile--half - half widh tiles / cards
+.tile--third
+.tile--forth
+.tile--fifth
+.tile--sixth
+.tile--7
+.tile--8
+.tile--9
+.tile--10
+.tile--11
+.tile--12
+
+markup:
+<div class="l-pagewidth">
+  <div class="_test">pagewidth</div>
+  <div class="tiles _test">
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+  </div>
+</div>
+
+Styleguide layout 3
 */
-/**
-Tiles
-*/
+
+.tiles._test .tile {
+  min-height: 100px;
+  background: #e1e1e1;
+  color: red;
+  text-align: center;
+}
+
 .tiles {
   display: flex;
   flex-wrap: wrap;
@@ -20,8 +60,7 @@ Tiles
 
 /* .tile is the central building block */
 .tile {
-  margin: 0 7px 14px 7px;
-  vertical-align: top;
+  margin: 7px 7px 7px 7px;
   flex: 0 1 calc(33.33% - 14px); /* Sets default width of a tile */
   min-height: 200px;
   overflow:hidden;
@@ -113,38 +152,48 @@ tile widths
   flex: 0 1 14.285%;
 }
 
-.tile--6 {
+.tile--6,
+.tile--sixth {
   flex: 0 1 calc(16.66% - 14px);
 }
-.tile--6.tile--nested {
+.tile--6.tile--nested,
+.tile--sixth.tile--nested {
   flex: 0 1 16.66%;
 }
 
-.tile--5 {
+.tile--5,
+.tile--fifth {
   flex: 0 1 calc(20% - 14px);
 }
-.tile--5.tile--nested {
+.tile--5.tile--nested,
+.tile--fifth.tile--nested {
   flex: 0 1 20%;
 }
 
-.tile--4 {
+.tile--4,
+.tile--forth {
   flex: 0 1 calc(25% - 14px);
 }
-.tile--4.tile--nested. {
+.tile--4.tile--nested,
+.tile--forth.tile--nested {
   flex: 0 1 25%
 }
 
-.tile--3 {
+.tile--3,
+.tile--third {
   flex: 0 1 calc(33.33% - 14px);
 }
-.tile--3.tile--nested {
+.tile--3.tile--nested,
+.tile--third.tile--nested  {
   flex: 0 1 33.33%
 }
 
-.tile--2 {
+.tile--2,
+.tile--half {
   flex: 0 1 calc(50% - 14px);
 }
-.tile--2.tile--nested {
+.tile--2.tile--nested,
+.tile--half.tile--nested {
   flex: 0 1 calc(50%);
 }
 
@@ -155,64 +204,11 @@ tile widths
 
 
 
-
 /*
-context based widths.
-.[screensize]-[size]-[context]{ }
-screensize:
-s(mall), m(edium), l(arge).
-size is the width (grids) inside of the given context (ex a 12 grid):
-ex:
-small screen 1 out of 12 wide
+@TODO: do we need this in a lean mean system ?
 */
 
-/*
-Flex utility for dirty hacks or ex a ui that adds the classes in
-*/
 
-/* flex wrap*/
-.u-flex-nowrap{
-  -webkit-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-}
-.u-flex-wrap{
-  -webkit-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-/* flex justify */
-.u-flex-start{
-  -webkit-justify-content: flex-start;
-  justify-content: flex-start;
-}
-.u-flex-end{
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end;
-}
-.u-flex-center{
-  -webkit-justify-content: flex-center;
-  justify-content: flex-center;
-}
-.u-flex-space-between{
-  -webkit-justify-ncontent: space-between;
-  justify-content: space-between;
-}
-.u-flex-space-around{
-  -webkit-justify-ncontent: space-around;
-  justify-content: space-around;
-}
-/* flex direction. */
-.u-flex-row{
-  flex-direction: row;
-}
-.u-flex-row-reverse{
-  flex-direction: row-reverse;
-}
-.u-flex-column{
-  flex-direction: column;
-}
-.u-flex-column-reverse{
-  flex-direction: column-reverse;
-}
 /* flex items */
 .u-flex-align-start {
   align-items: flex-start;

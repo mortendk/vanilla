@@ -3,10 +3,10 @@
   // adds in a fixed position menu
   // css in page.css navigation fixed
   $(window).scroll(function() {
-    if( $(this).scrollTop() > $('.hero').height() ) {
-      $('.hero-nav').addClass('hero-nav--locked');
+    if( $(this).scrollTop() > $('.path-frontpage .hero-front').height() ) {
+      $('.path-frontpage .hero-nav').addClass('hero-nav--locked');
     } else {
-      $('.hero-nav').removeClass('hero-nav--locked');
+      $('.path-frontpage .hero-nav').removeClass('hero-nav--locked');
     }
   });
   // smooth scroll
@@ -24,6 +24,9 @@
             scrollTop: target.offset().top - $('.hero-nav').height()
           }, 1000);
           return false;
+
+
+
         }
       }
     });

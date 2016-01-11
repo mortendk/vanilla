@@ -1,0 +1,46 @@
+.comment{
+  padding-top: 1rem;
+  margin-top: 1rem;
+  border-top: 1px solid #eee;
+}
+
+.comment footer {
+  padding-top: 3rem;
+}
+
+.cal {
+  border:1px dotted lightblue;
+  border-radius: 3px;
+  width: 10rem;
+}
+  .cal__day {
+    color: blue;
+  }
+  .cal__date { font-size: 2rem}
+  .cal__month{ font-size: 1rem}
+  .cal__year{ font-size: 0.5}
+
+
+.comment__user{
+
+}
+.comment__user figure a{
+  display: flex;
+  align-self: center;
+}
+.comment__user .circle img {
+  border: 1px dotted #666;
+}
+
+/*
+@TODO: figure out where this class gets generated
+
+*/
+.indented {
+  margin-left: 2rem; /* LTR */
+  border-left: 10px solid #eee
+}
+[dir="rtl"] .indented {
+  margin-left: 0;
+  margin-right: 2rem;
+}

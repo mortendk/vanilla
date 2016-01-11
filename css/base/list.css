@@ -1,12 +1,35 @@
 /*
-## List
---------------------------------------
+#List
+
+list elements
+
+.list-inline - inline listing
+.list-circles - circles listing
+.list-underline - underlined listing
+
+ Markup:
+<ul class="$modifierClass">
+  <li>list item</li>
+  <li>list item</li>
+  <li>list item</li>
+  <li>list item</li>
+</ul>
+
+Styleguide 3.0..0 list
 */
-ul {
+ol, ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-li{
+.list-underline li{
+  border-bottom: 1px solid lightgray;
+}
 
+.list-inline li{
+  display: inline-block;
+}
+
+.list-circles li{
+  list-style: circle;
 }

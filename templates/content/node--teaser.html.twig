@@ -1,0 +1,42 @@
+{#
+'content-type-' ~ node.bundle|clean_class,
+node.isPromoted() ? 'node--promoted',
+node.isSticky() ? 'node--sticky',
+not node.isPublished() ? 'node--unpublished',
+view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+
+ #}
+{%
+  set classes = [
+    'u-hide-figcaption'
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
+  {{ content.field_image }}
+
+  {{ title_prefix }}
+    <h3{{ title_attributes }}> <a href="{{ url}}">{{ label }}</a></h3>
+  {{ title_suffix }}
+
+  {#
+    truncate
+    http://stackoverflow.com/questions/19491989/limit-string-twig
+    {{ content.field_teaser|truncate(200) }}
+    tried a halfassed with a config/vanila.config.yml but didnt bite, so readu up on that
+   #}
+   {{ content.field_teaser }}
+
+
+
+  <footer {{ author_attributes.addClass() }}>
+    {{ metadata }} {# pretty boring  metadata ;) #}
+    {{ author_name }} |
+    {{ node.createdtime|date("d.m.Y H:m") }}
+    {{ content.field_tags }}
+  </footer>
+
+  {{ content|without('field_image','field_teaser','links') }}
+
+</article>

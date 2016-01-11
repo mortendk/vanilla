@@ -49,3 +49,34 @@ grid.css
 ### theme
 typography.css
 colors.css
+
+
+/*
+#css file example
+
+Description of the buttons and that you can push em.
+
+.button—blue - the blue botton
+.button—green - the blue botton
+:hover - Highlight the button when hovered.
+
+Markup:
+<a href=“#” class=“button $modifierClass”>Link Button</a>
+<button class=“button $modifierClass”>Button Element</button>
+
+Styleguide 20.0
+*/
+.button {
+  border: 1px solid gray;
+  display: inline-block;
+  background: gray;
+}
+.button:hover {
+  background: red;
+}
+.button—blue {
+  background: lightblue;
+}
+.button—green {
+  background: green;
+}

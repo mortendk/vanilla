@@ -26,6 +26,11 @@ items: List of all the field items. Each item contains:
 {%
   set classes = [
     (bundle =='article') and (view_mode=="full") and (field_name=="field_image") ? 'hero__image' : '',
+    (bundle =='section') and (view_mode=="full") and (field_name=="field_image") ? 'hero__image' : '',
+    (bundle =='section') and (view_mode=="full") and (field_name=="field_icon") ? 'hero__icon' : '',
+    't-' ~ bundle,
+    't-' ~ view_mode,
+    't-' ~ field_name
   ]
 %}
 {%

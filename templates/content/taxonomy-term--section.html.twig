@@ -23,12 +23,11 @@
  * @see template_preprocess_taxonomy_term()
  */
 #}
-<article{{ attributes.addClas('l-fullwidth') }} class="l-fullwidth">
 
-  <h1 > {{ name }} </h1>
-
-  <div>
-    {{ content }}
-  </div>
-
+<article{{ attributes.addClas('l-fullwidth') }} class="hero">
+  <h1 class="shady hero__title"> {{ name }} </h1>
+  
+  {{ content.field_icon }}
+  {{ content.description }}
+  {{ content|without('description','field_icon') }}
 </article>

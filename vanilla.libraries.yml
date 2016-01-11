@@ -10,21 +10,26 @@ global:
   css:
     base:
       css/base/base.css: { weight: -21}
-      css/base/image.css: {}
+      css/base/image.css: { }
       css/base/list.css: { }
-      # css/base/form.css: { }
-      # css/base/image.css: { }
+      css/base/form.css: { }
+      css/base/image.css: { }
+      css/base/nav.css: { }
     layout:
-      css/layout/grid.css: {}
+      css/layout/layout.css: {}
       css/layout/page.css: {}
+      css/layout/grid.css: {}
     component:
-      # css/component/header.css: {}
+      # css/component/component.css: {}
       css/component/menu.css: {}
       css/component/comment.css: {}
-      css/hero.css: {}
-
+      css/component/hero.css: { }
+      css/component/login.css: { }
+      css/component/messages.css: { }
+      css/component/pager.css: { }
+      css/component/breadcrumb.css: { }
     state:
-      # css/state/header.css: {}
+      # css/state/stats.css: {}
     theme:
       fonts/titillium.css: {}
       fonts/opensans.css: {}

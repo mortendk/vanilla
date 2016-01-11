@@ -17,8 +17,14 @@
 </div>
 {% endif %}
 
-<header role="banner" class="hero-nav " id="mainmenu">
   {# @TODO: this can be done way better  #}
+{% if is_front %}
+<header role="banner" class="hero-nav " id="mainmenu">
+{% else %}
+<header role="banner" class="hero-nav hero-nav--locked" id="mainmenu">
+{% endif %}
+
+
   <div class="header-first">
     {{ page.logo }}
   </div>

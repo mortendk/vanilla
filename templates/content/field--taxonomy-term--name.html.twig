@@ -1,7 +1,7 @@
 {#
 ------------------------------------
 Template for field type:
-Text (formatted, long)
+Text (plain)
 ---------------------------------
 #}
 
@@ -19,13 +19,20 @@ items: List of all the field items. Each item contains:
 {{field_name}}: The name of the field.
 {{field_type}}: The type of the field.
 {{label_display}}: The display settings for the label.
-{{ view_mode }} : viewmode
-{{ bundle }} : content type
+orignal
+{%
+ set classes = [
+   'field',
+   'field--name-' ~ field_name|clean_class,
+   'field--type-' ~ field_type|clean_class,
+   'field--label-' ~ label_display,
+ ]
+%}
 #}
 
 {%
   set classes = [
-    (bundle =='article') and (view_mode=="full") and (field_name =="field_teaser") ? 'f-bold' : '',
+    'field-type-' ~ field_type|clean_class,
   ]
 %}
 {%
@@ -34,13 +41,20 @@ items: List of all the field items. Each item contains:
   ]
 %}
 
+{#
+  Renders a field in 4 different versions:
+  multiple - lable hidden
+  single - lable hidden
+  multple label shown
+  single label shown
+#}
 
 {% if label_hidden %}
   {# --Multiple & no label  ------------------------------------------------- #}
   {% if multiple %}
-    <ul{{ attributes.addClass(classes) }}>
+    <ul{{ attributes.addClass(classes, 'field__items') }}>
       {% for item in items %}
-        <li{{ item.attributes }}>{{ item.content }}</li>
+        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
       {% endfor %}
     </ul>
   {# /--Multiple & no label  ------------------------------------------------ #}
@@ -49,7 +63,7 @@ items: List of all the field items. Each item contains:
 
   {# --single & no label  --------------------------------------------------- #}
   {% for item in items %}
-    <div{{ attributes.addClass(classes) }}>{{ item.content }}</div>
+    {{ item.content }}
   {% endfor %}
   {# / --single & no label  ------------------------------------------------- #}
 
@@ -59,11 +73,11 @@ items: List of all the field items. Each item contains:
   {# Show label #}
   {% if multiple %}
   {#  multiple with label ----------------------------------------------------#}
-    <section{{ attributes }}>
-      <h3{{ title_attributes }}>{{ label }}</h3>
-      <ul>
+    <section{{ attributes.addClass(classes) }}>
+      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      <ul class='field__items'>
       {% for item in items %}
-        <li{{ item.attributes }}>{{ item.content }}</li>
+        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
       {% endfor %}
       </ul>
     </section>
@@ -71,12 +85,12 @@ items: List of all the field items. Each item contains:
   {% else %}
 
   {# single with label ------------------------------------------------------ #}
-    <div{{ attributes.addClass(classes) }}>
+    <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
       {% for item in items %}
-        <div{{ item.attributes }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
       {% endfor %}
-    </div>
+    </section>
   {% endif %}
 
 {% endif %}

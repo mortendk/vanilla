@@ -52,9 +52,9 @@ orignal
 {% if label_hidden %}
   {# --Multiple & no label  ------------------------------------------------- #}
   {% if multiple %}
-    <ul{{ attributes.addClass(classes, 'field__items') }}>
+    <ul{{ attributes.addClass(classes) }}>
       {% for item in items %}
-        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
+        <li{{ item.attributes }}>{{ item.content }}</li>
       {% endfor %}
     </ul>
   {# /--Multiple & no label  ------------------------------------------------ #}

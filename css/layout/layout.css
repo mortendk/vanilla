@@ -1,0 +1,337 @@
+/*
+Layout
+*/
+.l-fullwidth {
+  width: 100%;
+}
+/* Sets a page width for different screensizes */
+.l-pagewidth {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media screen (min-width: 601px) and (max-width: 768px) {
+  .l-pagewidth {
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  .l-pagewidth {
+    max-width: 1400px;
+  }
+}
+@media screen and (min-width: 1401px) {
+  .l-pagewidth {
+    max-width: 1400px;
+  }
+}
+
+/*
+#Layout sizes
+
+each "grid" is written  l-[context]-size
+
+.l-12-1  - 1 wide
+.l-12-2  - 2 wide
+.l-12-3  - 3 wide
+.l-12-4  - 4 wide
+.l-12-5  - 5 wide
+.l-12-6  - 6 wide
+.l-12-7  - 7 wide
+.l-12-8  - 8 wide
+.l-12-9  - 9 wide
+.l-12-10  - 10 wide
+.l-12-11  - 11 wide
+.l-12-12  - 2 wide
+
+markup:
+<div class="_test l-pagewidth">
+  <div class="l-row _test">
+    <div class="l-12-1">1</div>
+    <div class="l-12-1">2</div>
+    <div class="l-12-1">3</div>
+    <div class="l-12-1">4</div>
+    <div class="l-12-1">5</div>
+    <div class="l-12-1">6</div>
+    <div class="l-12-1">7</div>
+    <div class="l-12-1">8</div>
+    <div class="l-12-1">9</div>
+    <div class="l-12-1">10</div>
+    <div class="l-12-1">11</div>
+    <div class="l-12-1">12</div>
+    <div class="$modifierClass _test _testmodified">test</div>
+    <div class="l-12-1">1</div>
+    <div class="l-12-1">2</div>
+    <div class="l-12-1">3</div>
+    <div class="l-12-1">4</div>
+    <div class="l-12-1">5</div>
+    <div class="l-12-1">6</div>
+  </div>
+</div>
+
+Styleguide layout
+*/
+
+/* flex row */
+.l-row {
+  display: flex;
+  flex-direction: row;
+  min-height: 50px;
+
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+/*  l-[context]-size */
+.l-12-1 {
+  flex: 0 1 8.33%;
+}
+.l-12-2 {
+  flex: 0 1 16.66%;
+}
+.l-12-3 {
+  flex: 0 1 25%;
+}
+.l-12-4 {
+  flex: 0 1 33.32%;
+}
+.l-12-5 {
+  flex: 0 1 41.65%;
+}
+.l-12-6 {
+  flex: 0 1 50%;
+}
+.l-12-7 {
+  flex: 0 1 58.31%;
+}
+.l-12-8 {
+  flex: 0 1 66.66%;
+}
+.l-12-9 {
+  flex: 0 1 74.97%;
+}
+.l-12-10 {
+  flex: 0 1 83.3%;
+}
+.l-12-11 {
+  flex: 0 1 91.63%;
+}
+.l-12-12 {
+  flex: 0 1 100%;
+}
+
+/*
+#Layout sizes margin
+
+each "grid" is written  l-[context]-size margin
+
+.l-12-1  - 1 wide
+.l-12-2  - 2 wide
+.l-12-3  - 3 wide
+.l-12-4  - 4 wide
+.l-12-5  - 5 wide
+.l-12-6  - 6 wide
+.l-12-7  - 7 wide
+.l-12-8  - 8 wide
+.l-12-9  - 9 wide
+.l-12-10  - 10 wide
+.l-12-11  - 11 wide
+.l-12-12  - 2 wide
+
+markup:
+<div class="l-row l-row--margin _test">
+  <div class="l-12-1">1</div>
+  <div class="l-12-1">2</div>
+  <div class="l-12-1">3</div>
+  <div class="l-12-1">4</div>
+  <div class="l-12-1">5</div>
+  <div class="l-12-1">6</div>
+  <div class="l-12-1">7</div>
+  <div class="l-12-1">8</div>
+  <div class="l-12-1">9</div>
+  <div class="l-12-1">10</div>
+  <div class="l-12-1">11</div>
+  <div class="l-12-1">12</div>
+  <div class="$modifierClass _test _testmodified">test</div>
+  <div class="l-12-1">1</div>
+  <div class="l-12-1">2</div>
+  <div class="l-12-1">3</div>
+  <div class="l-12-1">4</div>
+  <div class="l-12-1">5</div>
+  <div class="l-12-1">6</div>
+</div>
+
+Styleguide layout 2
+*/
+.l-row--margin > div {
+  margin: 0 7px;
+}
+.l-row--margin .l-12-1 {
+  flex: 0 1 calc(8.33% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-2 {
+  flex: 0 1 calc(16.66% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-3 {
+  flex: 0 1 calc(25% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-4 {
+  flex: 0 1 calc(33.32% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-5 {
+  flex: 0 1 calc(41.65% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-6 {
+  flex: 0 1 calc(50% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-7 {
+  flex: 0 1 calc(58.31% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-8 {
+  flex: 0 1 calc(66.66% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-9 {
+  flex: 0 1 calc(74.97% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-10 {
+  flex: 0 1 calc(83.3% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-11 {
+  flex: 0 1 calc(91.63% - 14px);
+  margin: 0 7px;
+}
+.l-row--margin .l-12-12 {
+  flex: 0 1 calc(100% - 14px);
+  margin: 0 7px;
+}
+
+
+/*
+#Layout helpers
+
+layout helpers to align items the right way, required the layout baseselectors with variations.
+
+.layout--left - selector description
+.layout--right - selector description
+.layout--center - selector description
+.layout--vertical - vertical list
+.layout--vertical-reverse - vertical reverse
+.layout--horizontal - horizontal list
+.layout--horizontal-reverse - horizontal list
+.layout--space-between - sepeta with space between
+.layout--space-around - space around the elements
+
+Markup:
+  <ul class="layout $modifierClass _testbg">
+    <li class="_testwidth">1</li>
+    <li class="_testwidth">2</li>
+    <li class="_testwidth">3</li>
+    <li class="_testwidth">4</li>
+    <li class="_testwidth">5</li>
+    <li class="_testwidth">6</li>
+  </ul>
+
+Styleguide layout 3.0.0
+*/
+.layout {
+  display: -webkit-flex;
+  display:         flex;
+          flex-direction: row;
+  -webkit-flex-direction: row;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  align-items: stretch;          
+}
+
+.layout--nowrap {
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+}
+
+.layout--left {
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+}
+
+.layout--right {
+  -webkit-justify-content: flex-end;
+          justify-content: flex-end;
+}
+.layout--center {
+  flex-wrap: wrap;
+  -webkit-justify-content: center;
+          justify-content: center;
+}
+
+/* spacing*/
+.layout--space-between {
+  -webkit-justify-ncontent: space-between;
+  justify-content: space-between;
+}
+.layout--space-around {
+  -webkit-justify-ncontent: space-around;
+  justify-content: space-around;
+}
+
+/* layout direction */
+.layout--vertical {
+          flex-direction: row;
+  -webkit-flex-direction: row;
+}
+.layout--vertical-reverse {
+          flex-direction: row-reverse;
+  -webkit-flex-direction: row-reverse;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+
+}
+.layout--horizontal {
+          flex-direction: column;
+  -webkit-flex-direction: colum;
+}
+.layout--horizontal-reverse {
+          flex-direction: column-reverse;
+  -webkit-flex-direction: column-reverse;
+}
+
+
+
+
+/* For test using */
+._testbg{
+  background: hotpink;
+}
+._testwidth {
+  width: 10%;
+  background: #f3f3f3;
+  border:1px solid lightgray;
+  text-align: center;
+}
+
+.l-pagewidth._test {
+  background: #f3f3f3;
+}
+.l-row._test {
+  text-align: center;
+}
+.l-row._test .l-12-1,
+.l-row._test ._test {
+  margin-bottom: 2px;
+  border-right: 1px solid lightgray;
+  background: #e1e1e1;
+  color: #999;
+}
+.l-row._test ._testmodified {
+  background: hotpink;
+  color: black;
+}
