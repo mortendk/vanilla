@@ -9,9 +9,9 @@
       $('.path-frontpage .hero-nav').removeClass('hero-nav--locked');
     }
   });
+
   // smooth scroll
   $(function() {
-    // console.log( $('.hero-nav').height());
 
     $('a[href*=#]:not([href=#])').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -21,7 +21,7 @@
         if (target.length) {
           $('html,body').animate({
             // calculates hero-nav height
-            scrollTop: target.offset().top - $('.hero-nav').height()
+            scrollTop: target.offset().top - $('.hero-nav--locked').height()
           }, 1000);
           return false;
 

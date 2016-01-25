@@ -35,7 +35,7 @@ markup:
   </div>
 </div>
 
-Styleguide layout 3
+Styleguide layout 3.0.0
 */
 
 .tiles._test .tile {
@@ -200,28 +200,4 @@ tile widths
 .tile--1,
 .tile--full {
   flex: 0 1 calc(100% - 14px);
-}
-
-
-
-/*
-@TODO: do we need this in a lean mean system ?
-*/
-
-
-/* flex items */
-.u-flex-align-start {
-  align-items: flex-start;
-}
-.u-flex-align-end {
-  align-items: flex-end;
-}
-.u-flex-align-center {
-  align-items: center;
-}
-.u-flex-align-baseline {
-  align-items: baseline;
-}
-.u-flex-align-stretch {
-  align-items: stretch;
 }

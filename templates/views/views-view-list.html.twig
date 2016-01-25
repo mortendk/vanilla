@@ -31,21 +31,25 @@
     not a config thing
     @TODO:  list.attributes.addClass('tiles') dont seems
   #}
-  <{{ list.type }}{{ list.attributes.addClass('tiles') }} class="tiles">
+  <{{ list.type }} class="layout-pagewidth layout">
 
     {# for loop #}
     {% for row in rows %}
+      {# first #}
       {% if loop.first %}
-        <li{{ row.attributes.addClass('tile','tile--2') }}>{{ row.content }}</li>
+        <li{{ row.attributes.addClass('width-half', 'width-full@s') }}>{{ row.content }}</li>
       {% elseif loop.index <= "3" %}
-        <li{{ row.attributes.addClass('tile','tile--4') }}>{{ row.content }}</li>
+      {# under 3 #}
+        <li{{ row.attributes.addClass('width-fourth', 'width-half@s') }}>{{ row.content }}</li>
       {% elseif (loop.index >= "4") and (loop.index <= "5") %}
-        <li{{ row.attributes.addClass('tile','tile--4') }}>{{ row.content }}</li>
+      {# 4 + 5 #}
+        <li{{ row.attributes.addClass('width-fourth') }}>{{ row.content }}</li>
       {% elseif loop.index == "6" %}
-        <li{{ row.attributes.addClass('tile','tile--2') }}>{{ row.content }}</li>
+      {# 6 #}
+        <li{{ row.attributes.addClass('width-half') }}>{{ row.content }}</li>
       {% else %}
-        {# default #}
-        <li{{ row.attributes.addClass('tile','tile--4') }}>{{ row.content }}</li>
+      {# default #}
+        <li{{ row.attributes.addClass('width-fourth') }}>{{ row.content }}</li>
       {% endif %}
     {% endfor %}
 

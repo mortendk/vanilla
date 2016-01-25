@@ -16,11 +16,44 @@
   color: black;
   cursor: pointer;
   transition: top 0.5s ease;
+  border-bottom: 3px solid gray;
 }
 .admin-toggle:hover {
-  background: gray;
-  /*top: 0px;*/
+  background-color: seashell;
 }
+.admin-toggle::before {
+  position: fixed;
+  z-index: 999999;
+  width: 100%;
+  text-align: center;
+  padding-left: 35px;
+  font-size: 12px;
+  line-height: 35px;
+  color: grey;
+}
+
+/* add mediaquery size */
+@media (max-width: 768px) {
+  .admin-toggle{ border-color: coral; }
+  .admin-toggle:hover { background-color: coral; }
+  .admin-toggle::before{ content: "small";}
+}
+@media (min-width: 768px) {
+  .admin-toggle{ border-color: saddlebrown; }
+  .admin-toggle:hover { background-color: saddlebrown; }
+  .admin-toggle::before{ content: "medium";}
+}
+@media (min-width: 992px) {
+  .admin-toggle{ border-color: mediumseagreen; }
+  .admin-toggle:hover { background-color: mediumseagreen; }
+  .admin-toggle::before{ content: "large";}
+}
+@media (min-width: 1200px) {
+  .admin-toggle{ border-color: Cadetblue; }
+  .admin-toggle:hover { background-color: Cadetblue; }
+  .admin-toggle::before{ content: "xlarge";}
+}
+
 .admin-toggle i {
   display: block;
   width: 20px;

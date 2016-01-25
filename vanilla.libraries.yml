@@ -34,7 +34,8 @@ global:
       fonts/titillium.css: {}
       fonts/opensans.css: {}
       css/theme/typography.css: {}
-      # css/theme/color.css: {}
+      css/theme/color.css: {}
+
       # external css files { type: external }
       # http://fonts.googleapis.com/css?family=Roboto:300,400,500,700: { type: external }
       # print

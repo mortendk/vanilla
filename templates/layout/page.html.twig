@@ -11,25 +11,26 @@
 
 {# Hero and navigation #}
 {% if is_front %}
-<div class="hero-front" id="top">
-  <h1 class="shady">Drupal 8 is pretty sweeeeeeet </h1>
-   <a href="#mainmenu">Go!</a>
+<div class="layout layout--center-middle height-full height-half@s t-hero-front" id="top">
+  {# we should write this as some code yo #}
+  <a href="#mainmenu">
+    <h1>mortendk</h1>
+    <h2>#bada55 Drupal Webdesigner</h2>
+    <div class="">arrow down</div>
+  </a>
 </div>
-{% endif %}
-
-  {# @TODO: this can be done way better  #}
-{% if is_front %}
 <header role="banner" class="hero-nav " id="mainmenu">
 {% else %}
 <header role="banner" class="hero-nav hero-nav--locked" id="mainmenu">
 {% endif %}
 
-
-  <div class="header-first">
-    {{ page.logo }}
-  </div>
-  <div class="header-last">
-  {{ page.header }}
+  <div class="layout layout--nomargin">
+    <div class="width-2">
+      {{ page.logo }}
+    </div>
+    <div class="width-10">
+    {{ page.header }}
+    </div>
   </div>
 
 </header>
@@ -42,13 +43,13 @@
   {{ page.content }}
 
   {% if page.sidebar_first %}
-    <aside class="" role="complementary">
+    <aside role="complementary">
       {{ page.sidebar_first }}
     </aside>
   {% endif %}
 
   {% if page.sidebar_second %}
-    <aside class="" role="complementary">
+    <aside role="complementary">
       {{ page.sidebar_second }}
     </aside>
   {% endif %}

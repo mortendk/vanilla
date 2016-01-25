@@ -3,13 +3,14 @@
 
 documentation
 
-.selector - selector description
-
  Markup:
 <nav class="$modifierClass">
-<ul>
-<li>
-
+  <ul>
+    <li><a href="#">item 1</a></li>
+    <li><a href="#">item 2</a></li>
+    <li><a href="#">item 3</a></li>
+    <li><a href="#">item 3</a></li>
+  </ul>
 </nav>
 
 Styleguide 4.0.0 Navigation
