@@ -1,0 +1,7 @@
+/* bree-serif */
+@font-face {
+  font-family: 'bree-serif';
+  src:  url('../fonts/bree-serif/BreeSerif-Regular.otf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}

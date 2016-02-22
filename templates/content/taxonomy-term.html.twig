@@ -23,13 +23,19 @@
  * @see template_preprocess_taxonomy_term()
  */
 #}
-<div{{ attributes}}>
-  {{ title_prefix }}
 
-  {% if not page %}
-    <h2><a href="{{ url }}">{{ name }}</a></h2>
-  {% endif %}
+<article{{ attributes.addClas('l-fullwidth') }}>
 
-  {{ title_suffix }}
-  {{ content }}
-</div>
+  <div class="hero hero--half">
+    {{ title_prefix }}
+      <h1{{ title_attributes.addClass('hero__title') }}>{{ name }}</h1>
+    {{ title_suffix }}
+
+    {{ content.field_image }}
+    {{ content.description }}
+  </div>
+
+
+
+
+</article>

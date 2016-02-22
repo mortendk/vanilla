@@ -10,7 +10,7 @@ description: 'a vanilla theme with som morten flavour'
 # basetheme: false
 # will  use core template, that can and will change so use it with caution
 # templates are in core/[modulename]/templates ... go get em comwboy
-base theme: stable
+base theme: stable #stable / class / false
 core: 8.x
 screenshot: screenshot.png # yes animated gifs for the preview page (admin/appearance)
 

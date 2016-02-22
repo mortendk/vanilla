@@ -104,6 +104,7 @@ detect on first loop and if a class is in attributes
     'item--' ~ cycle(["green", "gold", "white"], loop.index),
     loop.first ? 'first-class',
     item.attribute.hasClass('is-this-class-here') ? 'ok-use-this':'not-there-use-this',
+    isthistrue ? 'nopre' : 'yep',
   ]
 %}
 {# @TODO can hasClass  be used for ex: hasAttribute ? #}
@@ -132,3 +133,13 @@ detect on first loop and if a class is in attributes
 
 <img {% set image = 'https://www.drupal.org/files/powered-blue-135x42.png' %}>
 <img setAttribute('src', image) }}>
+
+{# ----------- give giedls more brains -------------------------------------- #}
+
+
+template suggestions:
+basetheme define first so if it loads a template name suggestions thats "higer"
+in the chain that will "override" your template.
+ex:
+x field--node--uid.html.twig (gets loaded in stable)
+* field--uid.html.twig' (overwrites this template even if its in your theme)

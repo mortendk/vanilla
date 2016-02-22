@@ -1,49 +1,60 @@
-body{
-  font-family: opensans, sans-serif;;
-  font-weight: 500;
+body {
+  color: #666;
+  font-family: "opensans", sans-serif;
+  font-size: 18px;
+  font-weight: 500;;
 }
 
-
-h1,h2,h3,h4 {
-  font-family: "titillium", sans-serif;
-  font-weight: 700;
-  color: #666;
+h1,
+h2,
+h3,
+h4 {
   margin: 0;
   padding: 0;
-  line-height:1;
+  color: #666;
+  font-family: "bitter", sans-serif;
+  font-weight: 300;
+  line-height: 1;
 }
-h1 { font-size: 5rem; }
-h2 { font-size: 3rem; }
-h3 { font-size: 2rem; }
-h4 { font-size: 1.5rem; }
-
-/* this is not good as we also have this in teasers of the story*/
-.f-bold {
-  font-weight: 700;
+h1 {
+  font-size: 5rem;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 2rem;
+}
+h4 {
   font-size: 1.5rem;
-  list-style: 2rem;
-  color: black;
 }
 
-.u-small {
+
+.f-small {
   font-size: 0.7rem;
 }
+.f-small h3 {
+  font-size: 1rem;
+}
+
+.f-medium {
+}
+.f-large {
+}
+
+.f-cap {
+}
+.f-cap::first-letter {
+  color: red;
+  font-family: "Bitter",serif;
+  font-size: 4rem;
+}
 
 
-
-/* style variations*/
-.shady {
-  color: white;
-  text-shadow: 0 1px 0 #ccc,
-                0 2px 0 #c9c9c9,
-                0 3px 0 #bbb,
-                0 4px 0 #b9b9b9,
-                0 5px 0 #aaa,
-                0 6px 1px rgba(0,0,0,0.1),
-                0 0 5px rgba(0,0,0,0.1),
-                0 1px 3px rgba(0,0,0,0.3),
-                0 3px 5px rgba(0,0,0,0.2),
-                0 5px 10px rgba(0,0,0,0.25),
-                0 10px 10px rgba(0,0,0,0.2),
-                0 20px 20px rgba(0,0,0,0.15);
+/* f- font size variations */
+.f-bold {
+  list-style: 2rem;
+  color: black;
+  font-size: 3rem;
+  font-weight: 500;
 }

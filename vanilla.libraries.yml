@@ -31,11 +31,16 @@ global:
     state:
       # css/state/stats.css: {}
     theme:
+      fonts/bitter.css: {}
+      fonts/bree-serif.css: {}
+      fonts/droid-sans-mono.css: {}
+      fonts/lato.css: {}
       fonts/titillium.css: {}
       fonts/opensans.css: {}
+      css/theme/icon.css: {}
       css/theme/typography.css: {}
       css/theme/color.css: {}
-
+      # http://fonts.googleapis.com/css?family=Loved+by+the+King: { type: external }
       # external css files { type: external }
       # http://fonts.googleapis.com/css?family=Roboto:300,400,500,700: { type: external }
       # print

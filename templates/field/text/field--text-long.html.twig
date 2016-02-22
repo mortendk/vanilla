@@ -1,47 +1,11 @@
-{#
-------------------------------------
-Template for field type:
-
----------------------------------
-
-Field template sugestions pattern:
-
-field--[content-type(node/comment/block) ]---field-[field-name]--[name-of-content-type].html.twig
-field--[content-type(node/comment/block) ]---field-[field-name].html.twig
-field--[content-type(node/comment/block) ]--[name-of-content-type].html.twig
-field--field-[field-name].html.twig
-field--[type].html.twig
-field.html.twig
-
-#}
-
-{#
-Available variables:
-{{attributes}}: HTML attributes for the containing element.
-{{label_hidden}}: Whether to show the field label or not.
-{{title_attributes}}: HTML attributes for the title.
-{{label}}: The label for the field.
-multiple: TRUE if a field can contain multiple items.
-items: List of all the field items. Each item contains:
-  - attributes: List of HTML attributes for each item.
- - content: The field item's content.
-{{entity_type}}: The entity type to which the field belongs.
-{{field_name}}: The name of the field.
-{{field_type}}: The type of the field.
-{{label_display}}: The display settings for the label.
---------------------------------------------------------------------------------
-#}
-
-{# For really easy debiggin we add a bunch of _t- classes with info #}
 {%
   set classes = [
-    'type-' ~ field_type|clean_class,
+    (bundle =='article') and (view_mode=="full") and (field_name=="field_teaser") ? 'hero__text' : '',
+    (bundle =='article') and (view_mode=="full") and (field_name=="field_content") ? 'f-cap' : '',
     '_t-' ~ bundle,
     '_t-' ~ view_mode,
     '_t-' ~ field_name,
     '_t-' ~ field_type,
-    label_hidden ? '_t-label-false' : '_t-label-true',
-    multiple ? '_t-multiple-true' : '_t-multiple-false',
   ]
 %}
 {%
@@ -49,14 +13,6 @@ items: List of all the field items. Each item contains:
     label_display == 'visually_hidden' ? 'visually-hidden',
   ]
 %}
-
-{#
-  Renders a field in 4 different versions:
-  multiple - lable hidden
-  single - lable hidden
-  multple label shown
-  single label shown
-#}
 
 {% if label_hidden %}
   {# --Multiple & no label  ------------------------------------------------- #}

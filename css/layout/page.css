@@ -11,12 +11,7 @@ main{
   /*padding-top: 55px;*/
 }
 
-/* @TODO : this is some sloppy ass css morten... */
-.header-first{
-  width: 10%;
-  float:left;
-}
-.header-last{
-  width: 90%;
-  float:left;
+/* fix for free floating h1 on help pages*/
+main h1{
+  padding-top: 50px
 }

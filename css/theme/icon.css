@@ -1,0 +1,28 @@
+.icon {
+  display: inline-block;
+  text-indent: -9999px;
+  width: 24px;
+  height: 24px;
+}
+.icon--s {
+  width: 18px;
+  height: 18px;
+}
+.icon--m {
+  width: 20px;
+  height: 20px;
+}
+.icon--l {
+  width: 64px;
+  height: 64px;
+}
+
+.icon--date{
+  background: transparent url('../../icons/badges_badge-6.svg') no-repeat;
+  background-size: cover;
+}
+
+.icon--badge-retro{
+  background: transparent url('../../icons/badges_retro-badge.svg') no-repeat;
+  background-size: cover;
+}

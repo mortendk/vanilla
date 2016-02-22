@@ -39,15 +39,15 @@ Links
 Styleguide 1.0.1 base
 */
 a {
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:hover {
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:active {
   text-decoration: underline;
 }
 /* All links added from the content fields */
-main a[href]:not([class]) {
+/*main a[href]:not([class]) {
   text-decoration: underline;
-}
+}*/

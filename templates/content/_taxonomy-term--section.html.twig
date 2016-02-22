@@ -24,4 +24,10 @@
  */
 #}
 
-{{ content }}
+<article{{ attributes.addClas('l-fullwidth','') }} class="hero">
+  <h1 class="hero__title"> {{ name }} </h1>
+
+  {{ content.field_icon }}
+  {{ content.description }}
+  {{ content|without('description','field_icon') }}
+</article>

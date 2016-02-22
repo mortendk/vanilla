@@ -1,38 +1,11 @@
-{#
-------------------------------------
-Template for field type:
-entitiy references
----------------------------------
-#}
-
-{#
-Available variables:
-{{attributes}}: HTML attributes for the containing element.
-{{label_hidden}}: Whether to show the field label or not.
-{{title_attributes}}: HTML attributes for the title.
-{{label}}: The label for the field.
-multiple: TRUE if a field can contain multiple items.
-items: List of all the field items. Each item contains:
-  - attributes: List of HTML attributes for each item.
- - content: The field item's content.
-{{entity_type}}: The entity type to which the field belongs.
-{{field_name}}: The name of the field.
-{{field_type}}: The type of the field.
-{{label_display}}: The display settings for the label.
-orignal
-{%
- set classes = [
-   'field',
-   'field--name-' ~ field_name|clean_class,
-   'field--type-' ~ field_type|clean_class,
-   'field--label-' ~ label_display,
- ]
-%}
-#}
-
 {%
   set classes = [
-    'field-type-' ~ field_type|clean_class,
+    '_t-' ~ bundle,
+    '_t-' ~ view_mode,
+    '_t-' ~ field_name,
+    '_t-' ~ field_type,
+    label_hidden ? '_t-label-false' : '_t-label-true',
+    multiple ? '_t-multiple-true' : '_t-multiple-false',
   ]
 %}
 {%
@@ -54,7 +27,7 @@ orignal
   {% if multiple %}
     <ul{{ attributes.addClass(classes) }}>
       {% for item in items %}
-        <li{{ item.attributes }}>{{ item.content }}</li>
+        <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
       {% endfor %}
     </ul>
   {# /--Multiple & no label  ------------------------------------------------ #}
@@ -63,7 +36,9 @@ orignal
 
   {# --single & no label  --------------------------------------------------- #}
   {% for item in items %}
-    <div{{ attributes.addClass(classes, 'field__item') }}>{{ item.content }}</div>
+    <div{{ attributes.addClass(classes) }}>
+    {{ item.content }}
+  </div>
   {% endfor %}
   {# / --single & no label  ------------------------------------------------- #}
 
@@ -75,9 +50,9 @@ orignal
   {#  multiple with label ----------------------------------------------------#}
     <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
-      <ul class='field__items yo-for-fuck-sake-theres-only-one'>
+      <ul>
       {% for item in items %}
-        <li{{ item.attributes.addClass('field__item') }}>{{ item.content }}</li>
+        <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
       {% endfor %}
       </ul>
     </section>
@@ -88,7 +63,7 @@ orignal
     <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
       {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>{{ item.content }}</div>
+        <div{{ item.attributes.addClass() }}>{{ item.content }}</div>
       {% endfor %}
     </section>
   {% endif %}
