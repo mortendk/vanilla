@@ -45,7 +45,7 @@ h4 {
 .f-cap {
 }
 .f-cap::first-letter {
-  color: red;
+  color: #333;
   font-family: "Bitter",serif;
   font-size: 4rem;
 }

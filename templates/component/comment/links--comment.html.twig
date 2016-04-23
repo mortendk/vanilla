@@ -1,0 +1,27 @@
+
+{% if links -%}
+  {%- if heading -%}
+    {%- if heading.level -%}
+      <{{ heading.level }}{{ heading.attributes }}>{{ heading.text }}</{{ heading.level }}>
+    {%- else -%}
+      <h2{{ heading.attributes }}>{{ heading.text }}</h2>
+    {%- endif -%}
+  {%- endif -%}
+
+  {# wtf drupal why you bring me classes i dont want ? #}
+  <nav class="menu-h">
+    <ul{{ attributes.removeClass('links','inline')}}>
+      {%- for key, item in links -%}
+        <li{{ item.attributes.addClass(key|clean_class) }}>
+          {%- if item.link -%}
+            {{ item.link }}
+          {%- elseif item.text_attributes -%}
+            <span{{ item.text_attributes }}>{{ item.text }}</span>
+          {%- else -%}
+            {{ item.text }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+{%- endif %}

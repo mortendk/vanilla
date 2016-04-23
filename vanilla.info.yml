@@ -28,6 +28,20 @@ libraries:
   # -------------------------------
   # Replace an entire library.
   #core/drupal.collapse: mytheme/collapse
+# ------------------------------------------------------------------------------
+# libraries-extend:
+  # classy/forums:
+  #   - mythemename/messages
+
+# libraries-override:
+  # library/name: false
+
+# libraries-override:
+#   system/maintenance:
+#     css:
+#       theme:
+#         # Replace the System module's maintenance CSS file with a custom one.
+#         css/system.maintenance.css: css/maintenance.css
 
   # Replace an asset with another.
   # subtheme/library:
@@ -85,3 +99,6 @@ regions:
   sidebar_first: Sidebar First
   sidebar_second: Sidebar Second
   footer: Footer
+  footer_first: Footer First
+  footer_second: Footer Second
+  footer_last: Footer Last

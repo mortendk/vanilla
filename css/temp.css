@@ -20,12 +20,9 @@ _theisiahack{
 
 }
 */
-
 .metadata{
-  padding: 10px;
-  border-bottom: 1px solid #ddd
+  padding: 20px 0
 }
-
 
 .u-inline-list{
   background: red;
@@ -39,6 +36,9 @@ _theisiahack{
   display: none;
 }
 
+.u-small{
+  font-size: 0.7rem;
+}
 /**
  * Outline all Hack classes.
  */

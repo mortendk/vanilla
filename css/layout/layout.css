@@ -1,6 +1,122 @@
 /*
 Layout
+
+* layout - general layout classes
+* layout-width - width for the layout
+* item width's
+
+
+.layout layout--width-n  pagewidth / fullwidth ?
+
+  .width-n .width-n .width-n
+
+
+
+
+
 */
+
+/* Set widths for a layouts  */
+/*
+#Width
+
+fullpage & page widths defined
+
+.layout-fullwidth - the full width
+.layout-pagewidth - the main content, use the name page for it.
+
+Styleguide layout 1.0.0
+*/
+
+/* Sets a "page" width*/
+/*.pagewidth {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+@media screen (min-width: 601px) and (max-width: 768px) {
+  .pagewidth {
+    max-width: 768px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  .pagewidth {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 1401px) {
+  .pagewidth {
+    max-width: 960px;
+  }
+}*/
+
+.pagewidth {
+  width: 100%;
+  padding: 0 10px;
+}
+@media screen and (min-width: 601px) and (max-width: 768px) {
+  .pagewidth {
+    padding: 0 20px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  .pagewidth {
+    padding: 0 calc( (100% - 960px) / 2 );
+  }
+}
+@media screen and (min-width: 1401px) {
+  .pagewidth {
+    padding: 0 calc( (100% - 960px) / 2 );
+  }
+}
+
+.layout--width-25 {
+  max-width: 50%;
+  margin: 0 auto;
+}
+.layout--width-50 {
+  max-width: 50%;
+  margin: 0 auto;
+}
+.layout--width-75 {
+  max-width: 50%;
+  margin: 0 auto;
+}
+/* Sets a page width for different screensizes */
+@media screen (min-width: 601px) and (max-width: 768px) {
+  .layout--width-25 {
+    max-width: 50%;
+  }
+  .layout--width-50 {
+    max-width: 50%;
+  }
+  .layout--width-75 {
+    max-width: 75%;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1400px) {
+  .layout--width-25 {
+    max-width: 25%;
+  }
+
+  .layout--width-50 {
+    max-width: 50%;
+  }
+  .layout--width-75 {
+    max-width: 75%;
+  }
+}
+@media screen and (min-width: 1401px) {
+  .layout--width-50 {
+    max-width: 50%;
+  }
+  .layout--width-75 {
+    max-width: 75%;
+  }
+}
+
+
+
 
 /*
 #Layout helpers
@@ -47,17 +163,51 @@ Styleguide layout 4.0.0
   align-items: stretch;
   align-content: flex-start;
 }
+.layout-center {
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+          justify-content: center;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.layout-center-middle {
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+          justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.layout-nowrap {
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+          flex-wrap: nowrap;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
 
 .layout--nowrap {
   -webkit-flex-wrap: nowrap;
           flex-wrap: nowrap;
 }
-
 .layout--left {
   -webkit-justify-content: flex-start;
           justify-content: flex-start;
 }
-
 .layout--right {
   -webkit-justify-content: flex-end;
           justify-content: flex-end;
@@ -81,7 +231,6 @@ Styleguide layout 4.0.0
           justify-content: center;
   align-items: center;
 }
-
 /* spacing*/
 .layout--space-between {
   -webkit-justify-ncontent: space-between;
@@ -91,7 +240,6 @@ Styleguide layout 4.0.0
   -webkit-justify-ncontent: space-around;
   justify-content: space-around;
 }
-
 /* layout direction */
 .layout--vertical {
           flex-direction: row;
@@ -102,7 +250,6 @@ Styleguide layout 4.0.0
   -webkit-flex-direction: row-reverse;
   -webkit-justify-content: flex-start;
           justify-content: flex-start;
-
 }
 .layout--horizontal {
           flex-direction: column;
@@ -112,83 +259,6 @@ Styleguide layout 4.0.0
           flex-direction: column-reverse;
   -webkit-flex-direction: column-reverse;
 }
-
-.layout--width-50 {
-  max-width: 50%;
-  margin: 0 auto;
-}
-.layout--width-75 {
-  max-width: 50%;
-  margin: 0 auto;
-}
-
-/* Sets a page width for different screensizes */
-@media screen (min-width: 601px) and (max-width: 768px) {
-  .layout--width-50 {
-    max-width: 50%;
-  }
-  .layout--width-75 {
-    max-width: 75%;
-  }
-
-}
-@media screen and (min-width: 769px) and (max-width: 1400px) {
-  .layout--width-50 {
-    max-width: 50%;
-  }
-  .layout--width-75 {
-    max-width: 75%;
-  }
-
-}
-@media screen and (min-width: 1401px) {
-  .layout--width-50 {
-    max-width: 50%;
-  }
-  .layout--width-75 {
-    max-width: 75%;
-  }
-
-}
-
-
-
-/*
-#Layout Width
-
-fullpage & page widths
-
-.layout-fullwidth - the full width
-.layout-pagewidth - the main content, use the name page for it.
-
-Styleguide layout 1.0.0
-*/
-.layout-fullwidth{
-  width: 100%;
-}
-
-/* Sets a page width for different screensizes */
-.layout-pagewidth {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-}
-@media screen (min-width: 601px) and (max-width: 768px) {
-  .layout-pagewidth {
-    max-width: 768px;
-  }
-}
-@media screen and (min-width: 769px) and (max-width: 1400px) {
-  .layout-pagewidth {
-    max-width: 960px;
-  }
-}
-@media screen and (min-width: 1401px) {
-  .layout-pagewidth {
-    max-width: 960px;
-  }
-}
-
 
 /*
 #Layout sizes
@@ -240,10 +310,22 @@ width-[gridsize]\@[s/m/l/xl]
 @TODO: push classes ?
 
 */
+.layout--tiles [class^="width-"],
+.layout--tiles [class*=" width-"] {
+  margin: 0 7px 7px 7px;
+  overflow: hidden;
+}
+
+
 [class^="width-"],
 [class*=" width-"] {
   margin: 0 7px;
   overflow: hidden;
+}
+/* nesting */
+[class^="width-"] .layout{
+  margin-left: -7px;
+  width: calc(100% + 14px);
 }
 
 .width-1  { flex: 0 1 calc(8.33% - 14px); margin: 0 7px;}
@@ -259,7 +341,7 @@ width-[gridsize]\@[s/m/l/xl]
 .width-11 { flex: 0 1 calc(91.63% - 14px); margin: 0 7px;}
 .width-12 { flex: 0 1 calc(100% - 14px);   margin: 0 7px;}
 
-/* divided */
+/* Division */
 .width-ten   { flex: 0 1 calc(10% - 14px);}
 .width-nine  { flex: 0 1 calc(11.11% - 14px);}
 .width-eight { flex: 0 1 calc(12.5% - 14px);}
@@ -301,7 +383,7 @@ width-[gridsize]\@[s/m/l/xl]
   .width-half\@s  { flex: 0 1 calc(50% - 14px);}
   .width-full\@s  { flex: 0 1 calc(100% - 14px);}
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .width-1\@m  { flex: 0 1 calc(8.33% - 14px); margin: 0 7px;}
   .width-2\@m  { flex: 0 1 calc(16.66% - 14px); margin: 0 7px;}
   .width-3\@m  { flex: 0 1 calc(25% - 14px); margin: 0 7px;}
@@ -354,8 +436,6 @@ width-[gridsize]\@[s/m/l/xl]
   .width-11\@xl { flex: 0 1 calc(91.63% - 14px); margin: 0 7px;}
   .width-12\@xl { flex: 0 1 calc(100% - 14px);   margin: 0 7px;}
 }
-
-
 
 /*
 #Layout sizes nomargin
@@ -443,8 +523,7 @@ Styleguide layout 3.0.0
   .layout--nomargin .width-11\@s { flex: 0 1 91.63%;}
   .layout--nomargin .width-12\@s { flex: 0 1 100%;}
 }
-
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .layout--nomargin .width-1\@m { flex: 0 1 8.33%;}
   .layout--nomargin .width-2\@m { flex: 0 1 16.66%;}
   .layout--nomargin .width-3\@m { flex: 0 1 25%;}
@@ -458,7 +537,6 @@ Styleguide layout 3.0.0
   .layout--nomargin .width-11\@m { flex: 0 1 91.63%;}
   .layout--nomargin .width-12\@m { flex: 0 1 100%;}
 }
-
 @media (min-width: 992px) {
   .layout--nomargin .width-1\@l { flex: 0 1 8.33%;}
   .layout--nomargin .width-2\@l { flex: 0 1 16.66%;}
@@ -473,7 +551,6 @@ Styleguide layout 3.0.0
   .layout--nomargin .width-11\@l { flex: 0 1 91.63%;}
   .layout--nomargin .width-12\@l { flex: 0 1 100%;}
 }
-
 @media (min-width: 1200px) {
   .layout--nomargin .width-1\@xl { flex: 0 1 8.33%;}
   .layout--nomargin .width-2\@xl { flex: 0 1 16.66%;}
@@ -490,30 +567,30 @@ Styleguide layout 3.0.0
 }
 
 /* Height */
-.height-full   { height: 100vh;}
-.height-half   { height: 50vh;}
-.height-fourth {  height: 25vh;}
+.screenheight-full   { height: 100vh;}
+.screenheight-half   { height: 50vh;}
+.screenheight-fourth {  height: 25vh;}
 
 /* add mediaquery size */
 @media (max-width: 768px) {
-  .height-full\@s   { height: 100vh;}
-  .height-half\@s   { height: 50vh;}
-  .height-fourth\@s {  height: 25vh;}
+  .screenheight-full\@s   { height: 100vh;}
+  .screenheight-half\@s   { height: 50vh;}
+  .screenheight-fourth\@s {  height: 25vh;}
 }
 @media (min-width: 768px) {
-  .height-full\@m   { height: 100vh;}
-  .height-half\@m   { height: 50vh;}
-  .height-fourth\@m {  height: 25vh;}
+  .screenheight-full\@m   { height: 100vh;}
+  .screenheight-half\@m   { height: 50vh;}
+  .screenheight-fourth\@m {  height: 25vh;}
 }
 @media (min-width: 992px) {
-  .height-full\@l   { height: 100vh;}
-  .height-half\@l   { height: 50vh;}
-  .height-fourth\@l {  height: 25vh;}
+  .screenheight-full\@l   { height: 100vh;}
+  .screenheight-half\@l   { height: 50vh;}
+  .screenheight-fourth\@l {  height: 25vh;}
 }
 @media (min-width: 1200px) {
-  .height-full\@xl   { height: 100vh;}
-  .height-half\@xl   { height: 50vh;}
-  .height-fourth\@xl {  height: 25vh;}
+  .screenheight-full\@xl   { height: 100vh;}
+  .screenheight-half\@xl   { height: 50vh;}
+  .screenheight-fourth\@xl {  height: 25vh;}
 }
 
 
@@ -526,7 +603,7 @@ Styleguide layout 3.0.0
   .u-visible\@l{ display: none;}
   .u-visible\@g{ display: none;}
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .u-visible\@s{ display: none;}
   .u-visible\@m{ display: block;}
   .u-visible\@l{ display: none;}
@@ -551,8 +628,6 @@ Styleguide layout 3.0.0
   .u-visible\@g{ display: none;}
   .u-visible\@print{ display: block;} /* @TODO: fix*/
 }
-
-
 
 .u-align-right{
   text-align: right

@@ -1,0 +1,17 @@
+{# remove the id from blocks #}
+{%
+  set classes = [
+
+  ]
+%}
+<div{{ attributes.addClass(classes).removeclass('search-block-form').removeAttibute('id') }}>
+
+  {{ title_prefix }}
+  {% if label %}
+    <h3{{ title_attributes }}>{{ label }}</h3>
+  {% endif %}
+  {{ title_suffix }}
+
+  {{ content }}
+
+</div>

@@ -11,22 +11,22 @@
 
 {# Hero and navigation #}
 {% if is_front %}
-<div class="t-hero-front js-hero-front layout layout--center-middle height-full height-half@s " id="top">
+<div class="layout-center-middle screenheight-full screenheight-half@s js-hero-front t-hero-front" id="top">
   {# we should write this as some code yo #}
   <a href="#mainmenu">
     <h1>mortendk</h1>
-    <h2>My favorite color is #bada55</h2>
+    <h2>My favorite color is <span class="hero__favecolor">#bada55</span></h2>
     <h3>Drupal Webdesigner</h3>
-    <div class="">arrow down</div>
+    <div class="hero__arrow">arrow down</div>
   </a>
 </div>
 <header role="banner" class="hero-nav js-hero-nav" id="mainmenu">
 {% else %}
 <header role="banner" class="hero-nav js-hero-nav hero-nav--locked" id="mainmenu">
 {% endif %}
-
+  {# main navigation  #}
   <div class="layout layout--nomargin">
-    <div class="width-2">
+    <div class="width-2 layout-center">
       {{ page.logo }}
     </div>
     <div class="width-10">
@@ -41,7 +41,10 @@
 
   {{ page.message }}
 
-  
+  <h1>test</h1>
+
+
+
   {{ page.content }}
 
   {% if page.sidebar_first %}
@@ -59,7 +62,10 @@
 </main>
 
 {% if page.footer %}
-  <footer role="contentinfo">
-    {{ page.footer }}
+  <footer role="contentinfo" class="layout pagewidth screenheight-half gray-100">
+    <div class="width-4">{{ page.footer_first }}</div>
+    <div class="width-4">{{ page.footer_second }}</div>
+    <div class="width-4">{{ page.footer_last }}</div>
+    <div class="width-12">{{ page.footer }}</div>
   </footer>
 {% endif %}

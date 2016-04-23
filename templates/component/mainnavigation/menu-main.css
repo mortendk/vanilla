@@ -1,0 +1,54 @@
+/*
+Navigation
+
+Main menu
+
+:hover    - Highlights when hovering.
+.main-menu - Follows the size of the parent element
+
+Markup: ../_html/navigation/nav.html
+
+Styleguide menu
+*/
+
+/*
+  menu-main design
+*/
+.menu-main ul {
+  background: lightgray;
+}
+.menu-main li {
+  border-left: 1px solid lightgray;
+}
+.menu-main li:last-child{
+  border-right: 1px solid lightgray;
+}
+.menu-main a {
+  font-family: 'titillium', sans-serif;
+  font-weight: 600;
+  font-size: 1.1em;
+  text-transform: uppercase;
+  color: black;
+  /*background: white;*/
+  transition: .5s;
+}
+.menu-main a:hover {
+  background: rgba(255, 255, 255, 0.9);
+  margin-bottom: -0.5rem; /*moves down */
+}
+
+/* @TODO: renamee*/
+.menu-main .icon-svg {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: red;
+  transition: all 0.5s ease;
+}
+
+.menu-main .icon-svg:hover,
+.menu-main a:hover .icon-svg {
+	width: 1.5em;
+  height: 1.5em;
+	fill: green;
+}

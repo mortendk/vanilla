@@ -20,12 +20,26 @@ if you wanna digg deep:
 {% endfor %}
 </ol>
 
+<hr>
+<ul>
+{% for key, value in _context  %}
+<li>{{ loop.index }} {{ key }} </li>
+ {% if loop.index == 11 %}}
+    <pre>{{ dump( value ) }}</pre>
+{% endif %}
+{% endfor %}
+</ol>
+
+
 
 {# -----  Variables ----------------------------------------------------------#}
 {# variabels   #}
 {{ variable }}
 {{ variable.drill.into.it }}
 {{ variable.drill.into['#somethingsomething'] }}
+
+{# drill into a template and grap data out of it  bypassing the "wrapper" tempakte #}
+{{ content.field_teaser.0["#text"] }}
 
 {# Filters #}
 {{ variable|filter }}
@@ -104,10 +118,17 @@ detect on first loop and if a class is in attributes
     'item--' ~ cycle(["green", "gold", "white"], loop.index),
     loop.first ? 'first-class',
     item.attribute.hasClass('is-this-class-here') ? 'ok-use-this':'not-there-use-this',
-    isthistrue ? 'nopre' : 'yep',
+    isthistrue ? 'nope' : 'yep',
   ]
 %}
 {# @TODO can hasClass  be used for ex: hasAttribute ? #}
+set classes = [
+  (bundle =='article') and (view_mode=="full") and (field_name=="field_teaser") ? 'hero__text' : '',
+  (bundle =='article') and (view_mode=="full") and (field_name=="field_content") ? 'f-cap' : '',
+  'foo'
+]
+
+
 
 {# add the class, and another my-class #}
 <div {{  attributes.addClass('my-class', class) }}
@@ -134,8 +155,7 @@ detect on first loop and if a class is in attributes
 <img {% set image = 'https://www.drupal.org/files/powered-blue-135x42.png' %}>
 <img setAttribute('src', image) }}>
 
-{# ----------- give giedls more brains -------------------------------------- #}
-
+{# ----------- give fiedls more brains -------------------------------------- #}
 
 template suggestions:
 basetheme define first so if it loads a template name suggestions thats "higer"
@@ -143,3 +163,6 @@ in the chain that will "override" your template.
 ex:
 x field--node--uid.html.twig (gets loaded in stable)
 * field--uid.html.twig' (overwrites this template even if its in your theme)
+
+{#  use of include #}
+{% include '@vanilla/foo.html.twig' %}

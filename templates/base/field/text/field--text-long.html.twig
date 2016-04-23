@@ -1,0 +1,61 @@
+{%
+  set classes = [
+    (bundle =='article') and (view_mode=="full") and (field_name=="field_teaser") ? 'hero__text' : '',
+    (bundle =='article') and (view_mode=="full") and (field_name=="field_content") ? 'f-cap' : '',
+    '_t-' ~ bundle,
+    '_t-' ~ view_mode,
+    '_t-' ~ field_name,
+    '_t-' ~ field_type,
+  ]
+%}
+{%
+  set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+{% if label_hidden %}
+  {# --Multiple & no label  ------------------------------------------------- #}
+  {% if multiple %}
+    <ul{{ attributes.addClass(classes) }}>
+      {% for item in items %}
+        <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
+      {% endfor %}
+    </ul>
+  {# /--Multiple & no label  ------------------------------------------------ #}
+
+  {% else %}
+
+  {# --single & no label  --------------------------------------------------- #}
+  {% for item in items %}
+    <div{{ attributes.addClass(classes) }}>{{ item.content }}</div>
+  {% endfor %}
+  {# / --single & no label  ------------------------------------------------- #}
+
+  {% endif %}
+  {# end of label_hidden #}
+{% else %}
+  {# Show label #}
+  {% if multiple %}
+  {#  multiple with label ----------------------------------------------------#}
+    <section{{ attributes.addClass(classes) }}>
+      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      <ul>
+      {% for item in items %}
+        <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
+      {% endfor %}
+      </ul>
+    </section>
+
+  {% else %}
+
+  {# single with label ------------------------------------------------------ #}
+    <section{{ attributes.addClass(classes) }}>
+      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      {% for item in items %}
+        <div{{ item.attributes.addClass() }}>{{ item.content }}</div>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+{% endif %}
