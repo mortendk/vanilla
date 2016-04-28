@@ -242,55 +242,9 @@ Styleguide layout 1.0.0
 
 /*
 #Layout sizes
-
-item inside of a layout. width-[gridwide]@[screensize]
-
-.w-1  - 1 wide
-.w-2  - 2 wide
-.w-3  - 3 wide
-.w-4  - 4 wide
-.w-5  - 5 wide
-.w-6  - 6 wide
-.w-7  - 7 wide
-.w-8  - 8 wide
-.w-9  - 9 wide
-.w-10  - 10 wide
-.w-11  - 11 wide
-.w-12  - 2 wide
-
-markup:
-<div class="layout _testlayout">
-  <div class="width-1 width-6@sm width-3@md width-1@lg">Responsi</div>
-  <div class="width-1">2</div>
-  <div class="width-1">3</div>
-  <div class="width-1">4</div>
-  <div class="width-1">5</div>
-  <div class="width-1">6</div>
-  <div class="width-1">7</div>
-  <div class="width-1">8</div>
-  <div class="width-1">9</div>
-  <div class="width-1">10</div>
-  <div class="width-1">11</div>
-  <div class="width-1">12</div>
-  <div class="$modifierClass _testelement">Test</div>
-  <div class="width-1">1</div>
-  <div class="width-1">2</div>
-  <div class="width-1">3</div>
-  <div class="width-1">4</div>
-  <div class="width-1">5</div>
-  <div class="width-1">6</div>
-</div>
-
-Styleguide layout 2.0.0
 */
 
-/*
-width-[gridsize]\@[s/m/l/xl]
-
-@TODO: push classes ?
-
-*/
-
+/* ok lazy here we should hardcode this in ...*/
 [class^="w-"],
 [class*=" w-"] {
   margin: 0 7px;
@@ -314,8 +268,6 @@ width-[gridsize]\@[s/m/l/xl]
   overflow: hidden;
 }
 
-
-
 .w-1  { flex: 0 1 calc(8.33% - 14px); margin: 0 7px;}
 .w-2  { flex: 0 1 calc(16.66% - 14px); margin: 0 7px;}
 .w-3  { flex: 0 1 calc(25% - 14px); margin: 0 7px;}
@@ -330,7 +282,6 @@ width-[gridsize]\@[s/m/l/xl]
 .w-12 { flex: 0 1 calc(100% - 14px);   margin: 0 7px;}
 
 /* Division */
-
 .w-ten   { flex: 0 1 calc(10% - 14px);}
 .w-nine  { flex: 0 1 calc(11.11% - 14px);}
 .w-eight { flex: 0 1 calc(12.5% - 14px);}
@@ -410,6 +361,17 @@ width-[gridsize]\@[s/m/l/xl]
   .w-10\@l { flex: 0 1 calc(83.3% - 14px); margin: 0 7px;}
   .w-11\@l { flex: 0 1 calc(91.63% - 14px); margin: 0 7px;}
   .w-12\@l { flex: 0 1 calc(100% - 14px);   margin: 0 7px;}
+
+  .w-ten\@l   { flex: 0 1 calc(10% - 14px);}
+  .w-nine\@l  { flex: 0 1 calc(11.11 - 14px);}
+  .w-eight\@l { flex: 0 1 calc(12.5 - 14px);}
+  .w-seven\@l { flex: 0 1 calc(14.28 - 14px);}
+  .w-sixth\@l { flex: 0 1 calc(16.66% - 14px);}
+  .w-fifth\@l { flex: 0 1 calc(20% - 14px);}
+  .w-fourth\@l{ flex: 0 1 calc(25% - 14px);}
+  .w-third\@l { flex: 0 1 calc(33.33% - 14px);}
+  .w-half\@l  { flex: 0 1 calc(50% - 14px);}
+  .w-full\@l  { flex: 0 1 calc(100% - 14px);}
 }
 @media (min-width: 1200px) {
   .w-1\@xl  { flex: 0 1 calc(8.33% - 14px); margin: 0 7px;}
@@ -424,51 +386,22 @@ width-[gridsize]\@[s/m/l/xl]
   .w-10\@xl { flex: 0 1 calc(83.3% - 14px); margin: 0 7px;}
   .w-11\@xl { flex: 0 1 calc(91.63% - 14px); margin: 0 7px;}
   .w-12\@xl { flex: 0 1 calc(100% - 14px);   margin: 0 7px;}
+
+  .w-ten\@xl   { flex: 0 1 calc(10% - 14px);}
+  .w-nine\@xl  { flex: 0 1 calc(11.11 - 14px);}
+  .w-eight\@xl { flex: 0 1 calc(12.5 - 14px);}
+  .w-seven\@xl { flex: 0 1 calc(14.28 - 14px);}
+  .w-sixth\@xl { flex: 0 1 calc(16.66% - 14px);}
+  .w-fifth\@xl { flex: 0 1 calc(20% - 14px);}
+  .w-fourth\@xl{ flex: 0 1 calc(25% - 14px);}
+  .w-third\@xl { flex: 0 1 calc(33.33% - 14px);}
+  .w-half\@xl  { flex: 0 1 calc(50% - 14px);}
+  .w-full\@xl  { flex: 0 1 calc(100% - 14px);}
 }
 
 /*
-#Layout sizes nomargin
-
-.w-1  - 1 wide
-.w-2  - 2 wide
-.w-3  - 3 wide
-.w-4  - 4 wide
-.w-5  - 5 wide
-.w-6  - 6 wide
-.w-7  - 7 wide
-.w-8  - 8 wide
-.w-9  - 9 wide
-.w-10  - 10 wide
-.w-11  - 11 wide
-.w-12  - 2 wide
-
-markup:
-<div class="layout layout--nomargin _testlayout">
-  <div class="width-1">1</div>
-  <div class="width-1">2</div>
-  <div class="width-1">3</div>
-  <div class="width-1">4</div>
-  <div class="width-1">5</div>
-  <div class="width-1">6</div>
-  <div class="width-1">7</div>
-  <div class="width-1">8</div>
-  <div class="width-1">9</div>
-  <div class="width-1">10</div>
-  <div class="width-1">11</div>
-  <div class="width-1">12</div>
-  <div class="$modifierClass _testelement">Test</div>
-  <div class="width-1">1</div>
-  <div class="width-1">2</div>
-  <div class="width-1">3</div>
-  <div class="width-1">4</div>
-  <div class="width-1">5</div>
-  <div class="width-1">6</div>
-</div>
-
-Styleguide layout 3.0.0
+.L--nomargin
 */
-
-
 
 .L--nomargin .w-1 { flex: 0 1 8.33%;}
 .L--nomargin .w-2 { flex: 0 1 16.66%;}
@@ -483,7 +416,6 @@ Styleguide layout 3.0.0
 .L--nomargin .w-11 { flex: 0 1 91.63%;}
 .L--nomargin .w-12 { flex: 0 1 100%;}
 
-/* divided */
 .L--nomargin .w-ten   { flex: 0 1 10%;}
 .L--nomargin .w-nine  { flex: 0 1 11.11;}
 .L--nomargin .w-eight { flex: 0 1 12.5;}
@@ -493,6 +425,7 @@ Styleguide layout 3.0.0
 .L--nomargin .w-fourth{ flex: 0 1 25%;}
 .L--nomargin .w-third { flex: 0 1 33.33%;}
 .L--nomargin .w-half  { flex: 0 1 50%;}
+.L--nomargin .w-full { flex: 0 1 100%;}
 
 @media (max-width: 768px) {
   .L--nomargin .w-1\@s { flex: 0 1 8.33%;}
@@ -507,6 +440,17 @@ Styleguide layout 3.0.0
   .L--nomargin .w-10\@s { flex: 0 1 83.3%;}
   .L--nomargin .w-11\@s { flex: 0 1 91.63%;}
   .L--nomargin .w-12\@s { flex: 0 1 100%;}
+
+  .L--nomargin .w-ten\@s   { flex: 0 1 10%;}
+  .L--nomargin .w-nine\@s  { flex: 0 1 11.11;}
+  .L--nomargin .w-eight\@s { flex: 0 1 12.5;}
+  .L--nomargin .w-seven\@s { flex: 0 1 14.28;}
+  .L--nomargin .w-sixth\@s { flex: 0 1 16.66%;}
+  .L--nomargin .w-fifth\@s { flex: 0 1 20%;}
+  .L--nomargin .w-fourth\@s{ flex: 0 1 25%;}
+  .L--nomargin .w-third\@s { flex: 0 1 33.33%;}
+  .L--nomargin .w-half\@s  { flex: 0 1 50%;}
+  .L--nomargin .w-full\@s { flex: 0 1 100%;}  
 }
 @media (min-width: 769px) {
   .L--nomargin .w-1\@m { flex: 0 1 8.33%;}
@@ -521,6 +465,16 @@ Styleguide layout 3.0.0
   .L--nomargin .w-10\@m { flex: 0 1 83.3%;}
   .L--nomargin .w-11\@m { flex: 0 1 91.63%;}
   .L--nomargin .w-12\@m { flex: 0 1 100%;}
+
+  .L--nomargin .w-ten   { flex: 0 1 10%;}
+  .L--nomargin .w-nine  { flex: 0 1 11.11;}
+  .L--nomargin .w-eight { flex: 0 1 12.5;}
+  .L--nomargin .w-seven { flex: 0 1 14.28;}
+  .L--nomargin .w-sixth { flex: 0 1 16.66%;}
+  .L--nomargin .w-fifth { flex: 0 1 20%;}
+  .L--nomargin .w-fourth{ flex: 0 1 25%;}
+  .L--nomargin .w-third { flex: 0 1 33.33%;}
+  .L--nomargin .w-half  { flex: 0 1 50%;}
 }
 @media (min-width: 992px) {
   .L--nomargin .w-1\@l { flex: 0 1 8.33%;}
@@ -535,6 +489,16 @@ Styleguide layout 3.0.0
   .L--nomargin .w-10\@l { flex: 0 1 83.3%;}
   .L--nomargin .w-11\@l { flex: 0 1 91.63%;}
   .L--nomargin .w-12\@l { flex: 0 1 100%;}
+
+  .L--nomargin .w-ten   { flex: 0 1 10%;}
+  .L--nomargin .w-nine  { flex: 0 1 11.11;}
+  .L--nomargin .w-eight { flex: 0 1 12.5;}
+  .L--nomargin .w-seven { flex: 0 1 14.28;}
+  .L--nomargin .w-sixth { flex: 0 1 16.66%;}
+  .L--nomargin .w-fifth { flex: 0 1 20%;}
+  .L--nomargin .w-fourth{ flex: 0 1 25%;}
+  .L--nomargin .w-third { flex: 0 1 33.33%;}
+  .L--nomargin .w-half  { flex: 0 1 50%;}
 }
 @media (min-width: 1200px) {
   .L--nomargin .w-1\@xl { flex: 0 1 8.33%;}
@@ -549,6 +513,16 @@ Styleguide layout 3.0.0
   .L--nomargin .w-10\@xl { flex: 0 1 83.3%;}
   .L--nomargin .w-11\@xl { flex: 0 1 91.63%;}
   .L--nomargin .w-12\@xl { flex: 0 1 100%;}
+
+  .L--nomargin .w-ten   { flex: 0 1 10%;}
+  .L--nomargin .w-nine  { flex: 0 1 11.11;}
+  .L--nomargin .w-eight { flex: 0 1 12.5;}
+  .L--nomargin .w-seven { flex: 0 1 14.28;}
+  .L--nomargin .w-sixth { flex: 0 1 16.66%;}
+  .L--nomargin .w-fifth { flex: 0 1 20%;}
+  .L--nomargin .w-fourth{ flex: 0 1 25%;}
+  .L--nomargin .w-third { flex: 0 1 33.33%;}
+  .L--nomargin .w-half  { flex: 0 1 50%;}
 }
 
 /* Height */

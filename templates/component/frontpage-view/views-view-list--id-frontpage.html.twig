@@ -32,7 +32,7 @@
         <li{{ row.attributes.addClass('w-half') }}>{{ row.content }}</li>
       {% else %}
       {# default #}
-        <li{{ row.attributes.addClass('w-third') }}>{{ row.content }}</li>
+        <li{{ row.attributes.addClass('w-third w-full@s') }}>{{ row.content }}</li>
       {% endif %}
     {% endfor %}
 

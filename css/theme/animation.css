@@ -41,3 +41,18 @@ no shame originals are from here
     transform: translate3d(0,-4px,0);
   }
 }
+
+
+@keyframes type {
+  from { width: 0; }
+}
+
+@keyframes show {
+  0% {
+
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

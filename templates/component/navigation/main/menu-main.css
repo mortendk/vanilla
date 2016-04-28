@@ -52,7 +52,6 @@ a:hover .menu-main__icon svg {
   animation-name: pulse;
   animation-duration: 1s;
   animation-iteration-count: infinite;
-
   animation-fill-mode: both;
 }
 
