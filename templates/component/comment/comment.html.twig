@@ -13,7 +13,7 @@
 
 <article{{ attributes.addClass(classes) }} id="comments">
 
-  <footer class="w-2 L-center-middle L--horizontal">
+  <footer class="w-2 w-12@s L-center-middle L--horizontal">
     <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
 
 
@@ -33,7 +33,7 @@
 
   </footer>
 
-  <div class="w-10">
+  <div class="w-10 w-12@s">
     <h3>{{ comment.getSubject() }}</h3>
     {{ content|without('links') }}
     {{ content.links}}

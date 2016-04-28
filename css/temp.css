@@ -6,7 +6,7 @@ Here be dragons
 /* small */
 @media (max-width: 768px) {
   main{
-    padding-top: 100px
+    /*padding-top: 90px*/
   }
 
 }/* small */

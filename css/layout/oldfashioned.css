@@ -1,4 +1,7 @@
-/* Layout */
+/*
+OLD fashioned layout Layout
+a post modern layout concept.
+*/
 .L{
   display: -webkit-flex;
   display:         flex;
@@ -293,11 +296,25 @@ width-[gridsize]\@[s/m/l/xl]
   margin: 0 7px;
   overflow: hidden;
 }
+.L--nomargin [class^="w-"],
+.L--nomargin [class*=" w-"] {
+  margin: 0;
+  overflow: hidden;
+}
+
 /* nesting */
-[class^="w-"] .L{
+[class^="w-"] .L,
+[class^=" w-"] .L{
   margin-left: -7px;
   width: calc(100% + 14px);
 }
+.L--nomargin [class^="w-"] .L--nomargin,
+.L--nomargin [class*=" w-"] .L--nomargin{
+  margin: 0;
+  overflow: hidden;
+}
+
+
 
 .w-1  { flex: 0 1 calc(8.33% - 14px); margin: 0 7px;}
 .w-2  { flex: 0 1 calc(16.66% - 14px); margin: 0 7px;}
@@ -313,6 +330,7 @@ width-[gridsize]\@[s/m/l/xl]
 .w-12 { flex: 0 1 calc(100% - 14px);   margin: 0 7px;}
 
 /* Division */
+
 .w-ten   { flex: 0 1 calc(10% - 14px);}
 .w-nine  { flex: 0 1 calc(11.11% - 14px);}
 .w-eight { flex: 0 1 calc(12.5% - 14px);}
@@ -450,11 +468,7 @@ markup:
 Styleguide layout 3.0.0
 */
 
-.nomargin [class^="width-"],
-.L--nomargin [class*=" width-"] {
-  margin: 0;
-  overflow: hidden;
-}
+
 
 .L--nomargin .w-1 { flex: 0 1 8.33%;}
 .L--nomargin .w-2 { flex: 0 1 16.66%;}
@@ -540,27 +554,32 @@ Styleguide layout 3.0.0
 /* Height */
 .screenheight-full   { height: 100vh;}
 .screenheight-half   { height: 50vh;}
+.screenheight-third   { height: 33vh;}
 .screenheight-fourth { height: 25vh;}
 
 /* add mediaquery size */
 @media (max-width: 768px) {
   .screenheight-full\@s   { height: 100vh;}
   .screenheight-half\@s   { height: 50vh;}
+  .screenheight-third\s   { height: 33vh;}
   .screenheight-fourth\@s {  height: 25vh;}
 }
 @media (min-width: 768px) {
   .screenheight-full\@m   { height: 100vh;}
   .screenheight-half\@m   { height: 50vh;}
+  .screenheight-third\m   { height: 33vh;}
   .screenheight-fourth\@m {  height: 25vh;}
 }
 @media (min-width: 992px) {
   .screenheight-full\@l   { height: 100vh;}
   .screenheight-half\@l   { height: 50vh;}
+  .screenheight-third\l   { height: 33vh;}
   .screenheight-fourth\@l {  height: 25vh;}
 }
 @media (min-width: 1200px) {
   .screenheight-full\@xl   { height: 100vh;}
   .screenheight-half\@xl   { height: 50vh;}
+  .screenheight-third\@xl  { height: 33vh;}
   .screenheight-fourth\@xl {  height: 25vh;}
 }
 
@@ -597,6 +616,27 @@ Styleguide layout 3.0.0
   .u-visible\@g{ display: none;}
   .u-visible\@print{ display: block;} /* @TODO: fix*/
 }
+
+/*
+Layout Space helpers
+*/
+.LS-top{
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+.LS-bottom{
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.LS-top-half{
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+.LS-bottom-half{
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 
 .u-align-right{
   text-align: right

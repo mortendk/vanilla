@@ -10,7 +10,7 @@
 
 {# header reagion #}
 {% include active_theme_path() ~ '/templates/component/header/header.html.twig' %}
-
+{#
 <div class="L L-fixed fullwidth t-header js-header">
   <div class="w-2 L-left-middle">
     {{ page.header_pre }}
@@ -22,9 +22,10 @@
     {{ page.header_post }}
   </div>
 </div>
-
+ #}
 
 {# Hero and navigation #}
+{#
 {% if is_front %}
   {% include active_theme_path() ~ '/templates/component/hero/hero.html.twig' %}
 <header role="banner" class="menu-main js-menu-main" id="mainmenu">
@@ -33,8 +34,16 @@
 {% endif %}
   {{ page.menu }}
 </header>
+ #}
 
-<main role="main">
+<header role="banner" class="menu-main js-menu-main" id="mainmenu">
+  {{ page.menu }}
+</header>
+{% if is_front %}
+  {% include active_theme_path() ~ '/templates/component/hero/hero.html.twig' %}
+{% endif %}
+
+<main role="main" id="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
   {{ page.top }}
 
@@ -46,13 +55,4 @@
 </main>
 
 
-<footer role="contentinfo" class="L pagewidth t-footer screenheight-fourth">
-  <div class="w-12 t-gray700 L-space">
-    <div>{{ page.footer_1 }}</div>
-    <div>{{ page.footer_2 }}</div>
-    <div>{{ page.footer_3 }}</div>
-    <div>{{ page.footer_4 }}</div>
-  </div>
-
-  <div class="w-12">{{ page.footer }}</div>
-</footer>
+{% include active_theme_path() ~ '/templates/component/footer/footer.html.twig' with { 'path' : active_theme_path()} %}

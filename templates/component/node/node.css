@@ -1,0 +1,39 @@
+.meta {
+  padding-top: 2rem;
+}
+
+.f-intro {
+  color: var(--pink900);
+}
+
+.border-top {
+  border-top: 1px solid #eee;
+}
+
+
+.divider {
+  height: 60px;
+  background: transparent url("divider-coffee.png") no-repeat center center;
+}
+
+.circle {
+  display: block;
+  width: 2rem;
+  height: 2rem;
+  border: 3px solid var(--pink600);
+  border-radius: 50%;
+  background: var(--pink700);
+  color: var(--white);
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+  line-height: 1.7rem;
+
+
+}
+.circle a {
+  color: inherit;
+  line-height: 2rem;
+}

@@ -3,36 +3,36 @@
   <div{{ attributes }}>
 {% endif %}
 
-  {% if title %}
-    <h3>{{ title }}</h3>
-  {% endif %}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
 
   {#
     oki then why a user wants to change this is
     this is theming     not a config thing
     @TODO:  list.attributes.addClass('tiles') dont  work ? ... or am i an idiot
   #}
-  <{{ list.type }} class="layout layout--tiles  pagewidth">
+  <{{ list.type }} class="L L--nomargin">
 
     {# for loop #}
     {% for row in rows %}
       {# first #}
       {% if loop.first %}
-        <li{{ row.attributes.addClass('width-half', 'width-full@s') }}>{{ row.content }}</li>
+        <li{{ row.attributes.addClass('w-half', 'w-full@s') }}>{{ row.content }}</li>
       {% elseif (loop.index == "2") %}
         {# put in a li that we close at 5th loop #}
-        <li class="width-half width-full@s layout">
-        <div {{ row.attributes.addClass('width-half', 'width-half@s') }}>{{ row.content }}</div>
+        <li class="w-half w-full@s L L--nomargin">
+        <div {{ row.attributes.addClass('w-half', 'w-half@s') }}>{{ row.content }}</div>
       {% elseif (loop.index >= "3") and (loop.index <= "5") %}
-          <div {{ row.attributes.addClass('width-half', 'width-half@s') }}>{{ row.content }}</div>
+          <div {{ row.attributes.addClass('w-half', 'w-half@s') }}>{{ row.content }}</div>
       {% elseif (loop.index == "5") %}
         {# closing li #}
         </li>
       {% elseif (loop.index >= "9") and (loop.index <= "10") %}
-        <li{{ row.attributes.addClass('width-half') }}>{{ row.content }}</li>
+        <li{{ row.attributes.addClass('w-half') }}>{{ row.content }}</li>
       {% else %}
       {# default #}
-        <li{{ row.attributes.addClass('width-third') }}>{{ row.content }}</li>
+        <li{{ row.attributes.addClass('w-third') }}>{{ row.content }}</li>
       {% endif %}
     {% endfor %}
 

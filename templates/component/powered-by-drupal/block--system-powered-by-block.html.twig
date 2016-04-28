@@ -6,15 +6,10 @@
 
   {# No Drupal u dont hardcode markup in my theme #}
   {{ content|without('#markup') }}
-
+  
+  {# yes target blank is the boooomb yo!  #}
   <a href="https://drupal.org" target="_blank">
     {% include active_theme_path() ~ '/templates/component/powered-by-drupal/drupal.svg' %}
-  </a>
-
-  <a href="https://www.drupal.org/project/vanilla" target="_blank">
-  <div class="iconsvg iconsvg--m">
-    {% include active_theme_path() ~ '/logo.svg' %}
-  </div>
   </a>
 
 </div>

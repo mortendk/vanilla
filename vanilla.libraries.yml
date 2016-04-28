@@ -22,11 +22,11 @@ global:
       css/base/base.css: { weight: -21}
       css/base/image.css: { }
       css/base/list.css: { }
-      css/base/form.css: { }
+      #css/base/form.css: { }
       css/base/image.css: { }
       css/base/nav.css: { }
     layout:
-      css/layout/layout.css: {}
+      css/layout/oldfashioned.css: {}
       css/layout/layout-menu.css.css: {}
     component:
       # css/component/component.css: {}
@@ -40,6 +40,7 @@ global:
       fonts/opensans.css: {}
       css/theme/animation.css: {}
       css/theme/icon.css: {}
+      css/theme/balloon.css: {}
       css/theme/typography.css: {}
       #css/theme/color.css: {}
       # http://fonts.googleapis.com/css?family=Loved+by+the+King: { type: external }
@@ -56,15 +57,31 @@ global:
   dependencies:
     - core/jquery # if dependencies is not declaired no jquery for you.
 
+
+#base
+form:
+  css:
+    theme:
+      templates/base/form/form.css: {}
+
+
 header:
   css:
     theme:
       templates/component/header/header.css: {}
+footer:
+  css:
+    theme:
+      templates/component/footer/footer.css: {}
+
 #menus
 menu-main:
   css:
     theme:
       templates/component/navigation/main/menu-main.css: {}
+  js:
+    templates/component/navigation/main/menu-main.js: {}
+
 menu-user:
   css:
     theme:
@@ -94,6 +111,11 @@ pager:
       templates/component/navigation/pager/pager.css: {}
 
 #node
+node:
+  css:
+    theme:
+      templates/component/node/node.css: {}
+
 nodeteaser:
   css:
     theme:

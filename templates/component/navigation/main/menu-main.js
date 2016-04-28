@@ -13,6 +13,15 @@
     //   $('.path-frontpage .js-menu-main').removeClass('menu-main--locked');
     // }
 
+
+    //header menu + main menu resizing
+    if( $(this).scrollTop() > $(window).height()/2  ){
+      $('.js-menu-main').addClass('menu-main--hide');
+    }else{
+      $('.js-menu-main').removeClass('menu-main--hide');
+    }
+
+
     //header menu + main menu resizing
     // if( $(this).scrollTop() > $(window).height()/2  ){
     //   $('.js-header').addClass('t-header--small');
@@ -25,26 +34,5 @@
     // console.log( $(this).scrollTop() );
   });
 
-  // smooth scroll
-  $(function() {
-
-    $('a[href*=#]:not([href=#])').click(function() {
-      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
-        var target = $(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        if (target.length) {
-          $('html,body').animate({
-            // calculates hero-nav height
-            scrollTop: target.offset().top - $('.hero-nav--locked').height()
-          }, 1000);
-          return false;
-
-
-
-        }
-      }
-    });
-  });
 
 })(jQuery);

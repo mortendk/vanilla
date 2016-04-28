@@ -1,0 +1,200 @@
+form {
+  margin: 0;
+  padding: 0;
+}
+
+/* common class wrapper for all form items */
+.form-item {
+}
+
+/* Label
+----------------------*/
+form label {
+  padding-bottom: 0.5rem;
+  font-weight: bold;
+}
+form label[for] {
+  color: #222;
+  cursor: pointer;
+}
+form label:hover {
+  color: #999;
+}
+/* Input
+----------------------------*/
+input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  border: 1px solid #b8b8b8;
+  border-top-color: #999;
+  border-radius: 2px;
+  background: #fcfcfa;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.125);
+  color: inherit;
+  color: #595959;
+  font: inherit;
+  font-size: 1em;
+  line-height: normal;
+  transition: border linear 0.2s,
+  box-shadow linear 0.2s;
+}
+
+input:focus {
+  border-color: #40b6ff;
+  outline: 0;
+  background-color: #fff;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 0 8px #40b6ff;
+}
+
+
+
+/* Input:search;
+----------------------------*/
+input[type="search"] {
+  box-sizing: content-box;
+
+  -webkit-appearance: textfield;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+
+/* checkbox
+----------------------------------*/
+
+
+/* radio
+----------------------------------*/
+
+
+
+/* textarea
+----------------------------*/
+textarea {
+  overflow: auto;
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  width: 100%;
+}
+
+/* select
+----------------------------*/
+select {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  text-transform: none;
+}
+optgroup {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+  font-weight: bold;
+}
+
+
+/* button
+------------------------------*/
+button,
+input[type="submit"],
+.btn {
+  width: 300px;
+
+  height: 30px;
+  padding: 0;
+  margin: 0;
+  border: 2px solid var(--lightgreen800);
+  border-radius: 0;
+  background: var(--lightgreen600);
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  cursor: default;
+}
+
+.btn:hover {
+  color: black;
+  border: 2px solid var(--lightgreen600);
+  background: var(--lightgreen400);
+
+}
+
+/* disabled
+----------------------------*/
+.form-disabled input
+.form-disabled textarea,
+.form-disabled select {
+  border-color: #d4d4d4;
+  background-color: rgba(0, 0, 0, 0.08);
+  box-shadow: none;
+}
+
+/* Fieldset
+------------------------------*/
+fieldset {
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+  border: 1px solid #c0c0c0;
+}
+
+
+/* Legend
+------------------------------*/
+legend {
+  padding: 0;
+  border: 0;
+}
+
+
+/* error */
+form .error {
+  border-width: 2px;
+  border-color: #e62600;
+  background-color: #fdf4f2;
+  box-shadow: inset 0 5px 5px -5px #b8b8b8;
+  color: #a51b00;
+}
+
+form .error:focus {
+  border-color: #e62600;
+  outline: 0;
+  background-color: #fcf4f2;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05), 0 0 8px 1px #e62600;
+}
+
+.form-disabled label {
+  color: #737373;
+}
+.form-required {
+  border: 1px solid red;
+}
+.form-required:after {
+  width: 7px;
+  height: 7px;
+  background-image: url(../images/formrequired.svg);
+  background-size: 7px 7px;
+}
+
+/* the textformat box myst fuck off forever n ever */
+#edit-comment-body-0-format{
+  display: none;
+}
+
+
+/*
+Form widgets
+*/
+
+
+/* login */
+
+/* search */

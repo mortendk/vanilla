@@ -67,7 +67,7 @@ Styleguide 3.0.1 Image
   position: relative;
 }
 .imgstyle-circle img {
-  border: 1px solid red;
+  border: 1px solid #666;
   border-radius: 50%;
   /*-webkit-clip-path: circle(50px at center);
      -moz-clip-path: circle(50px at center);

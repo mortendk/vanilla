@@ -1,10 +1,10 @@
-html{
-  font-size: 18px;
+:root{
+  font-family: "opensans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;;
 }
 body {
-  color: #666;
-  font-family: "opensans", sans-serif;
-  font-weight: 500;;
+  color: #444;
 }
 
 h1,
@@ -47,7 +47,7 @@ h6,.h6 {
 .f-small {  font-size: 0.7rem;}
 .f-small h3 { font-size: 1rem;}
 .f-medium { }
-.f-large { }
+.f-large {   font-size: 1.5rem; font-weight: 500}
 
 .f-cap { }
 .f-cap::first-letter {
@@ -58,8 +58,15 @@ h6,.h6 {
 
 /* f- font size variations */
 .f-bold {
-  list-style: 2rem;
-  color: black;
-  font-size: 3rem;
   font-weight: 500;
+}
+
+blockquote{
+  font-size: 1.5rem;
+  border-top: 1px solid var(--pink800);;
+  border-bottom: 4px solid var(--pink800);;
+  padding: 0 4em;
+  color: var(--pink900);
+  font-family: "titillium";
+  font-weight: 300;
 }

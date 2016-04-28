@@ -3,9 +3,9 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 100;
   position: absolute;
-  top: 200px;
-  left: 0;
-  width: 600px;
+  bottom: 200px;
+  right: 0;
+  width: 400px;
   padding: 10px;
   color: white;
 }

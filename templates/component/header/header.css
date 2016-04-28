@@ -1,3 +1,21 @@
+.t-header {
+  background-color: #ECEFF1;
+  background: var(--bluegray50);
+  height: 20px;
+  z-index: 50;
+  transition: height 0.2s ease;
+}
+/* small variation*/
+.t-header--small{
+  height: 21px;
+}
+.t-header--small .site-name{
+  font-size: 0.8rem;
+}
+.t-header--small  .iconsvg{
+  height: 20px;
+}
+
 /**/
 a.site-name,
 a.site-name:hover,
@@ -17,23 +35,4 @@ a.site-name:active{
   animation-duration: 1s;
   animation-fill-mode: both;
   animation-iteration-count: infinite;
-}
-
-
-.t-header {
-  background-color: #ECEFF1;
-  background: var(--bluegray50);
-  height: 41px;
-  z-index: 50;
-  transition: height 0.2s ease;
-}
-/* small variation*/
-.t-header--small{
-  height: 21px;
-}
-.t-header--small .site-name{
-  font-size: 0.8rem;
-}
-.t-header--small  .iconsvg{
-  height: 20px;
 }
