@@ -1,7 +1,9 @@
-{#
-{{ kint(attributes) }}
-#}
-{# removing the defailt classes that stable is pushing out  & the id #}
-<form{{ attributes|without('class','id').addClass(classes) }}>
+{%
+  set remove_classes = [
+
+  ]
+%}
+
+<form{{ attributes.removeClass(remove_classes).removeAttribute('id') }}>
   {{ children }}
 </form>

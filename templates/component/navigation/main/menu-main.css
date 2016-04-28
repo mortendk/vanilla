@@ -1,0 +1,147 @@
+.menu-main {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+  border-bottom: 1px solid lightgray;
+}
+.menu-main li {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  border-left: 1px solid lightgray;
+}
+.menu-main li:last-child {
+  border-right: 1px solid lightgray;
+}
+
+.menu-main a {
+  padding-top: 0.5rem;
+  width: 100%;
+  transition: 0.3s;
+}
+.menu-main a:hover {
+  padding-bottom: 0.5rem;
+  background: rgba(255, 248, 225, 0.3);   /* amber500*/
+
+}
+.menu-main__title {
+  color: black;
+  font-family: "titillium", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  /*text-align: center;*/
+  text-transform: uppercase;
+  padding: 0 1rem
+}
+a:hover .menu-main__title {
+  text-decoration: none;
+  color: var(--blue100);
+}
+.menu-main__icon svg{
+  width: 50px;
+  height: 50px;
+}
+a:hover .menu-main__icon svg{
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+/* small */
+@media (max-width: 768px) {
+  .menu-main li{
+    background:none;
+  }
+  .menu-main a{
+    padding-top: 0.3rem;
+    background: rgba(255, 255, 255, 0.8);
+  }
+    .menu-main a:hover{
+      background: rgba(255, 255, 255, 0.8);
+    }
+  .menu-main__title{
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0 0 0 0;
+  }
+  .menu-main__icon{
+    width: 100%;
+    text-align: center;
+  }
+  .menu-main__icon svg{
+    width: 40px;
+    height: 40px;
+  }
+}/* small */
+
+/*
+Menu locked
+this is done for the frontpage so it can be fancy with the hero image
+*/
+.menu-main--locked {
+  position: fixed;
+  z-index: 50;
+  top: 40px;
+  border-bottom: 1px solid  var(--blue100);
+}
+
+.menu-main--small {
+  position: fixed;
+  top: 20px;
+  height: 30px;
+  /*box-shadow: 0 2px 4px 0px rgba(0, 0, 0, 0.2);*/
+}
+.menu-main--small  .menu-main__title{
+  font-size: 1rem
+}
+.menu-main--small .menu-main__icon svg{
+  height: 20px;
+  transition: all 0.2s ease;
+}
+.menu-main--small a:hover .menu-main__icon svg{
+  height: 30px
+}
+
+/*fontpage stugg */
+.path-frontpage .menu-main--locked + * {
+  margin-top: 50px; /* .menu-main height */
+}
+
+
+/* if the toolbar is active*/
+body.toolbar-horizontal .menu-main--locked {
+  top: 80px;
+}
+body.toolbar-horizontal .menu-main--locked.menu-main--small {
+  top: 60px;
+}
+body.toolbar-horizontal.admin-hide .menu-main--locked {
+  top: 40px;
+}
+body.toolbar-horizontal.toolbar-tray-open .menu-main--locked {
+  top: 120px;
+}
+body.toolbar-horizontal.toolbar-tray-open .menu-main--locked.menu-main--small {
+  top: 100px;
+}
+/* Is admin hide added*/
+body.toolbar-horizontal.toolbar-tray-open.admin-hide .menu-main--locked {
+  top: 40px;
+}
+body.toolbar-horizontal.toolbar-tray-open.admin-hide .menu-main--locked.menu-main--small {
+  top: 20px;
+}
+body.toolbar-vertical .menu-main--locked {
+  top: 80px;
+}
+body.toolbar-vertical.admin-hide .menu-main--locked {
+  top: 40px;
+}
+body.toolbar-vertical.toolbar-tray-open .menu-main--locked {
+  top: 80px;
+}
+body.toolbar-vertical.toolbar-tray-open.admin-hide .menu-main--locked {
+  top: 40px;
+}

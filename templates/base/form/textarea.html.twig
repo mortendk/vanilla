@@ -15,4 +15,15 @@
  * @ingroup themeable
  */
 #}
-<textarea{{ attributes }}>{{ value }}</textarea>
+{%
+set remove_classes = [
+ 'text-full',
+ 'form-textarea',
+ 'required'
+]
+%}
+
+
+<textarea{{ attributes.removeClass(remove_classes) }}>
+  {{ value }}
+</textarea>

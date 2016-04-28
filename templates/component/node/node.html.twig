@@ -1,3 +1,4 @@
+{{ attach_library('vanilla/hero') }}
 
 {%
   set classes = [
@@ -10,138 +11,54 @@
 %}
 
 <article{{ attributes.addClass('') }}>
-  {#
+{#
   node title - if its printed here, remove the title from  blocks
   admin/structure/block/manage/vanilla_page_title
-  #}
+#}
+{# field--node--field-image.html.twig  #}
 
-  {# field--node--field-image.html.twig  #}
-  <div class="hero">
-    {{ title_prefix }}
-      <h1{{ title_attributes.addClass('hero__title') }}>{{ label }}</h1>
-    {{ title_suffix }}
+  <div class="hero L-center-middle screenheight-full screenheight-half@s ">
 
     {{ content.field_image }}
-    {{ content.field_teaser }}
-  </div>
 
-  <footer class="gray-100 metadata metadata">
-
-    <div class="layout layout--width-75">
-      <div class="width-2 u-align-right">
-        {{ author_picture }}
-      </div>
-      <div class="width-6">
-        <i class="icon icon--badge-retro icon--s">date</i>
-        {{ author_name }}
-        <br>
-        <i class="icon icon--s icon--date">date</i>
-        {{ node.createdtime|date("d.m.Y H:m") }}
-        ( {{ node.changedtime|date("d.m.Y") }} )
-        <br>
-        <i class="icon icon--badge-retro icon--s">date</i>
-        {{ content.field_tags }}
-        {{ metadata }}
-      </div>
-      <div class="width-4  u-align-right">
-        {{ content.field_section }}
-      </div>
+    <div class="hero__text">
+      <h1{{ title_attributes.addClass('hero__title') }}>{{ label }}</h1>
+      {{ content.field_teaser }}
     </div>
 
-  </footer>
+  </div>
 
-{# teaser + meta done  #}
+  <div class="L pagewidth">
+    <footer class="w-3 L-center-middle L--horizontal">
+      {# author_picture prints out user / usercompact  #}
+      {{ author_picture }}
 
-  <section{{ content_attributes.addClass('layout pagewidth') }}>
-  
-{#
-      {% include '@vanilla/macros.html.twig' %}
+      {# author_name #}
 
-  {% import '@vanilla/macros.html.twig' as siteMacros %}
-    <dl>
-        <dt>Username</dt>
-        <dd>{{ siteMacros.input('username') }}</dd>
-        <dt>Password</dt>
-        <dd>{{ siteMacros.input('password', null, 'password') }}</dd>
-    </dl>
-    <p>{{ siteMacros.textarea('comment') }}</p>
+      <ul class="u-small">
+        <li>{{ node.createdtime|date("d.m.Y H:m") }}</li>
+        <li>( {{ node.changedtime|date("d.m.Y") }} )</li>
+      </ul>
 
-  {%
-  set networks = {
-    twitter: { name: "Twitter", url: "http://twitter.com/mortendk" },
-    facebook: { name: "Facebook", url: "http://facebook.com/mijingo" },
-    instagram: { name: "Instagram", url: "http://instagram.com/mijingo" }
-  }
-  %}
-  {{ siteMacros.socialList(networks, "three-share") }}
+      {{ content.field_tags }}
+      {# content.field_section #}
+      {{ metadata }}
+    </footer>
+    <div class="w-9">
+      {{ content.field_teaser }}
+    </div>
+  </div>
 
- #}
-
+  <section{{ content_attributes.addClass('L pagewidth') }}>
     {# print out content without the fields thats printed other places #}
     {{ content|without('field_tags', 'field_image', 'field_section','field_teaser','comment','links','field_images', 'field_files', 'field_links') }}
+
+
   </section>
 
-
   {{ content.field_images }}
-
-
-  <div class="layout pagewidth">
-    <div class="width-6">
-      {{ content.field_files }}
-    </div>
-    <div class="width-6">
-      {{ content.field_links }}
-    </div>
-
-  </div>
-
-
-
-  {# @TODO
-  this {{ link( label, url) }}
-  gives me this *sigh*
-  InvalidArgumentException: The URI '/node/1' is invalid. You must use a valid URI scheme. in Drupal\Core\Url::fromUri() (line 301 of core/lib/Drupal/Core/Url.php).
-  #}
-
-{#
-  somehow fucking devel fucks this over as a permalink ?
-  <a href="{{ url }}" title="{{ node.label }}">
-    {{ 'Go!'|t }}
-    <span class="visually-hidden">{{ node.label }}</span>
-  </a> |
- #}
-  {# do a test if you can add comments
-    the anchor can be adjust at
-  #}
-  {# number of comments
-    @TODO we dont have content.comments on teasers that sucks - there shold be a count somewhere
-
-  #}
-
-  {# <a href="{{ url }}#comments" title="{{'Jump to the first comment'|t}}">
-    {{content.comment['#items'].comment_count}}
-    {{'comments'|t}}
-  </a> |
-  #}
-
+  {{ content.field_files }}
+  {{ content.field_links }}
 
   {{ content.comment }}
-
-
-  {# sociail stuff
-    @TODO: can we drop in a block here ?
-    twitter button
-    https://about.twitter.com/resources/buttons#tweet
-
-    @TODO: remove this from the hardcoded part
-    here we grap the user name fro the user and prints this stuff out on the dfollow button.
-    pretty sure we can make this happen with the field type
-  #}
-
-  <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="mortendk">Tweet</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  {# follow #}
-  <a href="https://twitter.com/mortendk" class="twitter-follow-button" data-show-count="false">Follow @mortendk</a>
-  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
 </article>

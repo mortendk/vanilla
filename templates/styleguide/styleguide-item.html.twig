@@ -1,0 +1,10 @@
+<a name="{{ key }}"></a>
+<h2 class="styleguide">{{ item.title }}</h2>
+{% if item.description %}
+    <p class="styleguide-description">
+        item.description
+    </p>
+{% endif %}
+<div class="styleguide">
+    {{ content }}
+</div>

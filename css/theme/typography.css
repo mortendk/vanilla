@@ -1,55 +1,60 @@
+html{
+  font-size: 18px;
+}
 body {
   color: #666;
   font-family: "opensans", sans-serif;
-  font-size: 18px;
   font-weight: 500;;
 }
 
 h1,
 h2,
 h3,
-h4 {
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
   margin: 0;
   padding: 0;
   color: #666;
-  font-family: "bitter", sans-serif;
+  font-family: "titillium", sans-serif;
+  /*font-family: "bitter", sans-serif;*/
   font-weight: 300;
   line-height: 1;
 }
-h1 {
+h1,.h1 {
   font-size: 5rem;
 }
-h2 {
+h2,.h2 {
   font-size: 3rem;
 }
-h3 {
+h3,.h3 {
   font-size: 2rem;
 }
-h4 {
+h4,.h4 {
   font-size: 1.5rem;
 }
-
-
-.f-small {
-  font-size: 0.7rem;
+h5,.h5 {
+  font-size: 1.3rem;
 }
-.f-small h3 {
-  font-size: 1rem;
+h6,.h6 {
+  font-size: 1.1rem;
 }
 
-.f-medium {
-}
-.f-large {
-}
 
-.f-cap {
-}
+
+.f-small {  font-size: 0.7rem;}
+.f-small h3 { font-size: 1rem;}
+.f-medium { }
+.f-large { }
+
+.f-cap { }
 .f-cap::first-letter {
   color: #333;
   font-family: "Bitter",serif;
   font-size: 4rem;
 }
-
 
 /* f- font size variations */
 .f-bold {

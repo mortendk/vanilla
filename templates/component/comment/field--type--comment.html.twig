@@ -1,0 +1,24 @@
+
+{%
+  set title_classes = [
+    'title',
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+<section{{ attributes.addClass('comments') }}>
+  {% if comments and not label_hidden %}
+    {{ title_prefix }}
+    <h2{{ title_attributes.addClass(title_classes) }}>{{ label }}</h2>
+    {{ title_suffix }}
+  {% endif %}
+
+  {# field--bundle--comment---type-text-long.html.twig #}
+  {{ comments }}
+
+  {% if comment_form %}
+    <h3 class="pagewidth comment__addnew-title ">{{ 'Add new comment'|t }}</h3>
+    {{ comment_form }}
+  {% endif %}
+
+</section>

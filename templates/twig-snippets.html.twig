@@ -47,6 +47,7 @@ if you wanna digg deep:
 
 {# Drupal Translate #}
 {{ variable|t }}
+{{ 'string'|t }}
 
 {% trans %}
   this will be translated with {{ varibles }}
@@ -128,8 +129,6 @@ set classes = [
   'foo'
 ]
 
-
-
 {# add the class, and another my-class #}
 <div {{  attributes.addClass('my-class', class) }}
 
@@ -146,6 +145,11 @@ set classes = [
 {# ----- Link  -------------------------------------------- #}
 {# add a class to a link #}
 {{ link(item.title, item.url, { 'class':['foo', 'bar', 'baz']} ) }}
+.setAttribute('id', 'top') 
+
+
+
+
 
 {# ----- set / remove attributes  -------------------------------------------- #}
 {{ attributes.setAttribute('id', 'my-id') }}>
@@ -166,3 +170,7 @@ x field--node--uid.html.twig (gets loaded in stable)
 
 {#  use of include #}
 {% include '@vanilla/foo.html.twig' %}
+
+
+{# -----include stuff ------------------------------------------------------ #}
+{% include active_theme_path() ~ '/icons/icon.svg' %}

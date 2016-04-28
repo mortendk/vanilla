@@ -1,0 +1,24 @@
+{{ attach_library('vanilla/menu-user') }}
+
+{%
+  set classes = [
+    't-menu-user'
+  ]
+%}
+
+<nav role="navigation"
+aria-labelledby="{{ attributes.id ~ '-menu'|clean_id }}"
+{{ attributes.addClass(classes)|without('role', 'aria-labelledby','id') }}
+>
+  {# Label. If not displayed, we still provide it for screen readers. #}
+  {% if not configuration.label_display %}
+    {% set title_attributes = title_attributes.addClass('visually-hidden') %}
+  {% endif %}
+  {{ title_prefix }}
+    <h2{{ title_attributes }}>{{ configuration.label }}</h2>
+  {{ title_suffix }}
+
+  {# Menu. #}
+  {{ content }}
+
+</nav>

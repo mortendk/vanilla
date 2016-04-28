@@ -1,0 +1,39 @@
+/**/
+a.site-name,
+a.site-name:hover,
+a.site-name:active{
+  color: #78909C; /*bluegray-400*/
+  font-family: "Bitter",serif;
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  text-decoration: none;
+}
+
+/*Animate */
+.bounce-hover:hover .iconsvg{
+  animation-name: bounce;
+  transform-origin: center bottom;
+  /*duration */
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+
+.t-header {
+  background-color: #ECEFF1;
+  background: var(--bluegray50);
+  height: 41px;
+  z-index: 50;
+  transition: height 0.2s ease;
+}
+/* small variation*/
+.t-header--small{
+  height: 21px;
+}
+.t-header--small .site-name{
+  font-size: 0.8rem;
+}
+.t-header--small  .iconsvg{
+  height: 20px;
+}

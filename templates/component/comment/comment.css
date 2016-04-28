@@ -1,40 +1,37 @@
-.comment{
+.comments{
   padding-top: 1rem;
   margin-top: 1rem;
-  border-top: 1px solid #eee;
+  border-top: 1px #E0E0E0; /* Gray 300 */
+  background:#F5F5F5; /*gray1oo*/
+}
+
+/*
+  Drupal pust in a href thats hammered in from somewhere
+  so to do an odd even we have to do nth-of-type inder of nthn-child(odd)
+*/
+.comment:nth-of-type(2n+1){
+  background:#E0E0E0;
+}
+.comment:nth-of-type(2n){
+  background:#F5F5F5;
+}
+.comment{
+  border-bottom: 1px solid #E0E0E0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .comment footer {
   padding-top: 3rem;
 }
 
-.cal {
-  border:1px dotted lightblue;
-  border-radius: 3px;
-  width: 10rem;
-}
-  .cal__day {
-    color: blue;
-  }
-  .cal__date { font-size: 2rem}
-  .cal__month{ font-size: 1rem}
-  .cal__year{ font-size: 0.5}
-
-
-.comment__user{
-
-}
-.comment__user figure a{
-  display: flex;
-  align-self: center;
-}
-.comment__user .circle img {
-  border: 1px dotted #666;
+.comment__addnew-title {
+  
 }
 
 /*
 @TODO: figure out where this class gets generated
-
 */
 .indented {
   margin-left: 2rem; /* LTR */

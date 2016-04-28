@@ -3,9 +3,6 @@
 # -------------------------------------------------
 # attach a librabry to a template:
 # {{ attach_library('vanilla/chocolate') }}
-
-
-
 # Name:
 #   header: true
 #   version: 1.x
@@ -16,12 +13,12 @@
 #   dependencies:
 #     - core/jquery
 
-
 # Global css & js for all pages
 global:
   version: 1.x
   css:
     base:
+      css/vars.css: { weight: -21}
       css/base/base.css: { weight: -21}
       css/base/image.css: { }
       css/base/list.css: { }
@@ -30,33 +27,26 @@ global:
       css/base/nav.css: { }
     layout:
       css/layout/layout.css: {}
-      css/layout/page.css: {}
-      css/layout/grid.css: {}
+      css/layout/layout-menu.css.css: {}
     component:
       # css/component/component.css: {}
-      css/component/menu.css: {}
-      css/component/hero.css: { }
-      css/component/login.css: { }
-      css/component/messages.css: { }
-      css/component/pager.css: { }
-      css/component/breadcrumb.css: { }
-      css/component/teaser.css: {}
     state:
       # css/state/stats.css: {}
     theme:
       fonts/bitter.css: {}
-      fonts/bree-serif.css: {}
-      fonts/droid-sans-mono.css: {}
-      fonts/lato.css: {}
+#      fonts/droid-sans-mono.css: {}
+#      fonts/lato.css: {}
       fonts/titillium.css: {}
       fonts/opensans.css: {}
+      css/theme/animation.css: {}
       css/theme/icon.css: {}
       css/theme/typography.css: {}
-      css/theme/color.css: {}
+      #css/theme/color.css: {}
       # http://fonts.googleapis.com/css?family=Loved+by+the+King: { type: external }
       # external css files { type: external }
       # http://fonts.googleapis.com/css?family=Roboto:300,400,500,700: { type: external }
       # print
+      css/theme/theme.css: {}
       css/temp.css: {}
       css/print.css: { media: print }
   js:
@@ -66,6 +56,61 @@ global:
   dependencies:
     - core/jquery # if dependencies is not declaired no jquery for you.
 
+header:
+  css:
+    theme:
+      templates/component/header/header.css: {}
+#menus
+menu-main:
+  css:
+    theme:
+      templates/component/navigation/main/menu-main.css: {}
+menu-user:
+  css:
+    theme:
+      templates/component/navigation/user/menu-user.css: {}
+#hero
+hero:
+  css:
+    theme:
+      templates/component/hero/hero.css: {}
+
+hero-video:
+  css:
+    theme:
+      templates/component/hero-video/hero-video.css: {}
+  js:
+    templates/component/hero-video/hero-video.js: {}
+
+
+
+tabs:
+  css:
+    theme:
+      templates/component/tabs/tabs.css: {}
+pager:
+  css:
+    theme:
+      templates/component/navigation/pager/pager.css: {}
+
+#node
+nodeteaser:
+  css:
+    theme:
+      templates/component/nodeteaser/node--teaser.css: {}
+
+comment:
+  css:
+    theme:
+      templates/component/comment/comment.css: {}
+
+message:
+  css:
+    theme:
+      templates/component/message/message.css: {}
+
+
+#admin tool
 admintoggle:
   version: 1.x
   css:
@@ -75,22 +120,3 @@ admintoggle:
     templates/component/admintoggle/admin-toggle.js: {}
   dependencies:
     - core/jquery
-
-comment:
-  css:
-    theme:
-      templates/component/comment/comment.css: {}
-nodeteaser:
-  css:
-    theme:
-      templates/component/nodeteaser/node--teaser.css: {}
-
-tabs:
-  css:
-    theme:
-      templates/component/tabs/tabs.css: {}
-
-mainnavigation:
-  css:
-    theme:
-      templates/component/mainnavigation/menu-main.css: {}

@@ -8,64 +8,51 @@
   <img src="{{ active_theme_path() }}/images/d8.png">
 #}
 
+{# header reagion #}
+{% include active_theme_path() ~ '/templates/component/header/header.html.twig' %}
+
+<div class="L L-fixed fullwidth t-header js-header">
+  <div class="w-2 L-left-middle">
+    {{ page.header_pre }}
+  </div>
+  <div class="w-8 L-center-middle">
+    {{ page.header }}
+  </div>
+  <div class="w-2 L-right-middle">
+    {{ page.header_post }}
+  </div>
+</div>
+
 
 {# Hero and navigation #}
 {% if is_front %}
-<div class="layout-center-middle screenheight-full screenheight-half@s js-hero-front t-hero-front" id="top">
-  {# we should write this as some code yo #}
-  <a href="#mainmenu">
-    <h1>mortendk</h1>
-    <h2>My favorite color is <span class="hero__favecolor">#bada55</span></h2>
-    <h3>Drupal Webdesigner</h3>
-    <div class="hero__arrow">arrow down</div>
-  </a>
-</div>
-<header role="banner" class="hero-nav js-hero-nav" id="mainmenu">
+  {% include active_theme_path() ~ '/templates/component/hero/hero.html.twig' %}
+<header role="banner" class="menu-main js-menu-main" id="mainmenu">
 {% else %}
-<header role="banner" class="hero-nav js-hero-nav hero-nav--locked" id="mainmenu">
+<header role="banner" class="menu-main js-menu-main menu-main--locked" id="mainmenu">
 {% endif %}
-  {# main navigation  #}
-  <div class="layout layout--nomargin">
-    <div class="width-2 layout-center">
-      {{ page.logo }}
-    </div>
-    <div class="width-10">
-    {{ page.header }}
-    </div>
-  </div>
-
+  {{ page.menu }}
 </header>
 
 <main role="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+  {{ page.top }}
 
-  {{ page.message }}
-
-  <h1>test</h1>
-
-
-
+  {{ page.content_pre }}
   {{ page.content }}
+  {{ page.content_post }}
 
-  {% if page.sidebar_first %}
-    <aside role="complementary">
-      {{ page.sidebar_first }}
-    </aside>
-  {% endif %}
-
-  {% if page.sidebar_second %}
-    <aside role="complementary">
-      {{ page.sidebar_second }}
-    </aside>
-  {% endif %}
-
+  {{ page.bottom }}
 </main>
 
-{% if page.footer %}
-  <footer role="contentinfo" class="layout pagewidth screenheight-half gray-100">
-    <div class="width-4">{{ page.footer_first }}</div>
-    <div class="width-4">{{ page.footer_second }}</div>
-    <div class="width-4">{{ page.footer_last }}</div>
-    <div class="width-12">{{ page.footer }}</div>
-  </footer>
-{% endif %}
+
+<footer role="contentinfo" class="L pagewidth t-footer screenheight-fourth">
+  <div class="w-12 t-gray700 L-space">
+    <div>{{ page.footer_1 }}</div>
+    <div>{{ page.footer_2 }}</div>
+    <div>{{ page.footer_3 }}</div>
+    <div>{{ page.footer_4 }}</div>
+  </div>
+
+  <div class="w-12">{{ page.footer }}</div>
+</footer>

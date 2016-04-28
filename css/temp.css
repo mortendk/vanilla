@@ -1,4 +1,18 @@
 /*
+Here be dragons
+
+*/
+
+/* small */
+@media (max-width: 768px) {
+  main{
+    padding-top: 100px
+  }
+
+}/* small */
+
+
+/*
 o-object{
 }
 
@@ -20,9 +34,7 @@ _theisiahack{
 
 }
 */
-.metadata{
-  padding: 20px 0
-}
+
 
 .u-inline-list{
   background: red;

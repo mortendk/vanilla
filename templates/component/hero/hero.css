@@ -1,0 +1,74 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero__image {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: auto;
+}
+.hero__image img {
+  width: 100%;
+  height: auto;
+}
+.hero__text {
+  /*position: absolute;*/
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 40vh;
+  background: rgba(0,0,0,0.7);
+}
+.hero__title {
+  padding: 3rem 0 0 0;
+  color: white;
+  font-family: "titillium", sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+}
+.hero__teaser{
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+/* small */
+@media (max-width: 768px) {
+  .hero{
+
+  }
+  .hero__title {
+    color: white;
+    font-family: "titillium", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+  .hero__teaser{
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+  }
+}/* small */
+
+
+/* frontpage stuff */
+.t-hero-front {
+  background: #efefef url("images/hero-bobbles.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.t-hero-front h1 {
+  color: white;
+  font-family: "titillium", sans-serif;
+  font-size: 10rem;
+}
+.t-hero-front a {
+  text-decoration: none;
+}

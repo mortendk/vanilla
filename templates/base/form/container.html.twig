@@ -15,10 +15,32 @@
  * @see template_preprocess_container()
  */
 #}
+{#     has_parent ? 'form-wrapper', #}
 {%
-  set classes = [
-    has_parent ? 'js-form-wrapper',
-    has_parent ? 'form-wrapper',
+  set remove_classes = [
+    'field--type-language',
+    'field--name-langcode',
+    'field--widget-language-select',
+    'field--type-text-long',
+    'field--name-comment-body',
+    'field--widget-text-textarea',
+    'form-actions',
+    'field--type-string',
+    'field--name-subject',
+    'field--widget-string-textfield',
+    'filter-wrapper',
+    'filter-help',
+    'filter-guidelines'
   ]
 %}
-<div{{ attributes.addClass(classes) }}>{{ children }}</div>
+
+{%
+  set classes = [
+    has_parent ? 'js-form-wrapper'
+  ]
+%}
+
+{# yes i have no idea what these classes do here but now they are gone  #}
+<div{{ attributes.removeClass(remove_classes).addClass(classes) }}>
+  {{ children }}
+</div>

@@ -10,4 +10,19 @@
  * @see template_preprocess_input()
  */
 #}
-<input{{ attributes }} />{{ children }}
+
+
+{%
+  set remove_classes = [
+  'form-search'
+  ]
+%}
+
+
+{%
+  set placeholder = [
+  'search'|t
+  ]
+%}
+
+<input{{ attributes.removeClass(remove_classes).removeAttribute('size').setAttribute('placeholder', placeholder)  }} />{{ children }}

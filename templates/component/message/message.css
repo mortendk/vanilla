@@ -1,0 +1,11 @@
+/* @TODO: create a L for a page center element */
+.t-message {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 600px;
+  padding: 10px;
+  color: white;
+}
