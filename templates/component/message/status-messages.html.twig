@@ -22,7 +22,7 @@
  */
 #}
 {% for type, messages in message_list %}
-  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label').addClass('t-message') }}>
+  <div role="contentinfo" aria-label="{{ status_headings[type] }}"{{ attributes|without('role', 'aria-label').addClass('t-message', 'pagewidth', 'LS-top', 'LS-bottom') }}>
     {% if type == 'error' %}
       <div role="alert">
     {% endif %}

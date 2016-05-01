@@ -1,0 +1,7 @@
+{{ attach_library('vanilla/prism') }}
+
+<div class="pagewidth code">
+{% spaceless %}
+<pre><code class="language-css">{{- content|without('field_language') -}}</code></pre>
+{% endspaceless %}
+</div>

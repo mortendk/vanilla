@@ -10,12 +10,14 @@
   width: 100vw;
   height: auto;
 }
+
 .hero__image img {
   width: 100%;
   height: auto;
+  background-size: cover;
 }
+
 .hero__text {
-  /*position: absolute;*/
   z-index: 10;
   bottom: 0;
   left: 0;
@@ -42,8 +44,8 @@
   font-weight: 500;
   line-height: 2rem;
 }
-/* small */
 
+/* small */
 @media (max-width: 768px) {
   .hero{   }
   .hero__title {
@@ -61,10 +63,10 @@
 }/* small */
 
 
-/* frontpage stuff */
-
+/* frontpage is a bit different */
 .t-hero-front {
-  background: #efefef url("images/hero-bobbles.jpg") no-repeat;
+  background: #efefef url("images/mortendk.jpg") no-repeat;
+  /*background: #efefef url("geekroyale-tatoo.svg") no-repeat;*/
   background-position: center;
   background-size: cover;
 }
@@ -99,13 +101,31 @@
   opacity: 0;
 }
 .t-hero-front h3{
+  color : white;
+  text-align: center;
   animation: show;
   animation-duration: 2s;
   animation-iteration-count: 1;
   animation-fill-mode:forwards;
   animation-delay: 3s;
   opacity: 0;
-  padding: 0.5rem
+  padding: 0.5rem;
+  height: 2rem;
+}
+.t-hero-front .needed-profanity{
+  display: inline-block;
+  width: 0;
+  height: 2rem;
+  overflow: hidden;
+  opacity: 1;
+  transition: all 1s ease;
+}
+.t-hero-front a:hover .needed-profanity{
+  opacity: 1;
+  width: 8ch;
+  display: inline-block;
+  color: hotpink;
+  font-weight: 500;
 }
 .t-hero-front__color {
   background :#bada55;

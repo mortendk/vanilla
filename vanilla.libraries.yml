@@ -126,10 +126,22 @@ comment:
     theme:
       templates/component/comment/comment.css: {}
 
+prism:
+  css:
+    theme:
+      templates/theme/prism/prism.css: {}
+  js:
+      templates/theme/prism/prism.js: {}
+
 message:
   css:
     theme:
       templates/component/message/message.css: {}
+
+view-front:
+  css:
+    theme:
+      templates/component/view-front/view-front.css: {}
 
 
 #admin tool

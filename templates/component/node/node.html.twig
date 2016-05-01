@@ -40,7 +40,7 @@
 
   <div class="divider pagewidth"></div>
 
-  <section{{ content_attributes.addClass('L') }}>
+  <section{{ content_attributes.addClass('') }}>
     {# print out content without the fields thats printed other places #}
     {{ content|without('field_tags', 'field_image', 'field_section','field_teaser','field_intro','comment','links','field_images' ) }}
   </section>

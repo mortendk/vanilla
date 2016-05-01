@@ -93,8 +93,9 @@
 
   {# RSS FTW! were a ignoring the tempate feed-icon cause we dont need that #}
   {% if feed_icons %}
-    <div class="layout-center">
+    <div class="">
       <a href="{{ feed_icons[0]['#url'] }}"{{ attributes.addClass() }}>
+        <!-- @todo oooh wheres my menu svg icnons ?-->
         <svg class="icon-svg">
           <use xlink:href="/{{ active_theme_path() }}/icons/menu.svg#icon-feed"></use>
         </svg>

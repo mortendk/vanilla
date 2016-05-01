@@ -24,18 +24,15 @@
  */
 #}
 
-<article{{ attributes.addClas('l-fullwidth') }}>
+<article{{ attributes.addClas('pagewidth') }}>
 
-  <div class="hero hero--half">
+  <div class="">
     {{ title_prefix }}
-      <h1{{ title_attributes.addClass('hero__title') }}>{{ name }}</h1>
+      <h1{{ title_attributes.addClass('u-align-center') }}>{{ name }}</h1>
     {{ title_suffix }}
 
     {{ content.field_image }}
     {{ content.description }}
   </div>
-
-
-
 
 </article>

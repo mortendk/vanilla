@@ -1,3 +1,14 @@
+._t-icontest {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+
+
+.is-active{
+  color: hotpink !important;
+  font-weight: bold;
+}
 .menu-main {
   position: fixed;
   z-index: 50;
@@ -7,7 +18,7 @@
   opacity: 1;
   border-bottom: 1px solid lightgray;
   border-bottom: 1px solid #ccc;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.6);
   transition: opacity 1s ease;
 }
 .menu-main--hide {
@@ -54,6 +65,15 @@ a:hover .menu-main__icon svg {
   animation-iteration-count: infinite;
   animation-fill-mode: both;
 }
+
+a:hover .menu-main__icon svg  {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+
 
 /* small */
 @media (max-width: 768px) {

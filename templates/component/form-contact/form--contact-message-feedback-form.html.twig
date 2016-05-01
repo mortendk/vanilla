@@ -1,0 +1,13 @@
+{%
+  set remove_classes = [
+
+  ]
+%}
+{%
+  set classes = [
+    'pagewidth',
+  ]
+%}
+<form{{ attributes.removeClass(remove_classes).removeAttribute('id').addClass(classes) }}>
+  {{ children }}
+</form>

@@ -25,32 +25,14 @@
   {% if title %}
     <h3>{{ title }}</h3>
   {% endif %}
-
   {#
     oki then why a user wants to change this is
     this is theming     not a config thing
     @TODO:  list.attributes.addClass('tiles') dont  work ? ... or am i an idiot
   #}
-  <{{ list.type }} class="layout pagewidth">
-
-    {# for loop #}
+  <{{ list.type }} class="">
     {% for row in rows %}
-      {# first #}
-      {% if loop.first %}
-        <li{{ row.attributes.addClass('width-half', 'width-full@s') }}>{{ row.content }}</li>
-      {% elseif loop.index <= "3" %}
-      {# under 3 #}
-        <li{{ row.attributes.addClass('width-fourth', 'width-half@s') }}>{{ row.content }}</li>
-      {% elseif (loop.index >= "4") and (loop.index <= "5") %}
-      {# 4 + 5 #}
-        <li{{ row.attributes.addClass('width-fourth') }}>{{ row.content }}</li>
-      {% elseif loop.index == "6" %}
-      {# 6 #}
-        <li{{ row.attributes.addClass('width-half') }}>{{ row.content }}</li>
-      {% else %}
-      {# default #}
-        <li{{ row.attributes.addClass('width-third') }}>{{ row.content }}</li>
-      {% endif %}
+      <li{{ row.attributes.addClass() }}>{{ row.content }}</li>
     {% endfor %}
 
 

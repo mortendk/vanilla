@@ -51,3 +51,11 @@ a:active {
 /*main a[href]:not([class]) {
   text-decoration: underline;
 }*/
+
+code{
+  margin: 0;
+  padding:0;
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 1em;
+}

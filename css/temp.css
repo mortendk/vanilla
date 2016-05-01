@@ -2,15 +2,34 @@
 Here be dragons
 
 */
+/* sigh */
+main {
+  padding-top:90px;
+}
+.path-frontpage main,
+.path-node main{
+  padding-top: 0;
+}
 
 /* small */
 @media (max-width: 768px) {
   main{
-    /*padding-top: 90px*/
+    padding-top: 90px
   }
 
 }/* small */
 
+.page-title-yes-iknow-this-classname-is-dumb{
+  text-align: center;
+}
+
+._t{
+  outline: 1px solid red;
+}
+
+.code{
+  background: #f5f2f0  ;
+}
 
 /*
 o-object{
