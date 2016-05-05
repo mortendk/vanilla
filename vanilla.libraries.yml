@@ -27,7 +27,7 @@ global:
       css/base/nav.css: { }
     layout:
       css/layout/oldfashioned.css: {}
-      css/layout/layout-menu.css.css: {}
+      # css/layout/layout-menu.css.css: {}
     component:
       # css/component/component.css: {}
     state:
@@ -104,7 +104,7 @@ hero-video:
 tabs:
   css:
     theme:
-      templates/component/tabs/tabs.css: {}
+      templates/component/navigation/tabs/tabs.css: {}
 pager:
   css:
     theme:
@@ -126,12 +126,15 @@ comment:
     theme:
       templates/component/comment/comment.css: {}
 
-prism:
+#paragraph code-snippet
+code-snippet:
   css:
     theme:
-      templates/theme/prism/prism.css: {}
+      templates/component/node/paragraphs/code/code.css: {}
+      templates/component/node/paragraphs/code/prism.css: {}
   js:
-      templates/theme/prism/prism.js: {}
+      templates/component/node/paragraphs/code/prism.js: {}
+
 
 message:
   css:

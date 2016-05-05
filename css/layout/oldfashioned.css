@@ -1,6 +1,5 @@
 /*
-OLD fashioned layout Layout
-a post modern layout concept.
+OLD fashioned layout
 */
 .L{
   display: -ms-flex;
@@ -288,7 +287,7 @@ Styleguide layout 1.0.0
 
 .w-1  { flex: 0 1 calc(8.33% - 14px); margin: 0 7px;}
 .w-2  { flex: 0 1 calc(16.66% - 14px); margin: 0 7px;}
-.w-3  { flex: 0 1 calc(25% - 14px); margin: 0 7px;}
+.w-3  { flex: 0 1 calc(25% - 14px); margin: 0 7px; background: hotpink}
 .w-4  { flex: 0 1 calc(33.32% - 14px); margin: 0 7px;}
 .w-5  { flex: 0 1 calc(41.65% - 14px); margin: 0 7px;}
 .w-6  { flex: 0 1 calc(50% - 14px); margin: 0 7px;}

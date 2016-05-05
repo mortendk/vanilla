@@ -1,4 +1,24 @@
 <?php
+/**
+ * Implements hook_preprocess_menu().
+ */
+function vanilla_preprocess_menu(&$vars, $hook) {
+  // this will take markup from the ui title 
+
+  if ($hook == 'menu__main') {
+    $items = $vars['items'];
+    foreach ($items as $key => $item) {
+      $original_title = $vars['items'][$key]['title'];
+      $vars['items'][$key]['title'] = array(
+        '#markup' => $original_title,
+        '#allowed_tags' => array('span', 'b', 'i'),
+      );
+    }
+  }
+}
+
+
+
 function vanilla_theme_registry_alter(&$theme_registry) {
   array_map(function($item) {
     $item['variables']['region'] = '';
@@ -46,11 +66,7 @@ function vanilla_preprocess_field(&$variables, $hook) {
   $variables['view_mode'] = $element['#view_mode'];
 }
 
-function vanilla_preprocess_menu(&$variables) {
-  $variables['foo'] = 'bar';
 
-  // kint($variables);
-}
 
 function vanilla_preprocess_views_view(&$variables, $hook) {
   // print $variables['view']->getUrl();

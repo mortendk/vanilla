@@ -19,36 +19,19 @@
 
       <li{{ item.attributes }}>
 
-{#
+        {% set description = item.original_link.getDescription()|split(' | ') %}
+        {% set linktitle = description.0 %}
+        {% set svgicon = description.1 %}
 
-@TODO: is-active gets set with js so how do we parse in
-html to the link ??
+        <a href="{{ item.url }}" title="{{ linktitle }}" class="L-center-middle">
 
-l($text, $path, array $options = array())
-'attributes': An associative array of HTML attributes to apply to the anchor tag. If element 'class' is included, it must be an array; 'title' must be a string; other elements are more flexible, as they just need to work as an argument for the constructor of the class Drupal\Core\Template\Attribute($options['attributes']).
-'html' (default FALSE): Whether $text is HTML or just plain-text. For example, to make an image tag into a link, this must be set to TRUE, or you will see the escaped HTML image tag. $text is not sanitized if 'html' is TRUE. The calling function must ensure that $text is already safe.
-'language': An optional language object. If the path being linked to is internal to the site, $options['language'] is used to determine whether the link is "active", or pointing to the current page (the language as well as the path must match). This element is also used by url().
-Additional $options elements used by the url() function.
-
- https://api.drupal.org/api/drupal/core!lib!Drupal!Core!Template!TwigExtension.php/function/TwigExtension%3A%3AgetLink/8.2.x
-
-{{ var }}
-{{ link( i-want-html|raw , item.url, { 'class': ['multiple', 'classes', 'yo'], 'id':['icanhazid'] } ) }}
-#}
-
-  {% set description = item.original_link.getDescription()|split(' | ') %}
-  {% set linktitle = description.0 %}
-  {% set svgicon = description.1 %}
-
-  <a href="{{ item.url }}" title="{{ linktitle }}" class="L-center-middle">
-
-    <span class="menu-main__icon _t_icon-use">
-      <svg>
-        <use xlink:href="/{{ active_theme_path() }}/templates/component/navigation/main/menu-icons.svg#{{ svgicon }}"></use>
-      </svg>
-    </span>
-  <span class="menu-main__title">{{ item.title}}</span>
-  </a>
+          <span class="menu-main__icon _t_icon-use">
+            <svg>
+              <use xlink:href="/{{ active_theme_path() }}/templates/component/navigation/main/menu-icons.svg#{{ svgicon }}"></use>
+            </svg>
+          </span>
+          <span class="menu-main__title">{{ item.title}}</span>
+        </a>
 
 
         {% if item.below %}

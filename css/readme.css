@@ -1,28 +1,26 @@
-/*
-Here be dragons
+/* microformats2 */
+/* .h- is root of an element */
 
-*/
-/* sigh */
-main {
-  padding-top:90px;
+/* h-card */
+.h-card{
+
 }
-.path-frontpage main,
-.path-node main{
-  padding-top: 0;
-}
+/* an address */
+.h-adr{}
+/* .dt- data or time */
+.dt-{}
+/*.e- includes all the html */
+.e- {}
+/*.p- is text */
+.p-{}
+/* phone */
+.p-tel{}
+/*.u- is an url */
+.u-{}
+/*.u-email is an url */
 
-/* small */
-@media (max-width: 768px) {
-  main{
-    padding-top: 90px
-  }
 
-}/* small */
-
-.page-title-yes-iknow-this-classname-is-dumb{
-  text-align: center;
-}
-
+/*test class */
 ._t{
   outline: 1px solid red;
 }
