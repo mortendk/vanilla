@@ -3,10 +3,10 @@
   // adds in a fixed position menu
   // css in page.css navigation fixed
   $(window).scroll(function() {
-    if( $(this).scrollTop() > $('.path-frontpage .hero-front').height() ) {
-      $('.path-frontpage .hero-nav').addClass('hero-nav--locked');
+    if( $(this).scrollTop() > $('.path-frontpage .js-hero-front').height() ) {
+      $('.path-frontpage .js-hero-nav').addClass('hero-nav--locked');
     } else {
-      $('.path-frontpage .hero-nav').removeClass('hero-nav--locked');
+      $('.path-frontpage .js-hero-nav').removeClass('hero-nav--locked');
     }
   });
 

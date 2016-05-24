@@ -1,51 +1,19 @@
 /*
-#Image
-
-Image in a figure wrapper with figcaption
-
-Markup:
-<figure class="$modifierClass">
-<img src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
-<figcaption>whatever</a>
-<figure>
-
-Styleguide 3.0.0 Image
-*/
-img {
-  max-width: 100%;
-  height: auto;
-  -ms-interpolation-mode: bicubic;
-  border: 0;
-  vertical-align: middle;
-}
-
-/* Correct overflow not hidden in IE 9/10/11.*/
-svg:not(:root) {
-  overflow: hidden;
-}
-
-figure {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-}
-figcaption {
-  display: block;
-  text-align: center;
-  word-wrap: break-word;
-}
-/* Its a pita when images are behaving like inline elements inside of pict & img*/
-picture img,
-figure img {
-  display: block;
-}
-
-/*
-#Image styles
+#Image theme
 
 sweet styles for the images imgstyle-[name]-[variation]  we dont use the modifer classe here cause we wanna keep the amount of selectors down
 we have to read the markup later on ;)
 The selected can be added to any wraper around the image, and handles figcamptions as well
+
+.theme-circle
+.theme-circle--small
+.theme-circle--medium
+.theme-circle--large
+
+.theme-round
+.theme-round--small
+.theme-round--medium
+.theme-round--large
 
 .imgstyle-circle - a round image
 .imgstyle-circle-small - a small round image
@@ -60,18 +28,22 @@ Markup:
 <img src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
 <figcaption>figcaption username</figcaption>
 <figure>
+<div class="$modifierClass">
+  <p>some content</p>
+</div>
 
 Styleguide 3.0.1 Image
 */
-.imgstyle-circle {
-  position: relative;
-}
 .imgstyle-circle img {
   border: 1px solid red;
-  border-radius: 50%;
-  /*-webkit-clip-path: circle(50px at center);
+
+  -webkit-clip-path: circle(50px at center);
      -moz-clip-path: circle(50px at center);
-          clip-path: circle(50px at center);*/
+          clip-path: circle(50px at center);
+}
+.imgstyle-circle {
+  position: relative;
+  border: 1px solid black;
 }
 .imgstyle-circle figcaption {
   position: absolute;
@@ -114,36 +86,4 @@ Styleguide 3.0.1 Image
 }
 .imgstyle-round-large img {
   border-radius: 10px;
-}
-
-/*
-#Image & Figure in content
-
-Figure wrapper with figcaption inside of content
-
-.right - Right aligned
-
-Markup:
-<div class="content">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi consequatur ut laboriosam, odio rerum sint rem tenetur veritatis facere. Obcaecati facilis debitis libero inventore! Cupiditate consequuntur dolorum minima odio aperiam?
-<img class="$modifierClass" src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
-<div>
-
-Styleguide 3.0.3 Image
-*/
-.content img {
-  float: left;
-  padding: 0 1rem 1rem 0;
-}
-.content figure {
-  float: left;
-  padding: 0 1rem 1rem 0;
-}
-.content figure img {
-  float: none;
-}
-.content img.right,
-.content .right img {
-  float: right;
-  padding: 0 1rem 1rem 0;
 }

@@ -19,10 +19,10 @@ markup:
 <div class="hero">
   <h1 class="hero__title"> title</h1>
   <figure class="hero__image">
-  <img>
-  <figcaption>figcap</figcaption>
+    <img>
+    <figcaption>figcap</figcaption>
   </figure>
-  <div class="hero__content">bla bla bla </div>
+  <div class="hero__text">bla bla bla </div>
 <div>
 
 styleguide: hero's
@@ -33,12 +33,15 @@ styleguide: hero's
   overflow: hidden;
   flex-direction: column;
   width: 100%;
-  height: 50vh;
-  margin-bottom: 2rem;
-
+  height: 100vh;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
+.hero--half {
+  height: 50vh;  
+}
+
 .hero__image {
   position: absolute;
   z-index: 1;
@@ -47,52 +50,80 @@ styleguide: hero's
   width: 100vw;
   height: auto;
 }
-.hero__image img {
-  width: 100%;
-  height: auto;
-}
-.hero__image figcaption {
-  z-index: 10;
-  width: 100%;
-  margin-left: 70%;
-  padding-right: 10%;
-  background: rgba(0, 0, 0, 0.5);
-  color: white;
-  font-weight: bold;
-  text-align: right;
-
-  align-self: flex-end;
-}
+  .hero__image img {
+    width: 100%;
+    height: auto;
+  }
+  .hero__image figcaption {
+    z-index: 10;
+    width: 100%;
+    margin-left: 70%;
+    padding-right: 10%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-weight: bold;
+    text-align: right;
+    align-self: flex-end;
+  }
 
 .hero__title {
+  position: absolute;
   z-index: 20;
-  top: 25vh;
-  left: 0;
+  top: 10vh;
+  left: center;
   width: 100%;
-  background: rgba(0,0,0,0.2);
+  padding: 0 10%;
+  color: white;
+  font-family: 'lato';
+  font-weight: 700;
+  font-size: 5rem;
   text-align: center;
 }
 
 .hero__text {
+  position: absolute;
   z-index: 10;
-  top: 100px;
-  left: 0;
+  bottom: 0;
+  left: center;
+  width: 100%;
+  padding: 1% 20%;
+  color: white;
+  background: rgba(0, 0, 0, 0.5);
+  font-family: 'lato';
+  font-weight: 300;
+  font-size: 1.5rem;
 }
+  .hero__text p{
+    margin: 0;
+  }
+
 .hero__icon {
   z-index: 10;
   top: 200px;
   left: 0;
 }
 
+/* frontpage stuff */
 .t-hero-front {
   background: #efefef url('../../images/mdk.jpg') no-repeat;
   background-size: cover;
   background-position: center;
 }
+.t-hero-front h1{
+  font-family: "titillium", sans-serif;
+  font-size: 10rem;
+  color: white;
+}
+.t-hero-front a{
+  text-decoration: none;
+}
 
 /*
 Navigation fixed Layout
+
 */
+
+/* this name for an object is fucking terrible */
 .hero-nav {
   position: relative;
   width: 100%;
@@ -105,13 +136,6 @@ Navigation fixed Layout
   top: 0;
   border-bottom: 1px solid #efefef;
 }
-
-/* corrects placement of main when nav is locked*/
-.hero-nav--locked + main {
-  /*padding-top: 55px;*/
-}
-
-
 
 /* if the toolbar is active*/
 body.toolbar-horizontal .hero-nav--locked {
@@ -142,9 +166,6 @@ body.toolbar-vertical.toolbar-tray-open.admin-hide .hero-nav--locked {
 .path-frontpage .hero-nav--locked + * {
   margin-top: 50px; /* .hero-nav height */
 }
-
-
-
 
 .hero-nav .menu-h {
   height: 50px;

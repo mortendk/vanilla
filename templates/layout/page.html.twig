@@ -11,17 +11,18 @@
 
 {# Hero and navigation #}
 {% if is_front %}
-<div class="layout layout--center-middle height-full height-half@s t-hero-front" id="top">
+<div class="t-hero-front js-hero-front layout layout--center-middle height-full height-half@s " id="top">
   {# we should write this as some code yo #}
   <a href="#mainmenu">
     <h1>mortendk</h1>
-    <h2>#bada55 Drupal Webdesigner</h2>
+    <h2>My favorite color is #bada55</h2>
+    <h3>Drupal Webdesigner</h3>
     <div class="">arrow down</div>
   </a>
 </div>
-<header role="banner" class="hero-nav " id="mainmenu">
+<header role="banner" class="hero-nav js-hero-nav" id="mainmenu">
 {% else %}
-<header role="banner" class="hero-nav hero-nav--locked" id="mainmenu">
+<header role="banner" class="hero-nav js-hero-nav hero-nav--locked" id="mainmenu">
 {% endif %}
 
   <div class="layout layout--nomargin">
@@ -40,6 +41,7 @@
 
   {{ page.message }}
 
+  
   {{ page.content }}
 
   {% if page.sidebar_first %}

@@ -21,6 +21,11 @@ _theisiahack{
 }
 */
 
+.metadata{
+  padding: 10px;
+  border-bottom: 1px solid #ddd
+}
+
 
 .u-inline-list{
   background: red;
@@ -28,10 +33,6 @@ _theisiahack{
 
 .u-inline{
   display: inline;
-}
-
-.fix-stuffthatwedonowbutmusbefuckingfixed{
-  background: yellow;
 }
 
 .u-hide-figcaption figcaption {

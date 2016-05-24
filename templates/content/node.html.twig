@@ -9,7 +9,7 @@
   ]
 %}
 
-<article{{ attributes.addClass('l-fullwidth') }}>
+<article{{ attributes.addClass('layout-fullwidth') }}>
   {#
   node title - if its printed here, remove the title from  blocks
   admin/structure/block/manage/vanilla_page_title
@@ -17,72 +17,61 @@
 
   {# field--node--field-image.html.twig  #}
   <div class="hero">
-
     {{ title_prefix }}
-      <h1{{ title_attributes.addClass('shady','hero__title') }}>{{ label }}</h1>
+      <h1{{ title_attributes.addClass('hero__title') }}>{{ label }}</h1>
     {{ title_suffix }}
 
     {{ content.field_image }}
-
+    {{ content.field_teaser }}
   </div>
 
+  <footer class="gray-100 metadata">
 
-  <div class="l-pagewidth l-row">
-    <div class="l-12-1">
-      {{ author_picture }}
-
-      {# sociail stuff
-        @TODO: can we drop in a block here ?
-        twitter button
-        https://about.twitter.com/resources/buttons#tweet
-
-        @TODO: remove this from the hardcoded part
-        here we grap the user name fro the user and prints this stuff out on the dfollow button.
-        pretty sure we can make this happen with the field type
-      #}
-
-      <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="mortendk">Tweet</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-      {# follow #}
-      <a href="https://twitter.com/mortendk" class="twitter-follow-button" data-show-count="false">Follow @mortendk</a>
-      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-
+    <div class="layout layout--width-75">
+      <div class="width-2 u-align-right">
+        {{ author_picture }}
+      </div>
+      <div class="width-6">
+        <i class="icon icon--badge-retro icon--s">date</i>
+        {{ author_name }}
+        <br>
+        <i class="icon icon--s icon--date">date</i>
+        {{ node.createdtime|date("d.m.Y H:m") }}
+        ( {{ node.changedtime|date("d.m.Y") }} )
+        <br>
+        <i class="icon icon--badge-retro icon--s">date</i>
+        {{ content.field_tags }}
+        {{ metadata }}
+      </div>
+      <div class="width-4  u-align-right">
+        {{ content.field_section }}
+      </div>
     </div>
-    <div class="l-12-10">
 
-      <footer>
-        <div{{ author_attributes.addClass('l-12-10') }}>
-          by: {{ author_name }}
-          date: {{ node.createdtime|date("d.m.Y H:m") }} - {{ node.changedtime|date("d.m.Y") }}
-          | tags:
-          {{ content.field_tags }}
-          {{ metadata }}
-        </div>
-      </footer>
+  </footer>
 
-      {{ content.field_teaser }}
+{# teaser + meta done  #}
 
-    </div>
-    <div class="hack-drupal-you-beeing-a-pain-in-the-ass l-12-1">
-      {{ content.field_section }}
-
-    </div>
-  </div>
-
-
-
-
-
-
-
-  <div{{ content_attributes.addClass('l-pagewidth') }}>
+  <section{{ content_attributes.addClass('layout layout-pagewidth') }}>
     {# print out content without the fields thats printed other places #}
-    {#
-    @TODO why do we still have 'links' ?
-    links can also be removed from the display in
-    /admin/structure/types/manage/article/display
-    #}
-    {{ content|without('field_tags', 'field_image', 'field_section','field_teaser','comment','links') }}
+    {{ content|without('field_tags', 'field_image', 'field_section','field_teaser','comment','links','field_images', 'field_files', 'field_links') }}
+  </section>
+
+  <div class="layout-fullwidth">
+    {{ content.field_images }}
+  </div>
+
+  <div class="layout layout-pagewidth">
+    <div class="width-6">
+      {{ content.field_files }}
+    </div>
+    <div class="width-6">
+      {{ content.field_links }}
+    </div>
+
+  </div>
+
+
 
   {# @TODO
   this {{ link( label, url) }}
@@ -91,7 +80,7 @@
   #}
 
 {#
-somehow fucking devel fucks this over as a permalink ? WTF drupal
+  somehow fucking devel fucks this over as a permalink ?
   <a href="{{ url }}" title="{{ node.label }}">
     {{ 'Go!'|t }}
     <span class="visually-hidden">{{ node.label }}</span>
@@ -109,13 +98,26 @@ somehow fucking devel fucks this over as a permalink ? WTF drupal
     {{content.comment['#items'].comment_count}}
     {{'comments'|t}}
   </a> |
+  #}
 
-  {# add new comment  hreflang="{{ node.language.id }}" #}
-  <a href="{{ url }}#comments"
-    title="{{'comments on this'|t}}">
-    {{ 'Add new comment'|t }}
-  </a>
+  <section class="layout-pagewidth">
+    {{ content.comment }}
+  </section>
 
+  {# sociail stuff
+    @TODO: can we drop in a block here ?
+    twitter button
+    https://about.twitter.com/resources/buttons#tweet
 
-  {{ content.comment }}
+    @TODO: remove this from the hardcoded part
+    here we grap the user name fro the user and prints this stuff out on the dfollow button.
+    pretty sure we can make this happen with the field type
+  #}
+
+  <a href="https://twitter.com/share" class="twitter-share-button"{count} data-via="mortendk">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  {# follow #}
+  <a href="https://twitter.com/mortendk" class="twitter-follow-button" data-show-count="false">Follow @mortendk</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
 </article>

@@ -1,15 +1,16 @@
 <?php
 /**
  * hook_theme_suggestions_HOOK_alter()
+ * add in viewmodes for suggestions for taxonomy pages.
 */
 function vanilla_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
-  $suggestions[] = 'taxonomy-term__viewmode_' . $variables['elements']['#view_mode'];
+  $suggestions[] = 'taxonomy_term__viewmode_' . $variables['elements']['#view_mode'];
   $suggestions[] = $suggestions[0] . '__viewmode_' . $variables['elements']['#view_mode'];
 }
 
 function vanilla_theme_suggestions_field_alter(array &$suggestions, array $variables) {
   // kint($variables['element']) ;
-  // add viewmodes to the suggestions
+  // add viewmodes to the template suggestions
   $suggestions[] = 'field__' .  $variables['element']['#field_type'] . '__viewmode_' . $variables['element']['#view_mode'] ;
   $suggestions[] = 'field__' .  $variables['element']['#field_type'] . '__' . $variables['element']['#bundle'] .'__viewmode_' . $variables['element']['#view_mode'] ;
   $suggestions[] = 'field__' .  $variables['element']['#field_type'] . '__' . $variables['element']['#field_name']  ;
@@ -87,6 +88,8 @@ function vanilla_page_attachments_alter(array &$page) {
   hook_preprocess_field()
   https://api.drupal.org/api/drupal/core%21includes%21theme.inc/function/template_preprocess_field/8
 */
+
+// Fields need a bit more brain.
 function vanilla_preprocess_field(&$variables, $hook) {
   // kint($variables['element']);
   $element = $variables['element'];
