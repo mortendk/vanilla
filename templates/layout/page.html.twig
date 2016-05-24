@@ -8,58 +8,51 @@
   <img src="{{ active_theme_path() }}/images/d8.png">
 #}
 
+{# header reagion #}
+{% include active_theme_path() ~ '/templates/component/header/header.html.twig' %}
+{#
+<div class="L L-fixed fullwidth t-header js-header">
+  <div class="w-2 L-left-middle">
+    {{ page.header_pre }}
+  </div>
+  <div class="w-8 L-center-middle">
+    {{ page.header }}
+  </div>
+  <div class="w-2 L-right-middle">
+    {{ page.header_post }}
+  </div>
+</div>
+ #}
 
 {# Hero and navigation #}
+{#
 {% if is_front %}
-<div class="t-hero-front js-hero-front layout layout--center-middle height-full height-half@s " id="top">
-  {# we should write this as some code yo #}
-  <a href="#mainmenu">
-    <h1>mortendk</h1>
-    <h2>My favorite color is #bada55</h2>
-    <h3>Drupal Webdesigner</h3>
-    <div class="">arrow down</div>
-  </a>
-</div>
-<header role="banner" class="hero-nav js-hero-nav" id="mainmenu">
+  {% include active_theme_path() ~ '/templates/component/hero/hero.html.twig' %}
+<header role="banner" class="menu-main js-menu-main" id="mainmenu">
 {% else %}
-<header role="banner" class="hero-nav js-hero-nav hero-nav--locked" id="mainmenu">
+<header role="banner" class="menu-main js-menu-main menu-main--locked" id="mainmenu">
+{% endif %}
+  {{ page.menu }}
+</header>
+ #}
+
+<header role="banner" class="menu-main js-menu-main" id="mainmenu">
+  {{ page.menu }}
+</header>
+{% if is_front %}
+  {% include active_theme_path() ~ '/templates/component/hero/hero.html.twig' %}
 {% endif %}
 
-  <div class="layout layout--nomargin">
-    <div class="width-2">
-      {{ page.logo }}
-    </div>
-    <div class="width-10">
-    {{ page.header }}
-    </div>
-  </div>
-
-</header>
-
-<main role="main">
+<main role="main" id="main">
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+  {{ page.top }}
 
-  {{ page.message }}
-
-  
+  {{ page.content_pre }}
   {{ page.content }}
+  {{ page.content_post }}
 
-  {% if page.sidebar_first %}
-    <aside role="complementary">
-      {{ page.sidebar_first }}
-    </aside>
-  {% endif %}
-
-  {% if page.sidebar_second %}
-    <aside role="complementary">
-      {{ page.sidebar_second }}
-    </aside>
-  {% endif %}
-
+  {{ page.bottom }}
 </main>
 
-{% if page.footer %}
-  <footer role="contentinfo">
-    {{ page.footer }}
-  </footer>
-{% endif %}
+
+{% include active_theme_path() ~ '/templates/component/footer/footer.html.twig' with { 'path' : active_theme_path()} %}

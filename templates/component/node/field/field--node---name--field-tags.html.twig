@@ -1,0 +1,27 @@
+{# tags with tooltips #}
+<nav{{ attributes}}>
+  <h3{{ title_attributes.addClass('visually-hidden') }}>{{ label }}</h3>
+  <ul>
+  {% for item in items %}
+    <li{{ item.attributes }}>
+    {%
+      set ballonposition = [
+        loop.index is even and not ( loop.first  or loop.last )  ? 'left',
+        loop.index is odd and not ( loop.first  or loop.last )  ? 'right',
+        loop.first ? 'up',
+        loop.last ? 'down',
+      ]
+    %}
+
+    <a
+    href="{{ item.content['#url'] }}"
+    class="circle"
+    data-balloon="{{ item.content['#title'] }}"
+    data-balloon-pos="{{ballonposition|join('') }}">
+    {{ item.content['#title']|slice(0,1) }}
+    </a>
+
+  </li>
+  {% endfor %}
+</ul>
+</nav>

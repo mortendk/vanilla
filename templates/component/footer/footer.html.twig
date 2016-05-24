@@ -1,0 +1,30 @@
+{{ attach_library(active_theme() ~ '/footer') }}
+
+<footer role="contentinfo" class="L LS-top LS-bottom pagewidth screenheight-third-minimum">
+
+  <div class="w-12 t-gray700 L-space">
+    <div>{{ page.footer_1 }}</div>
+    <div>{{ page.footer_2 }}</div>
+    <div>{{ page.footer_3 }}</div>
+    <div>{{ page.footer_4 }}</div>
+  </div>
+
+  <div class="w-12">
+
+  {{ page.footer }}
+
+  {% set themename %}
+    {{ active_theme() }}
+  {% endset %}
+
+  <div class="L-center">
+
+    {% trans %}
+      <div>made with love & <a href="https://drupal.org/project/vanilla">{{ themename}} theme</a></div>
+    {% endtrans %}
+
+  </div>
+
+  </div>
+
+</footer>

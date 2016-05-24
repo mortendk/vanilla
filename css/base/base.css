@@ -42,12 +42,20 @@ a {
   text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:active {
-  text-decoration: underline;
+  text-decoration: none;
 }
 /* All links added from the content fields */
 /*main a[href]:not([class]) {
   text-decoration: underline;
 }*/
+
+code{
+  margin: 0;
+  padding:0;
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 1em;
+}

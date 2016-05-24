@@ -1,0 +1,165 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+.hero__image {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: auto;
+}
+
+.hero__image img {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+
+.hero__text {
+  z-index: 10;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 40vh;
+  background: rgba(0,0,0,0.7);
+}
+.hero__text a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.hero__title {
+  padding: 3rem 0 0 0;
+  color: white;
+  font-family: "titillium", sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  text-align: center;
+}
+.hero__teaser {
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 2rem;
+}
+
+/* small */
+@media (max-width: 768px) {
+  .hero {
+  }
+  .hero__title {
+    color: white;
+    font-family: "titillium", sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+  .hero__teaser {
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 300;
+    line-height: 1.2rem;
+  }
+}/* small */
+
+
+/* frontpage is a bit different */
+.t-hero-front {
+  background: #efefef url("images/mortendk.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.t-hero-front h1 {
+  overflow: hidden;
+  width: 53rem;
+  height: 5rem;
+  color: white;
+  font-family: "titillium", sans-serif;
+  font-size: 16vw;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  animation: type 3s steps(10, end);
+  height: 9vw;
+}
+
+.t-hero-front h2 {
+  width: 53rem;
+  margin-top: 0;
+  opacity: 0;
+  background: darkgreen;
+  color: #bada55;
+  font-family: "titillium", sans-serif;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 5vw;
+  animation: show;
+  animation-duration: 3s;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+
+  animation-fill-mode: forwards;
+}
+.t-hero-front h3 {
+  height: 2.5rem;
+  padding: 0;
+  opacity: 0;
+  color: white;
+  font-size: 5vw;
+  text-align: center;
+  animation: show;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+
+  animation-fill-mode: forwards;
+}
+.t-hero-front .needed-profanity {
+  display: inline-block;
+  overflow: hidden;
+  width: 0ch;
+  height: 2.5rem;
+  opacity: 1;
+  transition: all 1s ease;
+  background: hotpink;
+  color: white;
+  font-weight: 500;
+}
+.t-hero-front a:hover .needed-profanity {
+  width: 8ch;
+  opacity: 1;
+  height: 100%;
+}
+/* small */
+@media (max-width: 768px) {
+  .t-hero-front h3, 
+  .t-hero-front .needed-profanity {
+    height: 1rem
+  }
+}/* small */
+
+
+.t-hero-front__color {
+  background: #bada55;
+  color: white;
+}
+.t-hero-front a {
+  text-decoration: none;
+}
+
+/* small */
+@media (max-width: 768px) {
+  .t-hero-front h1 {
+    height: 10vw;
+  }
+
+  .t-hero-front h2 {
+
+  }
+
+  .t-hero-front h3 {
+    }
+}/* small */

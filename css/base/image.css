@@ -19,10 +19,18 @@ img {
   vertical-align: middle;
 }
 
+img[src$=".svg"]{
+  max-width: auto;
+  width: 100%;
+  height: auto;
+}
+
 /* Correct overflow not hidden in IE 9/10/11.*/
 svg:not(:root) {
   overflow: hidden;
 }
+
+
 
 figure {
   display: inline-block;
@@ -67,7 +75,7 @@ Styleguide 3.0.1 Image
   position: relative;
 }
 .imgstyle-circle img {
-  border: 1px solid red;
+  border: 1px solid #666;
   border-radius: 50%;
   /*-webkit-clip-path: circle(50px at center);
      -moz-clip-path: circle(50px at center);

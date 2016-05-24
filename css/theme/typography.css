@@ -1,60 +1,72 @@
-body {
-  color: #666;
+:root{
   font-family: "opensans", sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;;
+}
+body {
+  color: #444;
 }
 
 h1,
 h2,
 h3,
-h4 {
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
   margin: 0;
   padding: 0;
   color: #666;
-  font-family: "bitter", sans-serif;
+  font-family: "titillium", sans-serif;
+  /*font-family: "bitter", sans-serif;*/
   font-weight: 300;
   line-height: 1;
 }
-h1 {
+h1,.h1 {
   font-size: 5rem;
 }
-h2 {
+h2,.h2 {
   font-size: 3rem;
 }
-h3 {
+h3,.h3 {
   font-size: 2rem;
 }
-h4 {
+h4,.h4 {
   font-size: 1.5rem;
 }
-
-
-.f-small {
-  font-size: 0.7rem;
+h5,.h5 {
+  font-size: 1.3rem;
 }
-.f-small h3 {
-  font-size: 1rem;
+h6,.h6 {
+  font-size: 1.1rem;
 }
 
-.f-medium {
-}
-.f-large {
-}
 
-.f-cap {
-}
+
+.f-small {  font-size: 0.7rem;}
+.f-small h3 { font-size: 1rem;}
+.f-medium { }
+.f-large {   font-size: 1.5rem; font-weight: 500}
+
+.f-cap { }
 .f-cap::first-letter {
-  color: red;
+  color: #333;
   font-family: "Bitter",serif;
   font-size: 4rem;
 }
 
-
 /* f- font size variations */
 .f-bold {
-  list-style: 2rem;
-  color: black;
-  font-size: 3rem;
   font-weight: 500;
+}
+
+blockquote{
+  font-size: 1.5rem;
+  border-top: 1px solid var(--pink800);;
+  border-bottom: 4px solid var(--pink800);;
+  padding: 0 4em;
+  color: var(--pink900);
+  font-family: "titillium";
+  font-weight: 300;
 }

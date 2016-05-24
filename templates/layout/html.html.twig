@@ -11,6 +11,7 @@ avalible Variables:
 paths:
 {{ root_path }} # first parth of the path : ex node, user
 {{ active_theme_path() }} # ex: /theme/vanilla
+
 #}
 {#
   set var = [
@@ -24,18 +25,26 @@ paths:
 #}
 
 {# heres an example of testing the content type and then add a class for that #}
-{% if node_type =="article" %}
+{% if  node_type =="article" %}
   {% set content_type_class = "article" %}
 {% else %}
-  {% set content_type_class = "other-than-article" %}
+  {% set content_type_class = "" %}
 {% endif %}
 
+{% if node_type == "article" %}
+  {% set  not_front_not_article = "u-push-content-below-menu" %}
+{% endif %}
+
+{% if not root_path %}
+  {% set frontpage = "frontpage" %}
+{% endif %}
 {# sets the body_classes that gets added to the body tag #}
 {%
   set body_classes = [
     not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
     db_offline ? 'db-offline',
-    content_type_class,
+    not_front_not_article,
+    frontpage ? 'frontpage' : 'not-front',
   ]
 %}
 <!DOCTYPE html>
@@ -76,12 +85,12 @@ paths:
     <meta name="theme-color" content="#E2E6E8">
     {#  phew ... you could wish for some kind of standard #}
 
-    <title> // : 🍔 {{ head_title.name }} |  {{ head_title.title }}</title>
+    <title>{{ head_title.name }} | {{ head_title.title }}  | 🍔</title>
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
   <body{{ attributes.addClass(body_classes) }}>
-    {# @TODO why do we have classed: .focusable .skip-link here ?  #}
+
     <a href="#main-content" class="visually-hidden focusable skip-link"> {# link to main-content is in page.html.twig #}
       {{ 'Skip to main content'|t }}
     </a>

@@ -1,0 +1,37 @@
+{# social networks  #}
+{% macro socialList(networks, className) %}
+
+    <ul {% if className %}class="{{ className }}"{% endif %}>
+    {% for network in networks %}
+        <li class="{{ network.name | lower }}">foo<a href="{{ network.url }}">{{ network.name }}</a></li>
+    {% endfor %}
+    </ul>
+{% endmacro %}
+
+{#
+{{ _self.socialList(networks, "foobar") }}
+#}
+
+{# user name #}
+{% macro username(username, image, link) %}
+
+{% endmacro username %}
+
+
+
+
+{#
+svg macro ??
+ #}
+{% macro svg(svg, class) %}
+  <svg class="{{ class }}" title="{{ svg.title }}">
+    <use xlink:href="{{ svg.url }}#{{ svg.symbol }}"></use>
+  </svg>
+{% endmacro %}
+
+{{ macros.svg(entry.svg.first, 'big-blue-symbol') }}
+
+{# Field  #}
+{% macro field() %}
+
+{% endmacro %}

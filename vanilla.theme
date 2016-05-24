@@ -1,23 +1,107 @@
 <?php
 /**
- * hook_theme_suggestions_HOOK_alter()
- * add in viewmodes for suggestions for taxonomy pages.
-*/
-function vanilla_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
-  $suggestions[] = 'taxonomy_term__viewmode_' . $variables['elements']['#view_mode'];
-  $suggestions[] = $suggestions[0] . '__viewmode_' . $variables['elements']['#view_mode'];
+ * Implements hook_preprocess_menu().
+ */
+function vanilla_preprocess_menu(&$vars, $hook) {
+  // this will take markup from the ui title 
+
+  if ($hook == 'menu__main') {
+    $items = $vars['items'];
+    foreach ($items as $key => $item) {
+      $original_title = $vars['items'][$key]['title'];
+      $vars['items'][$key]['title'] = array(
+        '#markup' => $original_title,
+        '#allowed_tags' => array('span', 'b', 'i'),
+      );
+    }
+  }
 }
 
+
+
+function vanilla_theme_registry_alter(&$theme_registry) {
+  array_map(function($item) {
+    $item['variables']['region'] = '';
+    return $item;
+  }, $theme_registry);
+}
+
+function vanilla_preprocess(&$variables) {
+  // Create a region variable for templates.
+  if (isset($variables['region'])) {
+    foreach ($variables as $name => &$variable) {
+      if (!empty($variable) && is_array($variable) && (isset($variable['#theme']) || isset($variable['#theme']))) {
+        $variable['#region'] = $variables['region'];
+      }
+    }
+  }
+  // kint($variables['region']);
+}
+
+
+// ----------------------------------------------------------------------------
+// PREPROCESS
+// ----------------------------------------------------------------------------
+function vanilla_preprocess_input(&$variables) {
+  // $element = $variables['element'];
+  // kint($element);
+}
+
+// Add a region variable to blocks
+function vanilla_preprocess_block(&$variables, $hook) {
+  $block_id = $variables['elements']['#id'];
+  $block = \Drupal\block\Entity\Block::load($block_id);
+
+  $variables['region'] = $block->getRegion();
+  $variables['content']['#region'] = $variables['region'];
+  // kint($variables);
+}
+
+// Field templates need to know who is calling it.
+function vanilla_preprocess_field(&$variables, $hook) {
+  $element = $variables['element'];
+
+  //Give the field an idea of where they come from
+  $variables['bundle'] = $element['#bundle'];
+  $variables['view_mode'] = $element['#view_mode'];
+}
+
+
+
+function vanilla_preprocess_views_view(&$variables, $hook) {
+  // print $variables['view']->getUrl();
+  // print $variables['view']->id();
+  // $block = \Drupal\view\Entity\View::load()
+}
+
+
+// ----------------------------------------------------------------------------
+// TEMPLATE SUGGESTIONS
+// ----------------------------------------------------------------------------
+/**
+ * hook_theme_suggestions_HOOK_alter()
+ *
+*/
+
+// template suggestion viewmodes for fields
 function vanilla_theme_suggestions_field_alter(array &$suggestions, array $variables) {
-  // kint($variables['element']) ;
-  // add viewmodes to the template suggestions
-  $suggestions[] = 'field__' .  $variables['element']['#field_type'] . '__viewmode_' . $variables['element']['#view_mode'] ;
-  $suggestions[] = 'field__' .  $variables['element']['#field_type'] . '__' . $variables['element']['#bundle'] .'__viewmode_' . $variables['element']['#view_mode'] ;
-  $suggestions[] = 'field__' .  $variables['element']['#field_type'] . '__' . $variables['element']['#field_name']  ;
+  // name pattern
+  // field--[type]---bundle--[bundle]---type--[type]---name--[name]
+    $suggestions[] ='------- above is vanillathmes suggestions --------';
 
-  //field--taxonomy-term--name.html.twig
+    $suggestions[] = 'field__type__' . $variables['element']['#field_type'];
+    $suggestions[] = 'field__name__' . $variables['element']['#field_name'];
+    $suggestions[] = 'field__bundle__' . $variables['element']['#bundle'] . '___type_' . $variables['element']['#field_type'];
 
-  // User bundle
+    $suggestions[] = 'field__' . $variables['element']['#entity_type'] . '___type__' . $variables['element']['#field_type'];
+    $suggestions[] = 'field__' . $variables['element']['#entity_type'] . '___name__' . $variables['element']['#field_name'];
+    $suggestions[] = 'field__' . $variables['element']['#entity_type'] . '___bundle__' . $variables['element']['#bundle'] . '___type__' . $variables['element']['#field_type'];
+    $suggestions[] = 'field__' . $variables['element']['#entity_type'] . '___bundle__' . $variables['element']['#bundle'] . '___type__' . $variables['element']['#field_type'] . '___name__' . $variables['element']['#field_name'] ; ;
+
+    $suggestions[] = 'field__' . $variables['element']['#entity_type'] . '___bundle__' . $variables['element']['#bundle'] . '___viewmode__' . $variables['element']['#view_mode'] . '___type__' . $variables['element']['#field_type'] ; ;
+    $suggestions[] = 'field__' . $variables['element']['#entity_type'] . '___bundle__' . $variables['element']['#bundle'] . '___viewmode__' . $variables['element']['#view_mode'] . '___name__' . $variables['element']['#field_name'] ; ;
+
+  // User fields
   if( $variables['element']['#bundle'] == 'user' ){
     // kint($variables);
     // creates template suggestions
@@ -25,76 +109,111 @@ function vanilla_theme_suggestions_field_alter(array &$suggestions, array $varia
     // examples:
     // field--user--field--image--compact.html.twig
     // field--user--field--image.html.twig
-    $suggestions[] = 'field__' . $variables['element']['#bundle'] .'__field__' . $variables['element']['#field_type'] ;
-    $suggestions[] = 'field__' . $variables['element']['#bundle'] .'__field__' . $variables['element']['#field_type'] . '__' . $variables['element']['#view_mode'];
+
+    // $suggestions[] = 'field__' . $variables['element']['#bundle'] .'__type_' . $variables['element']['#field_type'] ;
+    // $suggestions[] = 'field__' . $variables['element']['#bundle'] .'__type_' . $variables['element']['#field_type'] . '__viewmode_' . $variables['element']['#view_mode'];
   }
 }
 
+function vanilla_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  $block_id = $variables['elements']['#id'];
+  $block = \Drupal\block\Entity\Block::load($block_id);
+  $variables['region'] = $block->getRegion();
+
+  // kint($variables['elements']['#base_plugin_id']);
+  $suggestions[] = 'block__region_' . $block->getRegion();
+  $suggestions[] = 'block__' . $block->getRegion() . '__' . $variables['elements']['#base_plugin_id'] ;
+}
+
+//-----------------------------------------------------------
+// V I E W S
+//-----------------------------------------------------------
+function vanilla_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
+  // kint($variables['view']->getStyle());
+  // getDisplay()
+  //getPath()
+  //getStyle()
+  // @TODO: it would be really helpfull if we can set a view based on the region
+  // or whatever the views have set in a config.
+  $suggestions[] = 'views_view__path_' .$variables['view']->getPath();
+  $suggestions[] = 'views_view__id_' .$variables['view']->id();
+}
+
+function vanilla_theme_suggestions_views_view_list_alter(array &$suggestions, array $variables) {
+  // kint( $variables['view'] );
+  //view_list__viewformat
+  // $suggestions[] = 'view_list__' .$variables['view']->getDisplay();
+  //format ?
+  //@todo: can we use our own tempate name ala "list.html.twig"
+  // $suggestions[] = 'views_view_list__' .$variables['view']->getPath();
+  // $suggestions[] = 'views_view_list__' .$variables['view']->id();
+  $suggestions[] = 'views_view_list__path_' .$variables['view']->getPath();
+  $suggestions[] = 'views_view_list__id_' .$variables['view']->id();
+}
+
+// Menu
+function vanilla_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  // @TODO: add the region name here to the menu so we can drop all menus in
+  // kint($variables);
+}
+
+//terms
+function vanilla_theme_suggestions_taxonomy_term_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'taxonomy_term__viewmode_' . $variables['elements']['#view_mode'];
+  $suggestions[] = $suggestions[0] . '__viewmode_' . $variables['elements']['#view_mode'];
+}
+
+//user
 function vanilla_theme_suggestions_user_alter(array &$suggestions, array $variables) {
   // @TODO: add a suggestion based on where this user is printed
   // its it a node - is it a comment or the user page
-
   // add the view mode as a template suggestion
   if( isset($variables['elements']['#view_mode']) ) {
     $suggestions[] = 'user__' . $variables['elements']['#view_mode'];
   }
 }
 
+//Forms
+// container
 function vanilla_theme_suggestions_container_alter(array &$suggestions, array $variables) {
-  // provide a container__[name] template suggestion for containers
-  // we use this to remove the front container ex (look in /templates/_cleanup)
-  // as well as wrappers on thegoddamn forms
-
-  // this is for form wrappers
   if (isset($variables['element']['#id'])){
-    $suggestions[] = 'container__' . $variables['element']['#id'];
+    $suggestions[] = 'container___id__' . $variables['element']['#id'];
   }
-
-  //test if this fucker is always used on forms
-  if (isset($variables['element']['widget']['#theme'])){
-    $suggestions[] = 'form_container';
-  }
-
+  //$suggestions[] = 'container___themewrapper__' . $variables['element']['submit']['#theme_wrappers'][0];
   // ex container or actions on forms
   if (isset($variables['element']['#type'])){
-    $suggestions[] = 'container__' . $variables['element']['#type'];
+    $suggestions[] = 'container___type__' . $variables['element']['#type'];
   }
 
   // frontpage content wrapper & others - we used this to remove that wrapper on
   //frontpage and overwrites with /_cleanup/container/frontpage.html.twig
   if (isset($variables['element']['#name'])){
-    $suggestions[] = 'container__' . $variables['element']['#name'];
+    $suggestions[] = 'container___name__' . $variables['element']['#name'];
+  }
+
+  if (isset($variables['element']['widget']['#theme'])){
+    $suggestions[] = 'container___form';
   }
 }
 
-function vanilla_theme_suggestions_image_alter(array &$suggestions, array $variables) {
-  // @TODO: we need to figure out who calls the image for different template suggestions
+// form
+function vanilla_theme_suggestions_form_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'form__' . $variables['element']['#form_id'];
+//  $suggestions[] = 'form__' . $variables['element']['#form_id'] . '__' . $variables['element']['#region'];
 }
 
-/*
-function vanilla_page_attachments_alter(array &$page) {
-  $viewport = array(
-    '#type' => 'html_tag',
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'viewport',
-      'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no',
-    ),
-  );
-  $page['#attached']['html_head'][] = [$viewport, 'viewport'];
+function vanilla_theme_suggestions_form_element_alter(array &$suggestions, array $variables) {
+  //@TODO: would be nice with something to identify these form elements that gets printed
+  $suggestions[] = 'form_element___' . $variables['element']['#type'];
 }
-*/
-/*
-  hook_preprocess_field()
-  https://api.drupal.org/api/drupal/core%21includes%21theme.inc/function/template_preprocess_field/8
-*/
 
-// Fields need a bit more brain.
-function vanilla_preprocess_field(&$variables, $hook) {
-  // kint($variables['element']);
-  $element = $variables['element'];
+function vanilla_theme_suggestions_form_element_label_alter(array &$suggestions, array $variables) {
+  $suggestions[] = 'form_element_label___' . $variables['element']['#title_display'];
+  $suggestions[] = 'form_element_label___' . $variables['element']['#id'];
+}
 
-  //Give the field an idea of where they come from
-  $variables['bundle'] = $element['#bundle'];
-  $variables['view_mode'] = $element['#view_mode'];
+function vanilla_theme_suggestions_input_alter(array &$suggestions, array $variables) {
+  // kint($variables['element']['#parents']);
+  $suggestions[] = 'input___type__' . $variables['element']['#type'];
+  $suggestions[] = 'input___parents__' . $variables['element']['#parents'][0];
 }

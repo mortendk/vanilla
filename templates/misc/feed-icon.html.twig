@@ -9,6 +9,8 @@
  *   - title: A descriptive title of the feed link.
  *   - class: HTML classes to be applied to the feed link.
  */
+ @TODO: is this actually used anywhere else than in views ?
+
 #}
 <a href="{{ url }}"{{ attributes.addClass('feed-icon') }}>
   {{ 'Subscribe to @title'|t({'@title': title}) }}

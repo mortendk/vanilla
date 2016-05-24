@@ -1,0 +1,170 @@
+._t-icontest {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+
+
+.is-active{
+  color: hotpink !important;
+  font-weight: bold;
+}
+.menu-main {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  opacity: 1;
+  border-bottom: 1px solid lightgray;
+  border-bottom: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.6);
+  transition: opacity 1s ease;
+}
+.menu-main--hide {
+  opacity: 0;
+}
+.menu-main li {
+  width: 100%;
+  border-left: 1px solid lightgray;
+  background: rgba(255, 255, 255, 0.9);
+}
+.menu-main li:last-child {
+  border-right: 1px solid lightgray;
+}
+
+.menu-main a {
+  width: 100%;
+  padding-top: 0.5rem;
+  transition: 0.3s;
+}
+.menu-main a:hover {
+  padding-bottom: 0.5rem;
+  background: rgba(255, 248, 225, 0.3);   /* amber500*/
+}
+.menu-main__title {
+  padding: 0 1rem;
+  color: black;
+  font-family: "titillium", sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  /*text-align: center;*/
+  text-transform: uppercase;
+}
+a:hover .menu-main__title {
+  color: var(--blue100);
+  text-decoration: none;
+}
+.menu-main__icon svg {
+  width: 50px;
+  height: 50px;
+}
+a:hover .menu-main__icon svg {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+a:hover .menu-main__icon svg  {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+
+
+
+/* small */
+@media (max-width: 768px) {
+  .menu-main li {
+    background: none;
+  }
+  .menu-main a {
+    padding-top: 0.3rem;
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .menu-main a:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  .menu-main__title {
+    padding: 0 0 0 0;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  .menu-main__icon {
+    width: 100%;
+    text-align: center;
+  }
+  .menu-main__icon svg {
+    width: 40px;
+    height: 40px;
+  }
+}/* small */
+
+/*
+Menu locked
+this is done for the frontpage so it can be fancy with the hero image
+*/
+/*.menu-main--locked {
+  position: fixed;
+  z-index: 50;
+  top: 20px;
+  border-bottom: 1px solid #ccc;
+}*/
+/*
+.menu-main--small {
+  position: fixed;
+  top: 20px;
+  height: 30px;
+}
+.menu-main--small  .menu-main__title{
+  font-size: 1rem
+}
+.menu-main--small .menu-main__icon svg{
+  height: 20px;
+  transition: all 0.2s ease;
+}
+.menu-main--small a:hover .menu-main__icon svg{
+  height: 30px
+}
+*/
+/*fontpage stugg */
+
+/*.path-frontpage .menu-main--locked + * {
+  margin-top: 50px;
+}*/
+
+
+/* if the toolbar is active*/
+body.toolbar-horizontal .menu-main {
+  top: 40px;
+}
+body.toolbar-horizontal.admin-hide .menu-main {
+  top: 0;
+}
+body.toolbar-horizontal.toolbar-tray-open .menu-main {
+  top: 80px;
+}
+/*body.toolbar-horizontal.toolbar-tray-open .menu-main--locked.menu-main--small {
+  top: 100px;
+}*/
+/* Is admin hide added*/
+body.toolbar-horizontal.toolbar-tray-open.admin-hide .menu-main {
+  top: 0px;
+}
+/*body.toolbar-horizontal.toolbar-tray-open.admin-hide .menu-main--locked.menu-main--small {
+  top: 20px;
+}*/
+body.toolbar-vertical .menu-main {
+  top: 60px;
+}
+body.toolbar-vertical.admin-hide .menu-main {
+  top: 0px;
+}
+body.toolbar-vertical.toolbar-tray-open .menu-main {
+  top: 40px;
+}
+body.toolbar-vertical.toolbar-tray-open.admin-hide .menu-main {
+  top: 0px;
+}

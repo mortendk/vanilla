@@ -1,0 +1,30 @@
+.teaser {
+  position: relative;
+  z-index: 1;
+}
+.teaser__image {
+  /*position: absolute;*/
+  z-index: 1;
+  top: 0;
+  display: block;
+}
+.teaser__content {
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 1rem;
+  padding: 1rem;
+  height: 9rem;
+}
+.teaser__title a{
+  color: white;
+}
+
+.teaser__text {
+  position: absolute;
+  bottom: 0;
+  overflow: hidden;
+  font-size: 0.7rem;
+}

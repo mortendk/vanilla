@@ -28,6 +28,20 @@ libraries:
   # -------------------------------
   # Replace an entire library.
   #core/drupal.collapse: mytheme/collapse
+# ------------------------------------------------------------------------------
+# libraries-extend:
+  # classy/forums:
+  #   - mythemename/messages
+
+# libraries-override:
+  # library/name: false
+
+# libraries-override:
+#   system/maintenance:
+#     css:
+#       theme:
+#         # Replace the System module's maintenance CSS file with a custom one.
+#         css/system.maintenance.css: css/maintenance.css
 
   # Replace an asset with another.
   # subtheme/library:
@@ -78,10 +92,19 @@ stylesheets-remove:
 # regions gets added to templates/page.html.twig -> {{ page.[regionname] }}
 regions:
   # machinename: Readable name
-  logo: logo
+  header_pre: Header Pre
   header: Header
-  message: Message
+  header_post: Header Post
+
+  menu: Menu
+  top: Top
+
+  content_pre: Content Pre
   content: Content #yes you want this one  - its required :)
-  sidebar_first: Sidebar First
-  sidebar_second: Sidebar Second
+  content_post: Content Post
+
   footer: Footer
+  footer_1: Footer 1
+  footer_2: Footer 2
+  footer_3: Footer 3
+  footer_4: Footer 4

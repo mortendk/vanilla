@@ -1,0 +1,27 @@
+{{ attach_library('vanilla/code-snippet') }}
+
+<div class="L pagewidth code">
+
+  {# you need to test if theres a value #}
+  {% if content.field_code.0 %}
+    <div class="iconsvg iconsvg--inline">
+      {% include 'themes/vanilla/templates/component/node/paragraphs/code/code.svg' %}
+    </div>
+    <h3>{{ content.field_code_filename }}</h3>
+  {% endif %}
+
+
+  {% spaceless %}
+  <pre>
+    {# yes were grapping the value directly #}
+    <code class="language-{{ content.field_code_language.0['#markup'] }}">
+    {{ content.field_code }}
+    </code>
+  </pre>
+  {% endspaceless %}
+  
+</div>
+
+<div class="pagewidth">
+  {{ content|without('field_code','field_code_language','field_code_filename') }}
+</div>

@@ -1,3 +1,34 @@
+
+.iconsvg,
+.iconsvg svg{
+  display: block;
+  width: 32px;
+  height: auto;
+}
+.iconsvg--inline,
+.iconsvg--inline svg{
+  display: inline-block;
+}
+
+.iconsvg--s svg,
+.iconsvg--s {
+  width: 12px;
+  height: auto;
+}
+.iconsvg--m svg,
+.iconsvg--m {
+  width: 18px;
+  height: auto;
+}
+
+.iconsvg--l svg,
+.iconsvg--l {
+  width: 64px;
+  height: auto;
+}
+
+/*
+
 .icon {
   display: inline-block;
   text-indent: -9999px;
@@ -25,4 +56,4 @@
 .icon--badge-retro{
   background: transparent url('../../icons/badges_retro-badge.svg') no-repeat;
   background-size: cover;
-}
+}*/

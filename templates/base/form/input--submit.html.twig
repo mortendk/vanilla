@@ -1,0 +1,28 @@
+{{ attach_library('vanilla/form') }}
+{#
+/**
+ * @file
+ * Theme override for an 'input' #type form element.
+ *
+ * Available variables:
+ * - attributes: A list of HTML attributes for the input element.
+ * - children: Optional additional rendered elements.
+ *
+ * @see template_preprocess_input()
+ */
+#}
+
+{%
+  set remove_classes = [
+  'button',
+  'form-submit',
+  'button--primary'
+  ]
+%}
+{%
+  set classes = [
+    'btn',
+    attributes.hasClass('button--primary') ? 'btn--green' : '',
+  ]
+%}
+<input{{ attributes.addClass(classes).removeClass(remove_classes)}} />{{ children }}

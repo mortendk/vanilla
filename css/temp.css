@@ -1,32 +1,53 @@
 /*
+Here be dragons
+
+*/
+/* sigh */
+main {
+  padding-top:90px;
+}
+.path-frontpage main,
+.path-node main{
+  padding-top: 0;
+}
+
+/* small */
+@media (max-width: 768px) {
+  main{
+    padding-top: 90px
+  }
+
+}/* small */
+
+.page-title-yes-iknow-this-classname-is-dumb{
+  text-align: center;
+}
+
+._t{
+  outline: 1px solid red;
+}
+
+/*
 o-object{
 }
 
 c-component{
 }
 
-.u-utilty {
+._u-utilty {
 
 }
 
-.l-layout{
+.L-layout{
 
 }
 
-.fix-shit_that_needs_to_be_fixed {
-
-}
 _theisiahack{
 
 }
 */
 
-.metadata{
-  padding: 10px;
-  border-bottom: 1px solid #ddd
-}
-
-
+/**/
 .u-inline-list{
   background: red;
 }
@@ -34,9 +55,16 @@ _theisiahack{
 .u-inline{
   display: inline;
 }
+.u-inline-block{
+  display: inline-block;
+}
 
 .u-hide-figcaption figcaption {
   display: none;
+}
+
+.u-small{
+  font-size: 0.7rem;
 }
 
 /**
@@ -46,6 +74,10 @@ _theisiahack{
   /*outline: 1px solid red;*/
 }
 
-_fix{
+._fix{
+
+}
+/* testing */
+._t{
 
 }

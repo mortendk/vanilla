@@ -1,0 +1,11 @@
+{%
+  set classes = [
+    'hero__teaser',
+    'width-75',
+    'width-90@s',
+  ]
+%}
+
+{% for item in items %}
+    <div{{ attributes.addClass(classes) }}>{{ item.content }}</div>
+{% endfor %}

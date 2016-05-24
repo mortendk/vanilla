@@ -1,0 +1,11 @@
+/* css for paragraphs code snippets */
+
+.code{
+  margin-top: 1rem;
+  padding-top: 1rem;
+  background: #f5f2f0 ;
+}
+
+.code pre[class*="language-"] {
+  padding: 0;
+}

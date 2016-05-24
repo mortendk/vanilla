@@ -1,0 +1,19 @@
+<h2>{{ "Showing style guide for @name"|t({'@name': theme_info.name}) }}
+</h2>
+{% if theme_info.description %}
+    <p>{{ theme_info.description }}</p>
+{% endif %}
+<h2 class="styleguide">
+    {% trans %}
+        Styleguide element entries</h2>
+    {% endtrans %}
+<p class="styleguide-description">
+    {% trans %}
+        Optional item description.</p>
+    {% endtrans %}
+<div class="styleguide">
+    {% trans %}
+        The header area indicates the style element being displayed. The horizontal rules indicate the top and bottom baselines of the rendered element.
+    {% endtrans %}
+</div>
+<div class="break"><br /></div>
