@@ -1,11 +1,28 @@
 /* css for paragraphs code snippets */
 
 .code{
-  margin-top: 1rem;
-  padding-top: 1rem;
-  background: #f5f2f0 ;
+  margin-top: 0.1rem;
+  padding-top: 0.1rem;
+  background: #f5f2f0;
+  padding-bottom: 1rem;
+
+}
+
+.code h3{
+  font-size: 0.8rem;
+  line-height: 0.8rem;
+  padding-top: 0.5rem;
+
 }
 
 .code pre[class*="language-"] {
-  padding: 0;
+  padding:  0 1rem;
+  margin:0;
+  border-left: 1px solid lightgray;
+  border-right: 1px solid lightgray;
+}
+
+.type-text-long pre {
+  background: #f5f2f0 ;
+  padding: 1rem;
 }

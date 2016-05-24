@@ -1,16 +1,3 @@
-/*
-#Image
-
-Image in a figure wrapper with figcaption
-
-Markup:
-<figure class="$modifierClass">
-<img src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
-<figcaption>whatever</a>
-<figure>
-
-Styleguide 3.0.0 Image
-*/
 img {
   max-width: 100%;
   height: auto;
@@ -48,29 +35,11 @@ figure img {
   display: block;
 }
 
-/*
-#Image styles
+.u-hide-figcaption figcaption {
+  display: none;
+}
 
-sweet styles for the images imgstyle-[name]-[variation]  we dont use the modifer classe here cause we wanna keep the amount of selectors down
-we have to read the markup later on ;)
-The selected can be added to any wraper around the image, and handles figcamptions as well
 
-.imgstyle-circle - a round image
-.imgstyle-circle-small - a small round image
-.imgstyle-circle-medium - a medium round image
-.imgstyle-circle-large - a large round image
-.imgstyle-round - round border.
-.imgstyle-round-medium - round border large
-.imgstyle-round-large - round border large
-
-Markup:
-<figure class="$modifierClass">
-<img src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
-<figcaption>figcaption username</figcaption>
-<figure>
-
-Styleguide 3.0.1 Image
-*/
 .imgstyle-circle {
   position: relative;
 }
@@ -124,21 +93,7 @@ Styleguide 3.0.1 Image
   border-radius: 10px;
 }
 
-/*
-#Image & Figure in content
 
-Figure wrapper with figcaption inside of content
-
-.right - Right aligned
-
-Markup:
-<div class="content">
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi consequatur ut laboriosam, odio rerum sint rem tenetur veritatis facere. Obcaecati facilis debitis libero inventore! Cupiditate consequuntur dolorum minima odio aperiam?
-<img class="$modifierClass" src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
-<div>
-
-Styleguide 3.0.3 Image
-*/
 .content img {
   float: left;
   padding: 0 1rem 1rem 0;

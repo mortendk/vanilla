@@ -1,13 +1,10 @@
+{# For really easy debiggin we add a bunch of _t- classes with info #}
+
 {%
   set classes = [
-    (bundle =='article') and (view_mode=="full") and (field_name=="field_teaser") ? 'hero__text' : '',
-    (bundle =='article') and (view_mode=="full") and (field_name=="field_content") ? 'f-cap' : '',
-    '_t-' ~ bundle,
-    '_t-' ~ view_mode,
-    '_t-' ~ field_name,
-    '_t-' ~ field_type,
+    'something-text-like',
   ]
-%}  
+%}
 {%
   set title_classes = [
     label_display == 'visually_hidden' ? 'visually-hidden',
@@ -17,18 +14,23 @@
 {% if label_hidden %}
   {# --Multiple & no label  ------------------------------------------------- #}
   {% if multiple %}
+    {% block field_multiple %}
     <ul{{ attributes.addClass(classes) }}>
       {% for item in items %}
         <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
       {% endfor %}
     </ul>
+    {% endblock %}
   {# /--Multiple & no label  ------------------------------------------------ #}
 
   {% else %}
 
   {# --single & no label  --------------------------------------------------- #}
   {% for item in items %}
-    <div{{ attributes.addClass(classes) }}>{{ item.content }}</div>
+    {% block field_single %}
+      <div{{ attributes.addClass(classes) }}>{{ item.content }}</div>
+    {% endblock %}
+
   {% endfor %}
   {# / --single & no label  ------------------------------------------------- #}
 
@@ -38,6 +40,7 @@
   {# Show label #}
   {% if multiple %}
   {#  multiple with label ----------------------------------------------------#}
+    {% block field_multiple_label %}
     <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
       <ul>
@@ -46,16 +49,18 @@
       {% endfor %}
       </ul>
     </section>
-
+    {% endblock %}
   {% else %}
 
   {# single with label ------------------------------------------------------ #}
+    {% block field_single_label %}
     <section{{ attributes.addClass(classes) }}>
       <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
       {% for item in items %}
         <div{{ item.attributes.addClass() }}>{{ item.content }}</div>
       {% endfor %}
     </section>
+    {% endblock %}
   {% endif %}
 
 {% endif %}

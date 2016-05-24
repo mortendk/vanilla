@@ -1,7 +1,7 @@
 name: vanilla
 # doc https://www.drupal.org/node/2349827
 type: theme
-description: 'a vanilla theme with som morten flavour'
+description: 'the worlds best theme ever !'
 # define base theme (yes theres always a "base theme")
 # basetheme: classy
 # default markup & classes (core/themes/classy)
@@ -10,7 +10,7 @@ description: 'a vanilla theme with som morten flavour'
 # basetheme: false
 # will  use core template, that can and will change so use it with caution
 # templates are in core/[modulename]/templates ... go get em comwboy
-base theme: stable #stable / class / false
+base theme: stable #stable / classy
 core: 8.x
 screenshot: screenshot.png # yes animated gifs for the preview page (admin/appearance)
 
@@ -21,7 +21,6 @@ screenshot: screenshot.png # yes animated gifs for the preview page (admin/appea
 # remember to not have an empty libraries: that will cause an error on the page :(
 libraries:
   - vanilla/global
-  - vanilla/admintoggle
 
 #libraries-override:
   # @TODO: how do i find a list all active libraries
@@ -33,8 +32,8 @@ libraries:
   # classy/forums:
   #   - mythemename/messages
 
-# libraries-override:
-  # library/name: false
+libraries-override:
+  core/modernizr: false
 
 # libraries-override:
 #   system/maintenance:
@@ -60,33 +59,29 @@ libraries:
   # system/maintenance: false
   # doc: https://www.drupal.org/node/2497313
 
+
 # -- CSS Remove ----------------------------------------------------------------
 # Drupal provide some css files here you can remove em.
 stylesheets-remove:
-  # - @classy/css/layout.css
-  # thank you drupal but we will add these in ourself :)
   - core/modules/system/css/components/fieldgroup.module.css
-  - core/modules/system/css/components/container-inline.module.css
-  - core/modules/system/css/components/clearfix.module.css
-  - core/modules/system/css/components/item-list.module.css
-  - core/modules/system/css/components/nowrap.module.css
-  - core/modules/system/css/components/position-container.module.css
-  - core/modules/system/css/components/reset-appearance.module.css
-  - core/modules/system/css/components/resize.module.css
-  - core/modules/system/css/components/sticky-header.module.css
-  - core/modules/system/css/components/tabledrag.module.css
-  - core/modules/system/css/components/tree-child.module.css
-  - core/modules/system/css/components/tablesort.module.css
-  - core/modules/views/css/views.module.css
-  # more stuff default loaded, you should write this into your own css, so you
-  # dont destroy default functionality
-  # - core/modules/system/css/components/ajax-progress.module.css
-  # - core/modules/system/css/components/align.module.css
-  # - core/modules/system/css/components/autocomplete-loading.module.css
-  # - core/modules/system/css/components/details.module.css
-  # - core/modules/system/css/components/hidden.module.css
-  # - core/modules/system/css/components/js.module.css
-  # - core/modules/system/css/components/progress.module.css
+  - '@classy/css/layout.css'
+  - '@stable/css/system/components/nowrap.module.css'
+  - '@stable/css/system/components/position-container.module.css'
+  - '@stable/css/system/components/reset-appearance.module.css'
+  - '@stable/css/system/components/fieldgroup.module.css'
+  - '@stable/css/system/components/container-inline.module.css'
+  - '@stable/css/system/components/clearfix.module.css'
+  - '@stable/css/system/components/item-list.module.css'
+  - '@stable/css/system/components/position-container.module.css'
+  - '@stable/css/system/components/reset-appearance.module.css'
+  - '@stable/css/system/components/resize.module.css?o7eamv'
+  - '@stable/css/system/components/sticky-header.module.css'
+  - '@stable/css/system/components/tree-child.module.css'
+  - '@stable/css/system/components/tablesort.module.css'
+  - '@stable/css/system/components/align.module.css'
+  - '@stable/css/views/views.module.css'
+  - '@stable/css/system/components/tabledrag.module.css'
+  - '@stable/css/system/components/resize.module.css'
 
 # -- Regions -------------------------------------------------------------------
 # regions gets added to templates/page.html.twig -> {{ page.[regionname] }}

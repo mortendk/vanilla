@@ -26,7 +26,9 @@ OLD fashioned layout
           flex-direction: row;
   -webkit-flex-wrap: wrap;
           flex-wrap: wrap;
-  align-items: stretch;
+  -webkit-justify-content: center;
+          justify-content: center;
+  align-items: stretch;;
   -ms-flex-align: start;
   align-content: flex-start;
 }
@@ -43,8 +45,8 @@ OLD fashioned layout
           justify-content: flex-start;;
   flex-wrap: wrap;
   align-items: center;
+    -ms-flex-align: center;
 }
-
 .L-center-middle{
   display: -ms-flex;
   display: -webkit-flex;
@@ -57,7 +59,23 @@ OLD fashioned layout
   -webkit-justify-content: center;
           justify-content: center;
   flex-wrap: wrap;
+  -ms-flex-align: center;
   align-items: center;
+}
+.L-center-bottom{
+  display: -ms-flex;
+  display: -webkit-flex;
+  display:         flex;
+  -ms-flex-direction:  row;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: center;
+          justify-content: center;
+  flex-wrap: wrap;
+  -ms-flex-align: flex-end;
+  align-items: flex-end;;
 }
 .L-right-middle{
   display: -ms-flex;
@@ -71,7 +89,7 @@ OLD fashioned layout
   -webkit-justify-content: flex-end;
           justify-content: flex-end;
   align-items: center;
-  align-content: flex-end;;
+  align-content: flex-end;
 }
 .L-right{
   display: -ms-flex;
@@ -88,6 +106,8 @@ OLD fashioned layout
   align-content: flex-end;
 
 }
+
+
 /*
 @TODO: make this work on ie on a <ul class="L-space"><li>...
 http://stackoverflow.com/questions/32828249/vertically-aligning-text-in-a-row-direction-flex-box-while-also-stretching-each
@@ -176,31 +196,17 @@ http://stackoverflow.com/questions/32828249/vertically-aligning-text-in-a-row-di
   top:0;
 }
 
-
-
-/* Set widths for a layouts  */
-/*
-#Width
-
-fullpage & page widths defined
-
-.L-fullwidth - the full width
-.layout-pagewidth - the main content, use the name page for it.
-
-Styleguide layout 1.0.0
-*/
-
-/* Sets a "page" width*/
-
+/* ----------------------
+  Widths
+------------------------*/
 .fullwidth {
   width: 100%;
 }
-
+/* Defines a basic page width */
 .pagewidth {
   width: 100%;
   padding: 0 10px;
 }
-
 @media screen and (min-width: 601px) and (max-width: 768px) {
   .pagewidth {
     padding: 0 20px;
@@ -217,6 +223,12 @@ Styleguide layout 1.0.0
   }
 }
 
+.pagewidth--nopadding{
+  max-width: 960px;
+  padding: 0;
+  margin: 0 auto;
+
+}
 
 
 .width-25 { max-width: 25%; width: 25%; margin: 0 auto;}
@@ -287,7 +299,7 @@ Styleguide layout 1.0.0
 
 .w-1  { flex: 0 1 calc(8.33% - 14px); margin: 0 7px;}
 .w-2  { flex: 0 1 calc(16.66% - 14px); margin: 0 7px;}
-.w-3  { flex: 0 1 calc(25% - 14px); margin: 0 7px; background: hotpink}
+.w-3  { flex: 0 1 calc(25% - 14px); margin: 0 7px;}
 .w-4  { flex: 0 1 calc(33.32% - 14px); margin: 0 7px;}
 .w-5  { flex: 0 1 calc(41.65% - 14px); margin: 0 7px;}
 .w-6  { flex: 0 1 calc(50% - 14px); margin: 0 7px;}

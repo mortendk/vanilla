@@ -1,26 +1,37 @@
 {{ attach_library('vanilla/code-snippet') }}
 
-<div class="L pagewidth code">
+{% if content.field_code.0 %}
+  <div class="pagewidth code">
 
-  {# you need to test if theres a value #}
-  {% if content.field_code.0 %}
-    <div class="iconsvg iconsvg--inline">
-      {% include 'themes/vanilla/templates/component/node/paragraphs/code/code.svg' %}
-    </div>
-    <h3>{{ content.field_code_filename }}</h3>
-  {% endif %}
+    <h3 class="L-center-middle code__filetitle">
+      <span class="iconsvg iconsvg-m">
+        {% if content.field_code_language.0['#markup'] =="html" %}
+          {% include 'themes/vanilla/templates/component/node/paragraphs/code/icons/html.svg' %}
+        {% elseif content.field_code_language.0['#markup'] =="yaml" %}
+          {% include 'themes/vanilla/templates/component/node/paragraphs/code/icons/yaml.svg' %}
+        {% elseif content.field_code_language.0['#markup'] =="twig" %}
+          {% include 'themes/vanilla/templates/component/node/paragraphs/code/icons/twig.svg' %}
+        {% elseif content.field_code_language.0['#markup'] =="css" %}
+          {% include 'themes/vanilla/templates/component/node/paragraphs/code/icons/css.svg' %}
+        {% else %}
+          {% include 'themes/vanilla/templates/component/node/paragraphs/code/icons/browser.svg' %}
+        {% endif %}
 
+      </span>
+      {{ content.field_code_filename }}
+    </h3>
 
-  {% spaceless %}
-  <pre>
     {# yes were grapping the value directly #}
-    <code class="language-{{ content.field_code_language.0['#markup'] }}">
-    {{ content.field_code }}
-    </code>
-  </pre>
-  {% endspaceless %}
-  
-</div>
+    {% spaceless %}
+    <pre>
+      <code class="language-{{ content.field_code_language.0['#markup'] }}">
+      {{ content.field_code }}
+      </code>
+    </pre>
+    {% endspaceless %}
+
+  </div>
+{% endif %}
 
 <div class="pagewidth">
   {{ content|without('field_code','field_code_language','field_code_filename') }}

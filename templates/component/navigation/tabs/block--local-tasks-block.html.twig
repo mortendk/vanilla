@@ -1,6 +1,7 @@
 {{ attach_library('vanilla/tabs') }}
 {# remove the id from blocks #}
-<nav{{ attributes.addClass('pagewidth', 't-tabs')|without('id') }}>
+
+<nav{{ attributes.addClass('pagewidth', 'tabs').removeAttribute('id') }}>
 
   {{ title_prefix }}
   {% if label %}
@@ -9,6 +10,5 @@
   {{ title_suffix }}
 
   {{ content }}
-
 
 </nav

@@ -11,42 +11,8 @@ avalible Variables:
 paths:
 {{ root_path }} # first parth of the path : ex node, user
 {{ active_theme_path() }} # ex: /theme/vanilla
-
-#}
-{#
-  set var = [
-    test-if-avariable-is-true ? 'true': false,
-    something ~ 'tilde-adds-to-something',
-    logged_in ? 'user-logged-in',
-    node_type ? 'content-type-' ~ node_type|clean_class,
-  ]
- to keep it as clean as possible for default, but still with a bit of sanity
- we keep the path indicator
 #}
 
-{# heres an example of testing the content type and then add a class for that #}
-{% if  node_type =="article" %}
-  {% set content_type_class = "article" %}
-{% else %}
-  {% set content_type_class = "" %}
-{% endif %}
-
-{% if node_type == "article" %}
-  {% set  not_front_not_article = "u-push-content-below-menu" %}
-{% endif %}
-
-{% if not root_path %}
-  {% set frontpage = "frontpage" %}
-{% endif %}
-{# sets the body_classes that gets added to the body tag #}
-{%
-  set body_classes = [
-    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
-    db_offline ? 'db-offline',
-    not_front_not_article,
-    frontpage ? 'frontpage' : 'not-front',
-  ]
-%}
 <!DOCTYPE html>
 <html{{ html_attributes }}>
   <head>
@@ -77,21 +43,37 @@ paths:
     <link rel="manifest" href="/{{ active_theme_path() }}/favicons/manifest.json">
     <link rel="mask-icon" href="/{{ active_theme_path() }}/favicons/safari-pinned-tab.svg" color="#5bbad5">
     <link rel="shortcut icon" href="/{{ active_theme_path() }}/favicons/favicon.ico">
-    <meta name="apple-mobile-web-app-title" content="drupal8">
-    <meta name="application-name" content="drupal8">
+    <meta name="apple-mobile-web-app-title" content="{{ head_title.name }}">
+    <meta name="application-name" content="{{ head_title.name }}">
     <meta name="msapplication-TileColor" content="#E2E6E8">
     <meta name="msapplication-TileImage" content="/{{ active_theme_path() }}/favicons/mstile-144x144.png">
     <meta name="msapplication-config" content="/{{ active_theme_path() }}/favicons/browserconfig.xml">
     <meta name="theme-color" content="#E2E6E8">
     {#  phew ... you could wish for some kind of standard #}
 
-    <title>{{ head_title.name }} | {{ head_title.title }}  | 🍔</title>
+    {# set the title to nothing if its the frontpage #}
+    {% if not root_path %}
+      <title>{{ head_title.name }} > 🍔</title>
+    {% else %}
+      <title> {{ head_title.name }} > {{ head_title.title }}  [ 🍔 ]</title>
+    {% endif %}
     <css-placeholder token="{{ placeholder_token|raw }}">
     <js-placeholder token="{{ placeholder_token|raw }}">
   </head>
+  {#
+    (nid =='42') ? 'a-specific-class-for-nodeid-42' : '',
+    node_type ? 'nodetype-' ~ node_type|clean_class : '',
+  #}
+  {%
+    set body_classes = [
+      db_offline ? 'offline',
+      not root_path ? 'front' : 'not-front',
+    ]
+  %}
+
   <body{{ attributes.addClass(body_classes) }}>
 
-    <a href="#main-content" class="visually-hidden focusable skip-link"> {# link to main-content is in page.html.twig #}
+    <a href="#main-content" class="visually-hidden focusable"> {# link to main-content is in page.html.twig #}
       {{ 'Skip to main content'|t }}
     </a>
     {{ page_top }}

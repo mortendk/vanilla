@@ -3,54 +3,29 @@
 {{ is_front }}  : A flag indicating if the current page is the front page.
 {{ logged_in }} : A flag indicating if the user is registered and signed in.
 {{ is_admin }} : A flag indicating if the user has permission to access administration pages.
-
-  create an image quick n dirty
-  <img src="{{ active_theme_path() }}/images/d8.png">
+<img src="{{ active_theme_path() }}/images/d8.png">
 #}
 
-{# header reagion #}
 {% include active_theme_path() ~ '/templates/component/header/header.html.twig' %}
-{#
-<div class="L L-fixed fullwidth t-header js-header">
-  <div class="w-2 L-left-middle">
-    {{ page.header_pre }}
-  </div>
-  <div class="w-8 L-center-middle">
-    {{ page.header }}
-  </div>
-  <div class="w-2 L-right-middle">
-    {{ page.header_post }}
-  </div>
-</div>
- #}
 
-{# Hero and navigation #}
-{#
-{% if is_front %}
-  {% include active_theme_path() ~ '/templates/component/hero/hero.html.twig' %}
-<header role="banner" class="menu-main js-menu-main" id="mainmenu">
-{% else %}
-<header role="banner" class="menu-main js-menu-main menu-main--locked" id="mainmenu">
-{% endif %}
-  {{ page.menu }}
-</header>
- #}
-
-<header role="banner" class="menu-main js-menu-main" id="mainmenu">
-  {{ page.menu }}
-</header>
 {% if is_front %}
   {% include active_theme_path() ~ '/templates/component/hero/hero.html.twig' %}
 {% endif %}
 
-<main role="main" id="main">
+{%
+  set main_classes = [
+    is_front ? 'main-margin-zero' : '',
+    node.bundle ? 'main-margin-zero' : '',
+    'type' ~ node.bundle|clean_class,
+   ]
+%}
+
+<main role="main" id="main" class={{ main_classes|join(' ') }}>
   <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
   {{ page.top }}
-
   {{ page.content_pre }}
   {{ page.content }}
   {{ page.content_post }}
-
   {{ page.bottom }}
 </main>
 

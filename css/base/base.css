@@ -1,11 +1,3 @@
-/*
-#base
-
-The base.css is correctiong base css elements.
-
-Styleguide 1.0 base
-*/
-
 /* box-sizing */
 * {
   box-sizing: border-box;
@@ -24,20 +16,6 @@ iframe {
   border: 0;
 }
 
-/*
-#Base links
-
-Links
-
-.selector - selector description
-
- Markup:
-<main>
-<a href="#" class="$modifierClass">inside main</a>
-</main>
-
-Styleguide 1.0.1 base
-*/
 a {
   text-decoration: none;
 }
@@ -46,16 +24,4 @@ a:hover {
 }
 a:active {
   text-decoration: none;
-}
-/* All links added from the content fields */
-/*main a[href]:not([class]) {
-  text-decoration: underline;
-}*/
-
-code{
-  margin: 0;
-  padding:0;
-  white-space: nowrap;
-  font-family: monospace;
-  font-size: 1em;
 }

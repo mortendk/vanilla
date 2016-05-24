@@ -1,30 +1,14 @@
 <?php
-/**
- * Implements hook_preprocess_menu().
- */
-function vanilla_preprocess_menu(&$vars, $hook) {
-  // this will take markup from the ui title 
-
-  if ($hook == 'menu__main') {
-    $items = $vars['items'];
-    foreach ($items as $key => $item) {
-      $original_title = $vars['items'][$key]['title'];
-      $vars['items'][$key]['title'] = array(
-        '#markup' => $original_title,
-        '#allowed_tags' => array('span', 'b', 'i'),
-      );
-    }
-  }
-}
-
-
-
 function vanilla_theme_registry_alter(&$theme_registry) {
   array_map(function($item) {
     $item['variables']['region'] = '';
     return $item;
   }, $theme_registry);
 }
+
+// ----------------------------------------------------------------------------
+// PREPROCESS
+// ----------------------------------------------------------------------------
 
 function vanilla_preprocess(&$variables) {
   // Create a region variable for templates.
@@ -35,17 +19,25 @@ function vanilla_preprocess(&$variables) {
       }
     }
   }
-  // kint($variables['region']);
 }
 
+// lets yank a variable based on the node id - into my html.html.twig file
+function vanilla_preprocess_html(&$variables, $hook) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if($node) {
+    $variables['nid'] = $node->id();
+  }
+}
 
-// ----------------------------------------------------------------------------
-// PREPROCESS
-// ----------------------------------------------------------------------------
-function vanilla_preprocess_input(&$variables) {
+//function vanilla_preprocess_page(&$variables, $hook) {
+  // kint($variables['node']);
+//}
+
+
+//function vanilla_preprocess_input(&$variables) {
   // $element = $variables['element'];
   // kint($element);
-}
+//}
 
 // Add a region variable to blocks
 function vanilla_preprocess_block(&$variables, $hook) {
@@ -54,7 +46,6 @@ function vanilla_preprocess_block(&$variables, $hook) {
 
   $variables['region'] = $block->getRegion();
   $variables['content']['#region'] = $variables['region'];
-  // kint($variables);
 }
 
 // Field templates need to know who is calling it.
@@ -67,12 +58,11 @@ function vanilla_preprocess_field(&$variables, $hook) {
 }
 
 
-
-function vanilla_preprocess_views_view(&$variables, $hook) {
+//function vanilla_preprocess_views_view(&$variables, $hook) {
   // print $variables['view']->getUrl();
   // print $variables['view']->id();
   // $block = \Drupal\view\Entity\View::load()
-}
+//}
 
 
 // ----------------------------------------------------------------------------
@@ -126,7 +116,7 @@ function vanilla_theme_suggestions_block_alter(array &$suggestions, array $varia
 }
 
 //-----------------------------------------------------------
-// V I E W S
+// template suggestions V I E W S
 //-----------------------------------------------------------
 function vanilla_theme_suggestions_views_view_alter(array &$suggestions, array $variables) {
   // kint($variables['view']->getStyle());
@@ -140,9 +130,6 @@ function vanilla_theme_suggestions_views_view_alter(array &$suggestions, array $
 }
 
 function vanilla_theme_suggestions_views_view_list_alter(array &$suggestions, array $variables) {
-  // kint( $variables['view'] );
-  //view_list__viewformat
-  // $suggestions[] = 'view_list__' .$variables['view']->getDisplay();
   //format ?
   //@todo: can we use our own tempate name ala "list.html.twig"
   // $suggestions[] = 'views_view_list__' .$variables['view']->getPath();

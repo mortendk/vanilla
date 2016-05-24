@@ -1,14 +1,14 @@
 /*
 Here be dragons
-
 */
-/* sigh */
+
+
+/* spacific magin non article content  */
 main {
   padding-top:90px;
 }
-.path-frontpage main,
-.path-node main{
-  padding-top: 0;
+main.main-margin-zero{
+  padding-top:0;
 }
 
 /* small */
@@ -23,61 +23,19 @@ main {
   text-align: center;
 }
 
+
+
+
+/* all fixes should be done with a _ so we can find it later */
+._fix{
+
+}
+
+/* the sneaky debug / testing*/
 ._t{
   outline: 1px solid red;
 }
 
-/*
-o-object{
-}
-
-c-component{
-}
-
-._u-utilty {
-
-}
-
-.L-layout{
-
-}
-
-_theisiahack{
-
-}
-*/
-
-/**/
-.u-inline-list{
-  background: red;
-}
-
-.u-inline{
-  display: inline;
-}
-.u-inline-block{
-  display: inline-block;
-}
-
-.u-hide-figcaption figcaption {
-  display: none;
-}
-
-.u-small{
-  font-size: 0.7rem;
-}
-
-/**
- * Outline all Hack classes.
- */
 [class^="_"] {
   /*outline: 1px solid red;*/
-}
-
-._fix{
-
-}
-/* testing */
-._t{
-
 }

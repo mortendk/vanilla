@@ -1,39 +1,39 @@
-{{ attach_library('vanilla/hero') }}
 {{ attach_library('vanilla/node') }}
-
 
 <article{{ attributes }}>
 {#
   node title - if its printed here, remove the title from  blocks
   admin/structure/block/manage/vanilla_page_title
 #}
-
   <div class="hero L-center-middle screenheight-full screenheight-half@s ">
     {{ content.field_image }}
     <div class="hero__text">
-      <a href="#node" class="">
+          {{ content.field_teaser }}
+      <a href="#content">
         <h1{{ title_attributes.addClass('hero__title') }}>{{ label }}</h1>
-        {{ content.field_teaser }}
+          {{ content.field_teaser }}
       </a>
     </div>
   </div>
 
-  <div class="L pagewidth" id="node">
-    <footer class="meta w-3 w-12@s L-center-middle L--horizontal">
-      {# author_picture prints out user / usercompact  #}
+  <footer class="L pagewidth pagewidth--nopadding node__meta ">
+    {# author_picture prints out user / usercompact  #}
+    <div class="L L--middle w-3">
       {{ author_picture }}
-      {# author_name #}
-      <ul class="u-small">
-        <li>{{ node.createdtime|date("d.m.Y H:m") }}</li>
-        <li>( {{ node.changedtime|date("d.m.Y") }} )</li>
-      </ul>
+    </div>
+    <div class="L L--middle w-5">
+      {{ node.createdtime|date("d.m.Y H:m") }} | edited {{ node.changedtime|date("d.m.Y") }}
+    </div>
 
+    <div class="L L--middle w-4">
       {{ content.field_tags }}
-      {# content.field_section #}
-      {{ metadata }}
-    </footer>
+      {{ content.field_section }}
+    </div>
+    {{ metadata }}
+  </footer>
 
-    <div class="w-9 w-12@s f-large f-intro">
+  <div class="L pagewidth" id="content">
+    <div class="w-12 w-12@s f-large f-intro">
       {{ content.field_intro }}
     </div>
   </div>
@@ -42,7 +42,7 @@
 
   <section{{ content_attributes.addClass('') }}>
     {# print out content without the fields thats printed other places #}
-    {{ content|without('field_tags', 'field_image', 'field_section','field_teaser','field_intro','comment','links','field_images' ) }}
+    {{ content|without('field_tags', 'field_image', 'field_section','field_teaser','field_intro','comment','links') }}
   </section>
 
   {{ content.comment }}
