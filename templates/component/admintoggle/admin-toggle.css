@@ -1,0 +1,139 @@
+
+/**
+ * Toggle admin elements from the theme
+ * markup generated in js/admin-toggle.js
+*/
+.admin-toggle {
+  position: fixed;
+  z-index: 999999;
+  right: 0;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 35px;
+  border-radius: 0 0 3px 3px;
+  background: lightgray;
+  color: black;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  border-bottom: 3px solid gray;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.admin-toggle:hover {
+  background-color: seashell;
+}
+.admin-toggle__icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin: 8px auto 0 auto;
+  background: url(../admintoggle/wrench.png) no-repeat left center;
+  background-size: contain;
+  text-indent: -999999px;
+}
+/* Add shortcut info */
+.admin-toggle:hover::before{
+  position: fixed;
+  z-index: 999999;
+  content: "Shortcut: CTRL + a"
+}
+.admin-toggle::before {
+  position: fixed;
+  z-index: 999999;
+  width: 100%;
+  text-align: center;
+  padding-left: 100px;
+  font-size: 12px;
+  line-height: 35px;
+  color: grey;
+}
+/* add info about mediaqueri kicked in */
+.admin-toggle::after {
+  position: absolute;
+  left:0;
+  top:0;
+  z-index: 999999;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 30px;
+  color: grey;
+  background: #e9e9e9;
+  width: 200px;
+  height: 100px;
+}
+
+/* Remove admin toolbar */
+body.admin-hide .tabs,
+body.admin-hide .toolbar,
+body.admin-hide .contextual-links,
+body.admin-hide button.trigger.focusable,
+body.admin-hide .block-local-tasks-block {
+  display: none;
+}
+/* Fix js added padding */
+body.admin-hide[style] {
+  margin-left: 0 !important;
+  padding-top: 0 !important;
+}
+/* hide the toggler. */
+body.admin-hide .admin-toggle {
+  bottom: -30px;
+}
+body.admin-hide .admin-toggle:hover {
+  bottom: 0;
+}
+/*
+MediaQuery Hell.
+--------------------
+*/
+
+@media (max-width: 480px) {
+  .admin-toggle::before{ content: "480px (iphone4)";}
+}
+@media (max-width: 568px) {
+  .admin-toggle::before{ content: "568px (iphone5)";}
+}
+@media (max-width: 667px) {
+  .admin-toggle::before{ content: "667px (iphone6)";}
+}
+@media (max-width: 736px) {
+  .admin-toggle{ border-color: coral; }
+  .admin-toggle:hover { background-color: coral; }
+  .admin-toggle::before{ content: "667px (iphone6s+)";}
+}
+@media (min-width: 768px) {
+  .admin-toggle{ border-color: saddlebrown; }
+  .admin-toggle:hover { background-color: saddlebrown; }
+  .admin-toggle::before{ content: "medium 768px - 992px";}
+}
+@media (min-width: 992px) {
+  .admin-toggle{ border-color: mediumseagreen; }
+  .admin-toggle:hover { background-color: mediumseagreen; }
+  .admin-toggle::before{ content: "large 992px - 1200px";}
+}
+@media (min-width: 1024px) {
+  .admin-toggle{ border-color: mediumseagreen; }
+  .admin-toggle:hover { background-color: mediumseagreen; }
+  .admin-toggle::before{ content: "ipad 1024px";}
+}
+@media (min-width: 1200px) {
+  .admin-toggle{ border-color: Cadetblue; }
+  .admin-toggle:hover { background-color: Cadetblue; }
+  .admin-toggle::before{ content: "xlarge 1200px +";}
+}
+
+/* Mediaqueries for the css definistions*/
+@media (max-width: 768px) {
+  .admin-toggle::after{ content: "@s Small devices";}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  .admin-toggle::after{ content: "@m Medium devies";}
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .admin-toggle::after{ content: "@l Large devices";}
+}
+@media (min-width: 1200px) {
+  .admin-toggle::after{ content: "@xl XL scren size";}
+}

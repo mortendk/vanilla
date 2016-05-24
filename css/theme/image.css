@@ -1,0 +1,89 @@
+/*
+#Image theme
+
+sweet styles for the images imgstyle-[name]-[variation]  we dont use the modifer classe here cause we wanna keep the amount of selectors down
+we have to read the markup later on ;)
+The selected can be added to any wraper around the image, and handles figcamptions as well
+
+.theme-circle
+.theme-circle--small
+.theme-circle--medium
+.theme-circle--large
+
+.theme-round
+.theme-round--small
+.theme-round--medium
+.theme-round--large
+
+.imgstyle-circle - a round image
+.imgstyle-circle-small - a small round image
+.imgstyle-circle-medium - a medium round image
+.imgstyle-circle-large - a large round image
+.imgstyle-round - round border.
+.imgstyle-round-medium - round border large
+.imgstyle-round-large - round border large
+
+Markup:
+<figure class="$modifierClass">
+<img src="http://drupalthemes.dev/themes/vanilla/screenshot-small.png" alt="Screenshot" title="Vanilla theme">
+<figcaption>figcaption username</figcaption>
+<figure>
+<div class="$modifierClass">
+  <p>some content</p>
+</div>
+
+Styleguide 3.0.1 Image
+*/
+.imgstyle-circle img {
+  border: 1px solid red;
+
+  -webkit-clip-path: circle(50px at center);
+     -moz-clip-path: circle(50px at center);
+          clip-path: circle(50px at center);
+}
+.imgstyle-circle {
+  position: relative;
+  border: 1px solid black;
+}
+.imgstyle-circle figcaption {
+  position: absolute;
+  z-index: 2;
+  top: 60%;
+  left: 25%;
+  width: 50%;
+  margin: 0 auto;
+  padding: 2px;
+  border: 1px solid white;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.5);
+  background: white;
+  color: black;
+  font-size: 0.7rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.imgstyle-circle-small img {
+  -webkit-clip-path: circle(20px at center);
+     -moz-clip-path: circle(20px at center);
+          clip-path: circle(20px at center);
+}
+.imgstyle-circle-medium img {
+  -webkit-clip-path: circle(60px at center);
+     -moz-clip-path: circle(60px at center);
+          clip-path: circle(60px at center);
+}
+
+.imgstyle-circle-large img {
+  -webkit-clip-path: circle(100px at center);
+     -moz-clip-path: circle(100px at center);
+          clip-path: circle(100px at center);
+}
+.imgstyle-round img {
+  border-radius: 3px;
+}
+.imgstyle-round-medium img {
+  border-radius: 6px;
+}
+.imgstyle-round-large img {
+  border-radius: 10px;
+}

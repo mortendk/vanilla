@@ -1,0 +1,118 @@
+:root{
+  font-family: "opensans", sans-serif;
+  font-size: 20px;
+  font-weight: 500;;
+}
+body {
+  color: #444;
+}
+
+h1,
+h2,
+h3,
+h4,
+.h1,
+.h2,
+.h3,
+.h4 {
+  margin: 0;
+  padding: 0;
+  color: #666;
+  font-family: "titillium", sans-serif;
+  /*font-family: "bitter", sans-serif;*/
+  font-weight: 300;
+  line-height: 1;
+}
+h1,.h1 {
+  font-size: 5rem;
+}
+h2,.h2 {
+  font-size: 3rem;
+}
+h3,.h3 {
+  font-size: 2rem;
+}
+h4,.h4 {
+  font-size: 1.5rem;
+}
+h5,.h5 {
+  font-size: 1.3rem;
+}
+h6,.h6 {
+  font-size: 1.1rem;
+}
+
+p{
+  margin: 0
+}
+p + p{
+  margin: 1rem 0;
+}
+
+blockquote{
+  font-size: 1.5rem;
+  border-top: 1px solid var(--pink800);;
+  border-bottom: 4px solid var(--pink800);;
+  padding: 0 4em;
+  color: var(--pink900);
+  font-family: "titillium";
+  font-weight: 300;
+}
+/* small */
+@media (max-width: 768px) {
+  blockquote{
+    padding:0;
+  }
+}/* small */
+
+
+code{
+  margin: 0;
+  padding:0;
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 1em;
+  display: block;
+}
+
+pre{
+  display: block;
+  font-family: monospace;
+  white-space: pre;
+  margin: 1em 0px 1em;
+}
+
+/*
+  f- font size variations
+*/
+.f-small {  font-size: 0.7rem;}
+.f-small h3 { font-size: 1rem;}
+.f-medium { }
+.f-large {   font-size: 1.5rem; font-weight: 500}
+
+.f-cap { }
+.f-cap::first-letter {
+  color: #333;
+  font-family: "Bitter",serif;
+  font-size: 4rem;
+}
+.f-bold {
+  font-weight: 500;
+}
+
+.u-small{
+  font-size: 0.7rem;
+}
+
+
+/**/
+.u-inline-list{
+  background: red;
+}
+
+.u-inline{
+  display: inline;
+}
+.u-inline-block{
+  display: inline-block;
+}

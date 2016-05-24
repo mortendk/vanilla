@@ -1,28 +1,15 @@
-/*
-Form
-
-Forms
-
-:hover   - Highlights when hovering.
-.shiny   - Do not press this big, shiny, red button.
-
-Markup: ../_html/form.html
-
-Style 2.0
-*/
 img {
   max-width: 100%;
   height: auto;
+  -ms-interpolation-mode: bicubic;
   border: 0;
   vertical-align: middle;
-  -ms-interpolation-mode: bicubic;
 }
 
-/* ie8 hack */
-@media \0screen {
-  img {
-    width: auto;
-  }
+img[src$=".svg"]{
+  max-width: auto;
+  width: 100%;
+  height: auto;
 }
 
 /* Correct overflow not hidden in IE 9/10/11.*/
@@ -30,18 +17,80 @@ svg:not(:root) {
   overflow: hidden;
 }
 
+
+
 figure {
-  width: 100%;
-  /*FF3 img needs a 100% if parent is set in %  #facepalm */
+  display: inline-block;
   margin: 0;
   padding: 0;
-  display: inline-block;
+}
+figcaption {
+  display: block;
+  text-align: center;
+  word-wrap: break-word;
+}
+/* Its a pita when images are behaving like inline elements inside of pict & img*/
+picture img,
+figure img {
+  display: block;
 }
 
-figcaption {
-  text-align: left;
-  display: inline-block;
-  word-wrap: break-word;
+.u-hide-figcaption figcaption {
+  display: none;
+}
+
+
+.imgstyle-circle {
+  position: relative;
+}
+.imgstyle-circle img {
+  border: 1px solid #666;
+  border-radius: 50%;
+  /*-webkit-clip-path: circle(50px at center);
+     -moz-clip-path: circle(50px at center);
+          clip-path: circle(50px at center);*/
+}
+.imgstyle-circle figcaption {
+  position: absolute;
+  z-index: 2;
+  top: 60%;
+  left: 25%;
+  width: 50%;
+  margin: 0 auto;
+  padding: 2px;
+  border: 1px solid white;
+  border-radius: 2px;
+  background: rgba(0, 0, 0, 0.5);
+  background: white;
+  color: black;
+  font-size: 0.7rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.imgstyle-circle-small img {
+  -webkit-clip-path: circle(20px at center);
+     -moz-clip-path: circle(20px at center);
+          clip-path: circle(20px at center);
+}
+.imgstyle-circle-medium img {
+  -webkit-clip-path: circle(60px at center);
+     -moz-clip-path: circle(60px at center);
+          clip-path: circle(60px at center);
+}
+
+.imgstyle-circle-large img {
+  -webkit-clip-path: circle(100px at center);
+     -moz-clip-path: circle(100px at center);
+          clip-path: circle(100px at center);
+}
+.imgstyle-round img {
+  border-radius: 3px;
+}
+.imgstyle-round-medium img {
+  border-radius: 6px;
+}
+.imgstyle-round-large img {
+  border-radius: 10px;
 }
 
 
@@ -49,16 +98,13 @@ figcaption {
   float: left;
   padding: 0 1rem 1rem 0;
 }
-
 .content figure {
-  padding: 0 1rem 1rem 0;
   float: left;
+  padding: 0 1rem 1rem 0;
 }
-
 .content figure img {
   float: none;
 }
-
 .content img.right,
 .content .right img {
   float: right;

@@ -1,0 +1,9 @@
+{%
+  set remove_classes = [
+
+  ]
+%}
+
+<form{{ attributes.setAttribute('role','search').removeAttribute('id') }}>
+  {{ children }}
+</form>

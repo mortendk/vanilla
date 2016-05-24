@@ -1,12 +1,16 @@
-/*
-## List
---------------------------------------
-*/
-ul {
+ol, ul {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-li{
+.list-underline li{
+  border-bottom: 1px solid lightgray;
+}
 
+.list-inline li{
+  display: inline-block;
+}
+
+.list-circles li{
+  list-style: circle;
 }

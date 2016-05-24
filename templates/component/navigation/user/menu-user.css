@@ -1,0 +1,6 @@
+.t-menu-user .iconsvg{
+  fill: #B0BEC5; /*bluegray 200*/
+}
+.t-menu-user .iconsvg:hover{
+  fill: #90A4AE; /*bluegray 300*/
+}

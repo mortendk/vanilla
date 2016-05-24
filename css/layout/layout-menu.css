@@ -1,0 +1,114 @@
+
+/**/
+/*Layout-Meny */
+.LM-horizontal  ul:not(.contextual-links),
+.LM-horizontal  ol {
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-flex-direction: row;
+          flex-direction: row;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+          justify-content: space-between;
+}
+
+.LM-horizontal  ul:not(.contextual-links) li,
+.LM-horizontal  ol li{
+  flex: 1 1 auto;
+}
+
+.LM-vertical  ul:not(.contextual-links),
+.LM-vertical  ol {
+  display: -webkit-flex;
+  display:         flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  -webkit-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+          justify-content: flex-start;
+
+}
+.LM-vertical  ul:not(.contextual-links) li,
+.LM-vertical  ol li{
+  flex: 1 1 auto;
+}
+
+
+
+/*
+Menu
+
+Flexbox all the menu's
+
+Markup:
+<nav class="menu">
+<ul>
+<li><a href="#">home</a></li>
+<li><a href="#">News</a></li>
+<li><a href="#">contact</a></li>
+</ul>
+</nav>
+
+@TODO : do we wanna call all of this navigation instead ?
+Styleguide menu
+*/
+
+/*
+.menu ul:not(.contextual-links),
+.menu ol {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.menu li {
+  width: 100%;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+.menu a {
+  display: block;
+  text-decoration: none;
+  width: 100%;
+}
+.menu a:hover {
+  text-decoration: none;
+}
+*/
+/*
+  menu navigation
+  Navigation follows the height of the parent element
+  each link is centered.
+  alignment is set on the link with justify-content
+  see menu-h--center, menu-h-bottom, menu-h-
+*/
+/*
+.menu-h {
+  display: flex;
+}
+.menu-h ul:not(.contextual-links),
+.menu-h ol {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.menu-h li {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+.menu-h a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  width: 100%;
+}
+*/

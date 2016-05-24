@@ -1,0 +1,44 @@
+{#
+/**
+ * @file
+ * Theme override for a view template to display a list of rows.
+ *
+ * Available variables:
+ * - attributes: HTML attributes for the container.
+ * - rows: A list of rows for this list.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's contents.
+ * - title: The title of this group of rows. May be empty.
+ * - list: @todo.
+ *   - type: Starting tag will be either a ul or ol.
+ *   - attributes: HTML attributes for the list element.
+ *
+ * @see template_preprocess_views_view_list()
+ */
+#}
+
+{# we dont really need this but for funzies lets keep it #}
+{% if attributes !="" -%}
+  <div{{ attributes }}>
+{% endif %}
+
+  {% if title %}
+    <h3>{{ title }}</h3>
+  {% endif %}
+  {#
+    oki then why a user wants to change this is
+    this is theming     not a config thing
+    @TODO:  list.attributes.addClass('tiles') dont  work ? ... or am i an idiot
+  #}
+  <{{ list.type }} class="">
+    {% for row in rows %}
+      <li{{ row.attributes.addClass() }}>{{ row.content }}</li>
+    {% endfor %}
+
+
+  </{{ list.type }}>
+
+{# we dont really need this but for funzies lets keep it #}
+{% if attributes !="" -%}
+  </div>
+{% endif %}

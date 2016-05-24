@@ -1,0 +1,46 @@
+{{ attach_library('vanilla/comment') }}
+
+{%
+ set classes = [
+  'L',
+  'pagewidth',
+  'comment',
+  'js-comment',
+  status != 'published' ? status,
+  comment.owner.anonymous ? 'by-anonymous',
+ ]
+%}
+
+<article{{ attributes.addClass(classes) }} id="comments">
+
+  <footer class="w-2 w-12@s L-center-middle L--horizontal">
+    <mark class="hidden" data-comment-timestamp="{{ new_indicator_timestamp }}"></mark>
+
+
+    {{ user_picture }}
+{#
+    <time class="cal u-small">
+      <div class="cal__date">{{ comment.createdtime|date('d')|lower }}</div>
+      <div class="cal__day">{{ comment.createdtime|date('l')|lower }}</div>
+      <div class="cal__month">{{ comment.createdtime|date('F')|lower }}</div>
+      <div class="cal__year">{{ comment.createdtime|date('Y')|lower }}</div>
+    </time>
+ #}
+    <div class="u-small w-6">
+      {{ comment.changedtime|date('d.M y  H:m') }}
+
+    </div>
+
+  </footer>
+
+  <div class="w-10 w-12@s">
+    <h3>{{ comment.getSubject() }}</h3>
+    {{ content|without('links') }}
+    {{ content.links}}
+    {% if parent %}
+      <p class="visually-hidden">{{ parent }}</p>
+    {% endif %}
+
+  </div>
+
+</article>

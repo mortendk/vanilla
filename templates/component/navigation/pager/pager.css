@@ -1,0 +1,27 @@
+.t-pager  li{
+    background: var(--gray100);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
+.t-pager a{
+  color: var(--red100);
+}
+
+.t-pager li:hover{
+  background: var(--gray300);
+}
+.t-pager li:hover a{
+  color: var(--red100);
+}
+
+.t-pager li.is-active{
+  background: var(--gray600);
+}
+.t-pager li.is-active a{
+  color: var(--red100);
+}

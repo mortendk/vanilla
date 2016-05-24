@@ -1,0 +1,60 @@
+{#
+  create the svg stuff
+  if drupal allowed it in its safe html list we could have done
+  {% set var = { '#markup': '<svg>...</svg>'} %}
+  {{ link(var|render, item.url) }}
+#}
+
+{% import _self as menus %}
+
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <ul{{ attributes.addClass('L-space', 'width-75','width-100@s') }}>
+    {% else %}
+      <ul>
+    {% endif %}
+    {% for item in items %}
+
+      <li{{ item.attributes }}>
+
+        {# Lets go rockstar on the links  #}
+        {% set description = item.original_link.getDescription()|split(' | ') %}
+        {% set linktitle = description.0 %}
+        {% set svgiconid = description.1 %}
+
+        {% set svgicon %}
+          <span class="menu-main__icon">
+            <svg viewBox="0 0 128 128">
+              <use xlink:href="/{{ active_theme_path() }}/templates/component/navigation/main/menu-icons.svg#{{ svgiconid }}"></use>
+            </svg>
+          </span>
+          <span class="menu-main__title">{{ item.title}}</span>
+        {% endset %}
+
+        {# inline template ftw ! #}
+        {% set menulink = {
+          '#type': 'inline_template',
+          '#template': '{{ svgicon }}',
+          '#context': {'svgicon': svgicon}
+          }
+        %}
+        {# Alright here we go and render the inline template #}
+        {{ link(menulink|render, item.url, {
+          'class':['L-center-middle'],
+          'data-balloon': linktitle,
+          'data-balloon-pos': 'down'
+          } )
+        }}
+
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endmacro %}

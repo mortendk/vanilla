@@ -1,0 +1,37 @@
+{% extends 'field.html.twig' %}
+
+{# --single & no label  --------------------------------------------------- #}
+{% block field_single %}
+  <div{{ attributes.addClass(classes) }}><a href="https://twitter.com/{{ item.content }}">twitters</a></div>
+{% endblock %}
+
+{# single with label ------------------------------------------------------ #}
+{% block field_single_label %}
+  <section{{ attributes.addClass(classes) }}>
+    <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+    {% for item in items %}
+      <div{{ item.attributes.addClass() }}>{{ item.content }}</div>
+    {% endfor %}
+  </section>
+{% endblock %}
+
+{# --Multiple & no label  ------------------------------------------------- #}
+{% block field_multiple %}
+  <ul{{ attributes.addClass(classes) }}>
+    {% for item in items %}
+      <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
+
+{#  multiple with label ----------------------------------------------------#}
+{% block field_multiple_label %}
+  <section{{ attributes.addClass(classes) }}>
+    <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+    <ul>
+    {% for item in items %}
+      <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
+    {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

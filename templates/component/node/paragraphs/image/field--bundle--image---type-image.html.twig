@@ -1,0 +1,56 @@
+{%
+  set classes = [
+
+  ]
+%}
+{%
+  set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+{% if label_hidden %}
+  {# --Multiple & no label  ------------------------------------------------- #}
+  {% if multiple %}
+      {% for item in items %}
+          <figure>{{ item.content }}</figure>
+      {% endfor %}
+
+  {# /--Multiple & no label  ------------------------------------------------ #}
+
+  {% else %}
+
+  {# --single & no label  --------------------------------------------------- #}
+  {% for item in items %}
+    <figure{{ attributes.addClass(classes) }}>{{ item.content }}</figure>
+  {% endfor %}
+  {# / --single & no label  ------------------------------------------------- #}
+
+  {% endif %}
+  {# end of label_hidden #}
+{% else %}
+  {# Show label #}
+  {% if multiple %}
+  {#  multiple with label ----------------------------------------------------#}
+    <section{{ attributes.addClass(classes) }}>
+      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      <ul>
+      {# for loop #}
+      {% for item in items %}
+          <li{{ item.attributes.addClass() }}><figure>{{ item.content }}</figure></li>
+      {% endfor %}
+      </ul>
+    </section>
+
+  {% else %}
+
+  {# single with label ------------------------------------------------------ #}
+    <section{{ attributes.addClass(classes) }}>
+      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      {% for item in items %}
+        <figure{{ item.attributes }}>{{ item.content }}</figure>
+      {% endfor %}
+    </section>
+  {% endif %}
+
+{% endif %}

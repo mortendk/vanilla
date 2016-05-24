@@ -1,0 +1,41 @@
+/*
+Here be dragons
+*/
+
+
+/* spacific magin non article content  */
+main {
+  padding-top:90px;
+}
+main.main-margin-zero{
+  padding-top:0;
+}
+
+/* small */
+@media (max-width: 768px) {
+  main{
+    padding-top: 90px
+  }
+
+}/* small */
+
+.page-title-yes-iknow-this-classname-is-dumb{
+  text-align: center;
+}
+
+
+
+
+/* all fixes should be done with a _ so we can find it later */
+._fix{
+
+}
+
+/* the sneaky debug / testing*/
+._t{
+  outline: 1px solid red;
+}
+
+[class^="_"] {
+  /*outline: 1px solid red;*/
+}

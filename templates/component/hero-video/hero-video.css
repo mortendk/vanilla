@@ -1,0 +1,30 @@
+/*video hero*/
+.hero-video video {
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+
+  background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+
+.hero-video__content{
+  z-index: 100;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+}
+.js-video-hero-pause{
+  z-index: 100;
+  position: absolute;
+  left: 100px;
+  top: 100px;
+}
+
+.stopfade {
+  opacity: .5;
+}

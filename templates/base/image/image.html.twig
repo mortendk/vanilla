@@ -1,0 +1,23 @@
+{#
+variables:
+{{ width }}
+height
+alt
+title
+
+{{ attributes.src }} 
+
+#}
+{%
+set classes = [
+  style_name ? 'image-style-' ~ style_name|clean_class,
+]
+%}
+
+{#  <figure> tag is set in field--image ... not optimal  #}
+
+<img{{ attributes.addClass(classes) }} />
+{# lets get a caption on this badboy if user have added a title #}
+{% if title %}
+  <figcaption>{{ title }}</figcaption>
+{% endif %}

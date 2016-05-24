@@ -1,0 +1,66 @@
+{# For really easy debiggin we add a bunch of _t- classes with info #}
+
+{%
+  set classes = [
+    'something-text-like',
+  ]
+%}
+{%
+  set title_classes = [
+    label_display == 'visually_hidden' ? 'visually-hidden',
+  ]
+%}
+
+{% if label_hidden %}
+  {# --Multiple & no label  ------------------------------------------------- #}
+  {% if multiple %}
+    {% block field_multiple %}
+    <ul{{ attributes.addClass(classes) }}>
+      {% for item in items %}
+        <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
+      {% endfor %}
+    </ul>
+    {% endblock %}
+  {# /--Multiple & no label  ------------------------------------------------ #}
+
+  {% else %}
+
+  {# --single & no label  --------------------------------------------------- #}
+  {% for item in items %}
+    {% block field_single %}
+      <div{{ attributes.addClass(classes) }}>{{ item.content }}</div>
+    {% endblock %}
+
+  {% endfor %}
+  {# / --single & no label  ------------------------------------------------- #}
+
+  {% endif %}
+  {# end of label_hidden #}
+{% else %}
+  {# Show label #}
+  {% if multiple %}
+  {#  multiple with label ----------------------------------------------------#}
+    {% block field_multiple_label %}
+    <section{{ attributes.addClass(classes) }}>
+      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      <ul>
+      {% for item in items %}
+        <li{{ item.attributes.addClass() }}>{{ item.content }}</li>
+      {% endfor %}
+      </ul>
+    </section>
+    {% endblock %}
+  {% else %}
+
+  {# single with label ------------------------------------------------------ #}
+    {% block field_single_label %}
+    <section{{ attributes.addClass(classes) }}>
+      <h3{{ title_attributes.addClass(title_classes) }}>{{ label }}</h3>
+      {% for item in items %}
+        <div{{ item.attributes.addClass() }}>{{ item.content }}</div>
+      {% endfor %}
+    </section>
+    {% endblock %}
+  {% endif %}
+
+{% endif %}

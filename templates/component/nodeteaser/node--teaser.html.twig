@@ -1,0 +1,36 @@
+{# attach the lib  #}
+{{ attach_library('vanilla/nodeteaser') }}
+
+{%
+  set classes = [
+    'u-hide-figcaption',
+    'teaser'
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
+  <figure class="teaser__image">
+    {{ content.field_image.0 }}
+  </figure>
+
+  <div class="teaser__content">
+    {{ title_prefix }}
+      {# label #}
+      <h3{{ title_attributes.addClass('teaser__title') }}>
+        <a href="{{ url }}">{{ label.0['#context'].value }}</a>
+      </h3>
+    {{ title_suffix }}
+
+    <div class="teaser__text">
+    {# can i get my attributees out as well here  #}
+     {# content.field_teaser.0["#text"] #}
+    </div>
+{#
+    <footer {{ author_attributes.addClass('teaser__author') }}>
+      {{ node.createdtime|date("d.m.Y H:m") }}
+    </footer>
+ #}
+  </div>
+
+</article>

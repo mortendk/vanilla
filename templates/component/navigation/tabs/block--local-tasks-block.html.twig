@@ -1,0 +1,14 @@
+{{ attach_library('vanilla/tabs') }}
+{# remove the id from blocks #}
+
+<nav{{ attributes.addClass('pagewidth', 'tabs').removeAttribute('id') }}>
+
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes.a }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {{ content }}
+
+</nav

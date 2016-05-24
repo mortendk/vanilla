@@ -1,0 +1,17 @@
+/*
+#Page
+
+page layout overwrites for page.html.twig
+
+Styleguide page
+*/
+
+/* corrects for the menu on the page*/
+main{
+  /*padding-top: 55px;*/
+}
+
+/* fix for free floating h1 on help pages*/
+main h1{
+  padding-top: 50px
+}

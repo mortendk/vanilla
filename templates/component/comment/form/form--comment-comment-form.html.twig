@@ -1,0 +1,16 @@
+{%
+  set remove_classes = [
+    'comment-comment-form',
+    'comment-form'
+  ]
+%}
+{%
+  set classes = [
+
+    attributes.hasClass('comment-form') ? 'pagewidth' : '',
+  ]
+%}
+
+<form{{ attributes.addClass(classes).removeClass(remove_classes).removeAttribute('id') }}>
+  {{ children }}
+</form>

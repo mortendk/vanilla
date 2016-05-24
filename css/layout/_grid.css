@@ -1,0 +1,203 @@
+/*
+#Tiles
+
+each "grid" is written  l-[context]-size
+
+.tile--full - a full width file
+.tile--half - half widh tiles / cards
+.tile--third
+.tile--forth
+.tile--fifth
+.tile--sixth
+.tile--7
+.tile--8
+.tile--9
+.tile--10
+.tile--11
+.tile--12
+
+markup:
+<div class="l-pagewidth">
+  <div class="_test">pagewidth</div>
+  <div class="tiles _test">
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+    <div class="tile $modifierClass">tile</div>
+  </div>
+</div>
+
+Styleguide layout 3.0.0
+*/
+
+.tiles._test .tile {
+  min-height: 100px;
+  background: #e1e1e1;
+  color: red;
+  text-align: center;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+  min-height: 50px;
+}
+
+/* Correctes the tiles if they are wrapped inside of a pagewidth*/
+.l-pagewidth .tiles{
+  margin: 0 -7px;
+}
+
+/* .tile is the central building block */
+.tile {
+  margin: 7px 7px 7px 7px;
+  flex: 0 1 calc(33.33% - 14px); /* Sets default width of a tile */
+  min-height: 200px;
+  overflow:hidden;
+  border:1px solid lightgray;
+}
+
+/*Tiles nested */
+.tile--nested {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* overwrites margins to make the tiles as wide as original */
+  margin:0 0 0 0;
+  /* Remove background if thats set on a tile */
+  background: transparent;
+}
+.tile--nested > .tile{
+  background: red;
+}
+
+/*
+SPLIT
+Splitting a tile in columns
+should we use the word tile--stack
+*/
+.tile.tile--split {
+  display:flex;
+  flex-direction: column;
+  flex: 1 1 0;
+  /* overwrites margins to make the tiles as wide as original */
+  margin: 0 0 0 0;
+  /* Remove background if thats set on a tile */
+  background: hotpink;
+}
+.tile.tile--split > .tile {
+  background: green;
+  /* Corrected the height so it dont follow the tile--[n] */
+  /*flex: 1 1 auto;*/
+  /*flex-wrap: wrap;*/
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column; /* we want to make sure it keeps beeing column*/
+}
+
+/*
+tile widths
+	tile--[size]
+  tile--[size].tile--nested
+*/
+.tile--12 {
+  flex: 0 1 calc(8.33% - 14px);
+}
+.tile--12.tile--nested{
+  flex: 0 1 8.33%;
+}
+
+.tile--11 {
+  flex: 0 1 calc(9.09% - 14px);
+}
+.tile--11.tile--nested{
+  flex: 0 1 9%;
+}
+
+.tile--10 {
+  flex: 0 1 calc(10% - 14px);
+}
+.tile--10.tile--nested{
+  flex: 0 1 10%;
+}
+
+.tile--9 {
+  flex: 0 1 calc(11.11% - 14px);
+}
+.tile--9.tile--nested{
+  flex: 0 1 11.11%;
+}
+
+.tile--8 {
+  flex: 0 1 calc(12.5% - 14px);
+}
+.tile--8.tile--nested{
+  flex: 0 1 12.5%;
+}
+
+.tile--7{
+  flex: 0 1 calc(14.285% - 14px);
+}
+.tile--7.tile--nested{
+  flex: 0 1 14.285%;
+}
+
+.tile--6,
+.tile--sixth {
+  flex: 0 1 calc(16.66% - 14px);
+}
+.tile--6.tile--nested,
+.tile--sixth.tile--nested {
+  flex: 0 1 16.66%;
+}
+
+.tile--5,
+.tile--fifth {
+  flex: 0 1 calc(20% - 14px);
+}
+.tile--5.tile--nested,
+.tile--fifth.tile--nested {
+  flex: 0 1 20%;
+}
+
+.tile--4,
+.tile--forth {
+  flex: 0 1 calc(25% - 14px);
+}
+.tile--4.tile--nested,
+.tile--forth.tile--nested {
+  flex: 0 1 25%
+}
+
+.tile--3,
+.tile--third {
+  flex: 0 1 calc(33.33% - 14px);
+}
+.tile--3.tile--nested,
+.tile--third.tile--nested  {
+  flex: 0 1 33.33%
+}
+
+.tile--2,
+.tile--half {
+  flex: 0 1 calc(50% - 14px);
+}
+.tile--2.tile--nested,
+.tile--half.tile--nested {
+  flex: 0 1 calc(50%);
+}
+
+.tile--1,
+.tile--full {
+  flex: 0 1 calc(100% - 14px);
+}

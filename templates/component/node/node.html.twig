@@ -1,0 +1,49 @@
+{{ attach_library('vanilla/node') }}
+
+<article{{ attributes }}>
+{#
+  node title - if its printed here, remove the title from  blocks
+  admin/structure/block/manage/vanilla_page_title
+#}
+  <div class="hero L-center-middle screenheight-full screenheight-half@s ">
+    {{ content.field_image }}
+    <div class="hero__text">
+          {{ content.field_teaser }}
+      <a href="#content">
+        <h1{{ title_attributes.addClass('hero__title') }}>{{ label }}</h1>
+          {{ content.field_teaser }}
+      </a>
+    </div>
+  </div>
+
+  <footer class="L pagewidth pagewidth--nopadding node__meta ">
+    {# author_picture prints out user / usercompact  #}
+    <div class="L L--middle w-3">
+      {{ author_picture }}
+    </div>
+    <div class="L L--middle w-5">
+      {{ node.createdtime|date("d.m.Y H:m") }} | edited {{ node.changedtime|date("d.m.Y") }}
+    </div>
+
+    <div class="L L--middle w-4">
+      {{ content.field_tags }}
+      {{ content.field_section }}
+    </div>
+    {{ metadata }}
+  </footer>
+
+  <div class="L pagewidth" id="content">
+    <div class="w-12 w-12@s f-large f-intro">
+      {{ content.field_intro }}
+    </div>
+  </div>
+
+  <div class="divider pagewidth"></div>
+
+  <section{{ content_attributes.addClass('') }}>
+    {# print out content without the fields thats printed other places #}
+    {{ content|without('field_tags', 'field_image', 'field_section','field_teaser','field_intro','comment','links') }}
+  </section>
+
+  {{ content.comment }}
+</article>

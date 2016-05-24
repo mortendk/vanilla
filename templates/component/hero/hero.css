@@ -1,0 +1,92 @@
+
+/*
+frontpage is a bit different
+@todo: lets move this to a custom block instead so we can at least pretend this is a cms ;)
+*/
+.t-hero-front {
+  background: #efefef url("images/mortendk.jpg") no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.t-hero-front a {
+  text-decoration: none;
+}
+
+.t-hero-front h1 {
+  overflow: hidden;
+  width: 100%;
+  height: 5rem;
+  color: white;
+  font-family: "titillium", sans-serif;
+  font-size: 16vw;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+  animation: type 3s steps(10, end);
+}
+  /* small */
+  @media (max-width: 768px) {
+    .t-hero-front h1 {
+      height: 10vw;
+    }
+  }/* small */
+
+.t-hero-front h2 {
+  /*width: 53rem;*/
+  margin-top: 0;
+  opacity: 0;
+  background: darkgreen;
+  color: #bada55;
+  font-family: "titillium", sans-serif;
+  font-size: 5vw;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  animation: show;
+  animation-duration: 3s;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+}
+.t-hero-front h3 {
+  height: 2.5rem;
+  padding: 0;
+  opacity: 0;
+  color: white;
+  font-size: 5vw;
+  text-align: center;
+  animation: show;
+  animation-duration: 2s;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+
+  animation-fill-mode: forwards;
+}
+.t-hero-front__hiddenmsg {
+  display: inline-block;
+  overflow: hidden;
+  width: 0ch;
+  height: 2.5rem;
+  opacity: 1;
+  background: hotpink;
+  color: white;
+  font-weight: 500;
+  transition: all 1s ease;
+}
+a:hover .t-hero-front__hiddenmsg {
+  width: 8ch;
+  height: 100%;
+  opacity: 1;
+}
+  /* small */
+  @media (max-width: 768px) {
+    .t-hero-front h3,
+    .t-hero-front__hiddenmsg {
+      height: 1rem;
+    }
+  }/* small */
+
+.t-hero-front__color {
+  background: #bada55;
+  color: white;
+}

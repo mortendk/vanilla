@@ -1,0 +1,41 @@
+
+{% if links -%}
+  {%- if heading -%}
+    {%- if heading.level -%}
+      <{{ heading.level }}{{ heading.attributes }}>{{ heading.text }}</{{ heading.level }}>
+    {%- else -%}
+      <h2{{ heading.attributes }}>{{ heading.text }}</h2>
+    {%- endif -%}
+  {%- endif -%}
+
+  {#
+  Allright lets correct the classes to what we actually wants instead of
+  druapls idea
+   #}
+  <nav>
+    <ul{{ attributes.removeClass('links', 'inline').addClass('L-right')}}>
+      {%- for key, item in links -%}
+
+      {# @TODO: lets do this as a if / else instead so we dont have to do the join? #}
+      {%
+        set class = [
+          key =='comment-delete' ? 'btn--red' : '',
+          key =='comment-edit' ? 'btn--green' : '',
+          key =='comment-reply' ? 'btn--blue' : '',
+        ]
+      %}
+        <li>
+          {%- if item.link -%}
+            {# {{ item.link }} is hardvoded junk we dont want that. #}
+            <a href="{{ item.link['#url'] }}" class="btn {{ class|join(' ') }}">{{ item.link['#title'] }}</a>
+
+          {%- elseif item.text_attributes -%}
+            <span{{ item.text_attributes }}>{{ item.text }}</span>
+          {%- else -%}
+            {{ item.text }}
+          {%- endif -%}
+        </li>
+      {%- endfor -%}
+    </ul>
+  </nav>
+{%- endif %}

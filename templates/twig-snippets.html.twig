@@ -1,13 +1,45 @@
 {#
 a collection of twig snippets for Drupal8
 general twig documentation: http://twig.sensiolabs.org/doc/templates.html
+
+if you wanna digg deep:
+/core/includes/theme.inc
 #}
+
+{# DEBUG #}
+{{ dump(_context|keys) }}
+
+
+<hr>
+<ol>
+{% for key, value in _context  %}
+<li>{{ key }} </li>
+ {% if loop.index == 11 %}}
+    <pre>{{ dump( value ) }}</pre>
+{% endif %}
+{% endfor %}
+</ol>
+
+<hr>
+<ul>
+{% for key, value in _context  %}
+<li>{{ loop.index }} {{ key }} </li>
+ {% if loop.index == 11 %}}
+    <pre>{{ dump( value ) }}</pre>
+{% endif %}
+{% endfor %}
+</ol>
+
+
 
 {# -----  Variables ----------------------------------------------------------#}
 {# variabels   #}
 {{ variable }}
 {{ variable.drill.into.it }}
-{{ variable.drill.into['#hashalsousedascomment'] }}
+{{ variable.drill.into['#somethingsomething'] }}
+
+{# drill into a template and grap data out of it  bypassing the "wrapper" tempakte #}
+{{ content.field_teaser.0["#text"] }}
 
 {# Filters #}
 {{ variable|filter }}
@@ -15,6 +47,7 @@ general twig documentation: http://twig.sensiolabs.org/doc/templates.html
 
 {# Drupal Translate #}
 {{ variable|t }}
+{{ 'string'|t }}
 
 {% trans %}
   this will be translated with {{ varibles }}
@@ -52,21 +85,20 @@ general twig documentation: http://twig.sensiolabs.org/doc/templates.html
 
 
 {# for loop #}
+{{ items|length }} items.
 {% for item in items %}
-  theres {{ items.length }} items.
-  {% if loop.first %}
-    {# first loop #}
+ {% if loop.first %}
+ {# first loop #}
   {% elseif loop.last %}
-    {# last loop #}
-  {% elseif loop.index == "2" %}
-    {# 2nd loop #}
-  {% elseif loop.revindex == "2" %}
-    {# 2nd last reverse counted #}
-  {% else %}
-    {# default #}
-  {% endif %}
-
-{% endfor %}
+  {# last loop #}
+ {% elseif loop.index == "2" %}
+ {# 2nd loop #}
+ {% elseif loop.revindex == "2" %}
+  {# 2nd last reverse counted #}
+   {% else %}
+ {# default #}
+ {% endif %}
+ {% endfor %}
 
 {# -----attributes & class magic --------------------------------------------- #}
 {#
@@ -87,19 +119,37 @@ detect on first loop and if a class is in attributes
     'item--' ~ cycle(["green", "gold", "white"], loop.index),
     loop.first ? 'first-class',
     item.attribute.hasClass('is-this-class-here') ? 'ok-use-this':'not-there-use-this',
+    isthistrue ? 'nope' : 'yep',
   ]
 %}
+{# @TODO can hasClass  be used for ex: hasAttribute ? #}
+set classes = [
+  (bundle =='article') and (view_mode=="full") and (field_name=="field_teaser") ? 'hero__text' : '',
+  (bundle =='article') and (view_mode=="full") and (field_name=="field_content") ? 'f-cap' : '',
+  'foo'
+]
+
 {# add the class, and another my-class #}
 <div {{  attributes.addClass('my-class', class) }}
 
 {# addClass #}
 <div {{  attributes.removeClass('nickelback') }}
+<div {{  attributes.removeClass('nickelback').addClass('rush') }}
 
 {# and they can all be combined #}
 <div {{  attributes.addClass('my-class-here', class).removeClass('nope-not-you') }}
 
 {# you can also use attribtes|without(class) & {{ attribtes.class }}  #}
 <div class=”my-class {{ attributes.class }}”{{attributes|without(‘class’) }}></div>
+
+{# ----- Link  -------------------------------------------- #}
+{# add a class to a link #}
+{{ link(item.title, item.url, { 'class':['foo', 'bar', 'baz']} ) }}
+.setAttribute('id', 'top')
+
+
+
+
 
 {# ----- set / remove attributes  -------------------------------------------- #}
 {{ attributes.setAttribute('id', 'my-id') }}>
@@ -108,3 +158,19 @@ detect on first loop and if a class is in attributes
 
 <img {% set image = 'https://www.drupal.org/files/powered-blue-135x42.png' %}>
 <img setAttribute('src', image) }}>
+
+{# ----------- give fiedls more brains -------------------------------------- #}
+
+template suggestions:
+basetheme define first so if it loads a template name suggestions thats "higer"
+in the chain that will "override" your template.
+ex:
+x field--node--uid.html.twig (gets loaded in stable)
+* field--uid.html.twig' (overwrites this template even if its in your theme)
+
+{#  use of include #}
+{% include '@vanilla/foo.html.twig' %}
+
+
+{# -----include stuff ------------------------------------------------------ #}
+{% include active_theme_path() ~ '/icons/icon.svg' %}

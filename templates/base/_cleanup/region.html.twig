@@ -1,0 +1,14 @@
+{#
+Dont need a region wrapper class, so here vanilla choose to clean that out
+if you need it its simple enough to add in:
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+  <div {{ attributes.addClass(classes)}}
+#}
+{% if content %}
+    {{ content }}
+{% endif %}

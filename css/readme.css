@@ -1,0 +1,81 @@
+/* microformats2 */
+/* .h- is root of an element */
+
+/* h-card */
+.h-card{
+
+}
+/* an address */
+.h-adr{}
+/* .dt- data or time */
+.dt-{}
+/*.e- includes all the html */
+.e- {}
+/*.p- is text */
+.p-{}
+/* phone */
+.p-tel{}
+/*.u- is an url */
+.u-{}
+/*.u-email is an url */
+
+
+/*test class */
+._t{
+  outline: 1px solid red;
+}
+
+/*
+o-object{
+}
+
+c-component{
+}
+
+._u-utilty {
+
+}
+
+.L-layout{
+
+}
+
+_theisiahack{
+
+}
+*/
+
+/**/
+.u-inline-list{
+  background: red;
+}
+
+.u-inline{
+  display: inline;
+}
+.u-inline-block{
+  display: inline-block;
+}
+
+.u-hide-figcaption figcaption {
+  display: none;
+}
+
+.u-small{
+  font-size: 0.7rem;
+}
+
+/**
+ * Outline all Hack classes.
+ */
+[class^="_"] {
+  /*outline: 1px solid red;*/
+}
+
+._fix{
+
+}
+/* testing */
+._t{
+
+}
