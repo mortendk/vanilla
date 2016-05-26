@@ -71,6 +71,8 @@ stylesheets-remove:
 
 # -- Regions -------------------------------------------------------------------
 # regions gets added to templates/page.html.twig -> {{ page.[regionname] }}
+# If you don't specify any regions here Drupal will provide regions by default
+# List of default regions for Drupal 8.2.x https://api.drupal.org/api/drupal/core%21modules%21system%21templates%21page.html.twig/8.2.x
 regions:
   # machinename: Readable name
   header: Header
