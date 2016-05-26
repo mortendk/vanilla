@@ -3,11 +3,11 @@ name: vanilla
 type: theme
 description: 'a vanilla theme add you own flavour'
 # define base theme (yes theres always a "base theme")
-# basetheme: classy
+# base theme: classy
 # default markup & classes (core/themes/classy)
-# basetheme: stable
+# base theme: stable
 # the bare minimum of markup & classes (core/themes/classy)
-# basetheme: false
+# base theme: false
 # will  use core template, that can and will change so use it with caution
 # templates are in core/[modulename]/templates ... go get em comwboy
 base theme: stable
