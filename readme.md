@@ -14,7 +14,9 @@ the name vanilla is chosen as the theme isn’t about being pretty, but to provi
 ### css
 Im personally a fan of Vanilla CSS, but no worries grunt-gulp-sass-libsass-postcss-ruby-whatever  will document an easy way to add in you pre/post process css love.
 
-### standard theme files:
+### Standard theme files:
+Quick introduction for the YAML file format http://symfony.com/doc/current/components/yaml/yaml_format.html
+
 * logo.svg default logo file added in with the branding block.
 * vanilla.info.yml
 * vanilla.theme
