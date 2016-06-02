@@ -8,17 +8,22 @@
 global:
   version: 1.x
   css:
+  # Stylesheet separation follows the SMACSS rules - for details see https://smacss.com/
+  # Base: This defines CSS reset/normalize plus HTML element styling
     base:
       css/base/base.css: { weight: -21}
       css/base/form.css: { }
       css/base/image.css: { }
-      
+  # Layout: This defines the macro arrangement of a web page, including any grid system
     layout:
       css/layout/layout.css: {}
+  # Component: This defines the discrete, reusable UI elements
     component:
       css/component/header.css: {}
+  # State: This defines the styles that deal with client-side changes to components
     state:
       css/state/header.css: {}
+  # Theme: This is purely visual styling for a component”
     theme:
       css/theme/color.css: {}
       # external css files { type: external }
